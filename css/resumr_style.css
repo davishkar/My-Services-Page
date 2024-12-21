@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+  header {
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 2em 0;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2.5em;
+  }
+  
+  header p {
+    margin: 0.5em 0;
+    font-size: 1.2em;
+  }
+  
+  .resume {
+    text-align: center;
+    padding: 3em 1em;
+  }
+  
+  .resume h2 {
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
+  
+  .download-link {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.5em 1.5em;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+  }
+  
+  .download-link:hover {
+    background-color: #45a049;
+  }
+  
+  .bg  {
+   width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #3498db, #2ecc71); /* Gradient background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    position: relative;
+    overflow: hidden; /* Ensure inner elements don’t overflow */
+  }
+  
+  .bg::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.1) 1px,
+        transparent 1px
+      ),
+      linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px; /* Adjust grid size */
+    pointer-events: none; /* Allow interactions with elements beneath */
+    z-index: 1; /* Ensure the overlay stays on top */
+  }
+  
