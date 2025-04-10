@@ -1,30 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Resume</title>
-  
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/resumr_style.css">
+  <title>Avishkar Deshmukh - Resume</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="/css/resumr_style.css">
 </head>
+
 <body>
-    <div class="bg"><header>
-    <h1>Avishkar Deshmukh</h1>
-    <p>Innovative Web Developer | Transforming Ideas into Digital Reality | Master of Code & Creativity</p>
-  </header>
-
-  <section class="resume">
-    <h2>Resume</h2>
-    <p>Below is my resume. You can view it directly here:</p>
-
-    <!-- Embed Resume PDF in iframe -->
-    <iframe src="https://drive.google.com/file/d/1grNSt5kRCk_uvNUYgOHz8H2c71JioyAU/preview" width="100%" height="600px" style="border: none;"></iframe>
-
-    <p>If you prefer to download it, click the link below:</p>
-    <a href="https://drive.google.com/uc?export=download&id=1grNSt5kRCk_uvNUYgOHz8H2c71JioyAU" class="download-link" download>Download Resume</a>
-  </section></div>
 
 
+  <div class="bg">
+    <div class="container-wrapper">
+      <div class="container">
+        <header class="animate__animated animate__fadeIn">
+          <h1>Avishkar Services</h1>
+           <!-- Breadcrumbs -->
+           <nav class="breadcrumbs">
+            <a href="../index.html">Home</a> &gt;
+            <a href="#">Resume</a>
+          </nav>
+        
+        </header>
+
+        <div class="resume-card">
+          <div class="resume-header">
+            <h2><i class="fas fa-file-alt"></i> My Resume</h2>
+             
+          </div>
+          <div class="resume-content">
+            <p>Here's my professional resume showcasing my skills, experience, and education. Feel free to view it
+              directly on this page or download it for future reference.</p>
+
+            <!-- Embed Resume PDF in iframe -->
+            <iframe src="https://drive.google.com/file/d/1grNSt5kRCk_uvNUYgOHz8H2c71JioyAU/preview"
+              class="resume-iframe" title="Avishkar Deshmukh Resume"></iframe>
+
+            <p>Need a copy for your records? Download the PDF version:</p>
+            <a href="https://drive.google.com/uc?export=download&id=1grNSt5kRCk_uvNUYgOHz8H2c71JioyAU"
+              class="download-link" download>
+              <i class="fas fa-download"></i> Download Resume
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-info animate__animated animate__fadeInUp">
+          <h3>Connect With Me</h3>
+          <p>Let's discuss how my skills and experience can help your business grow.</p>
+
+          <div class="contact-details">
+            <a href="mailto:contact@avishkar.com" class="contact-item">
+              <i class="fas fa-envelope"></i> contact@avishkar.com
+            </a>
+            <a href="tel:+919146964882" class="contact-item">
+              <i class="fas fa-phone"></i> +91 9146964882
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=919146964882" class="contact-item" target="_blank"
+              rel="noopener noreferrer">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-behance"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Avishkar Deshmukh. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Add animation classes when elements come into view
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate__animated');
+            entry.target.classList.add(
+              entry.target.classList.contains('resume-card') ? 'animate__fadeInUp' : 'animate__fadeIn'
+            );
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      document.querySelectorAll('.resume-card, .contact-info').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
 </body>
+
 </html>

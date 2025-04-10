@@ -1,152 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-  box-sizing: border-box;
-}
-.bg{
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #3498db, #2ecc71); /* Gradient background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-    position: relative;
-    overflow: hidden; /* Ensure inner elements don’t overflow */
-  }
-  
-  .bg::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.1) 1px,
-        transparent 1px
-      ),
-      linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 20px 20px; /* Adjust grid size */
-    pointer-events: none; /* Allow interactions with elements beneath */
-    z-index: 1; /* Ensure the overlay stays on top */
-  }
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-input[type=email], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-}
-
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-
-.col-25 {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-}
-
-.col-75 {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avishkar Services - Feedback Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="/css/feedback.css">
 </head>
-<body>
-<div class="bg"><h2>Feedback Form</h2>
-<p>Your feedback is valuable to us! Please share your thoughts to help us improve and serve you better.</p>
-<div class="container">
-    <form action="https://formspree.io/f/mpwwaleg" method="POST">
-    <div class="row">
-      <div class="col-25">
-        <label for="fname">Full Name</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="fname" name="firstname" placeholder="Your name..">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="lname">Your Email</label>
-      </div>
-      <div class="col-75">
-        <input type="email" id="lname" name="email" placeholder="Your email..">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="country">Rating</label>
-      </div>
-      <div class="col-75">
-        <select id="country" name="country">
-           <option value="excellent">Excellent</option>
-        <option value="good">Good</option>
-        <option value="average">Average</option>
-        <option value="poor">Poor</option>
-        </select>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="subject">FeedBack</label>
-      </div>
-      <div class="col-75">
-        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-      </div>
-    </div>
-    <div class="row">
-      <input type="submit" value="Submit">
-    </div>
-  </form>
-</div>
-</div>
 
-</div>
+<body>
+
+
+  <div class="bg">
+    <div class="container-wrapper">
+      <div class="container">
+        <div class="logo">
+          <i class="fas fa-comment-dots"></i>
+          <h1>Avishkar Services</h1>
+        </div>
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs">
+          <a href="../index.html">Home</a> &gt;
+          <a href="#">Feedback</a>
+        </nav>
+
+        <div class="card">
+          <div class="card-header">
+            <h2>Feedback Form</h2>
+            <p>Your feedback is valuable to us! Please share your thoughts to help us improve.</p>
+          </div>
+
+          <div class="card-body">
+            <form id="feedbackForm" action="https://formspree.io/f/mzzeydqn" method="POST">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+                <i class="fas fa-user form-icon"></i>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email"
+                  required>
+                <i class="fas fa-envelope form-icon"></i>
+              </div>
+
+              <div class="form-group">
+                <label for="rating">Rating</label>
+                <select id="rating" name="rating" class="form-control" required>
+                  <option value="" disabled selected>Select your rating</option>
+                  <option value="excellent">Excellent</option>
+                  <option value="good">Good</option>
+                  <option value="average">Average</option>
+                  <option value="poor">Poor</option>
+                </select>
+                <i class="fas fa-star form-icon"></i>
+              </div>
+
+              <div class="form-group">
+                <label for="feedback">Your Feedback</label>
+                <textarea id="feedback" name="feedback" class="form-control" placeholder="Please share your thoughts..."
+                  required></textarea>
+                <i class="fas fa-comment form-icon"></i>
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn">
+                  <i class="fas fa-paper-plane"></i> Submit Feedback
+                </button>
+              </div>
+            </form>
+
+            <div class="success-message" id="successMessage">
+              <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <h3>Thank You!</h3>
+              <p>Your feedback has been submitted successfully.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+          &copy; 2025 Avishkar Services | <a href="tel:+919146964882">+91 9146964882</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Input field pulse animation
+      $('.form-control').focus(function () {
+        $(this).parent().addClass('animate__animated animate__pulse');
+      }).blur(function () {
+        $(this).parent().removeClass('animate__animated animate__pulse');
+      });
+
+      // Subtle input field scale
+      $('.form-control').on('focus', function () {
+        $(this).css('transform', 'scale(1.02)');
+      }).on('blur', function () {
+        $(this).css('transform', 'scale(1)');
+      });
+
+      // Let the form submit naturally to Formspree
+      $('#feedbackForm').submit(function (e) {
+        // Allow default submission
+        return true;
+      });
+    });
+  </script>
+
 </body>
+
 </html>
