@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avishkar Services - Feedback Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="/css/feedback.css">
+</head>
+
+<body>
+
+
+  <div class="bg">
+    <div class="container-wrapper">
+      <div class="container">
+        <div class="logo">
+          <i class="fas fa-comment-dots"></i>
+          <h1>Avishkar Services</h1>
+        </div>
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs">
+          <a href="../index.html">Home</a> &gt;
+          <a href="#">Feedback</a>
+        </nav>
+
+        <div class="card">
+          <div class="card-header">
+            <h2>Feedback Form</h2>
+            <p>Your feedback is valuable to us! Please share your thoughts to help us improve.</p>
+          </div>
+
+          <div class="card-body">
+            <form id="feedbackForm" action="https://formspree.io/f/mzzeydqn" method="POST">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+                <i class="fas fa-user form-icon"></i>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email"
+                  required>
+                <i class="fas fa-envelope form-icon"></i>
+              </div>
+
+              <div class="form-group">
+                <label for="rating">Rating</label>
+                <select id="rating" name="rating" class="form-control" required>
+                  <option value="" disabled selected>Select your rating</option>
+                  <option value="excellent">Excellent</option>
+                  <option value="good">Good</option>
+                  <option value="average">Average</option>
+                  <option value="poor">Poor</option>
+                </select>
+                <i class="fas fa-star form-icon"></i>
+              </div>
+
+              <div class="form-group">
+                <label for="feedback">Your Feedback</label>
+                <textarea id="feedback" name="feedback" class="form-control" placeholder="Please share your thoughts..."
+                  required></textarea>
+                <i class="fas fa-comment form-icon"></i>
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn">
+                  <i class="fas fa-paper-plane"></i> Submit Feedback
+                </button>
+              </div>
+            </form>
+
+            <div class="success-message" id="successMessage">
+              <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <h3>Thank You!</h3>
+              <p>Your feedback has been submitted successfully.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+          &copy; 2025 Avishkar Services | <a href="tel:+919146964882">+91 9146964882</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Input field pulse animation
+      $('.form-control').focus(function () {
+        $(this).parent().addClass('animate__animated animate__pulse');
+      }).blur(function () {
+        $(this).parent().removeClass('animate__animated animate__pulse');
+      });
+
+      // Subtle input field scale
+      $('.form-control').on('focus', function () {
+        $(this).css('transform', 'scale(1.02)');
+      }).on('blur', function () {
+        $(this).css('transform', 'scale(1)');
+      });
+
+      // Let the form submit naturally to Formspree
+      $('#feedbackForm').submit(function (e) {
+        // Allow default submission
+        return true;
+      });
+    });
+  </script>
+
+</body>
+
+</html>
