@@ -1281,3 +1281,10 @@ section h2::after {
     font-size: 16px;
   }
 }
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 40px;
+  color: #fdfafa;
+  font-size: 0.9em;
+}
