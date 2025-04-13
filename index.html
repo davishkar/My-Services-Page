@@ -5,8 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Avishkar Deshmukh's Services</title>
-  <meta name="description" content="Avishkar Deshmukh's Services - Web Development, Graphic Design, SEO, and more. Contact for inquiries.">
-  <meta name="keywords" content="Web Development, Graphic Design, SEO, Logo Design, Content Creation, Avishkar Deshmukh">
+  <meta name="description"
+    content="Avishkar Deshmukh's Services - Web Development, Graphic Design, SEO, and more. Contact for inquiries.">
+  <meta name="keywords"
+    content="Web Development, Graphic Design, SEO, Logo Design, Content Creation, Avishkar Deshmukh">
   <meta name="author" content="Avishkar Deshmukh">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
@@ -84,7 +86,7 @@
             <span><i class="bi bi-cash"></i> Pricing</span>
             Starting at $5.00/hr
           </a>
-          
+
         </div>
       </section>
 
@@ -148,11 +150,65 @@
 
     <div id="mySidenav" class="sidenav">
       <!-- FAB-style links added as sidenav entries -->
-      <a href="pages/feedback.html" target="_blank" id="feedback"><i class="fas fa-question"></i> Feedback</a>
-      <a href="pages/resume.html" target="_blank" id="resume"><i class="fas fa-book"></i> Resume</a>
-      <a href="pages/contact.html" target="_blank" id="contactPage"><i class="fas fa-address-book"></i> Contact</a>
-      <a href="pages/Pricing.html" target="_blank" id="pricing"><i class="fas fa-info"></i> Pricing</a>
+      <a href="pages/feedback.html" target="_blank" id="feedback">
+        <i class="fas fa-question"></i> Feedback <span class="arrow-indicator">&#8592;</span>
+      </a>
+      
+      <a href="pages/resume.html" target="_blank" id="resume">
+        <i class="fas fa-book"></i> Resume <span class="arrow-indicator">&#8592;</span>
+      </a>
+      
+      <a href="pages/contact.html" target="_blank" id="contactPage">
+        <i class="fas fa-address-book"></i> Contact <span class="arrow-indicator">&#8592;</span>
+      </a>
+      
+      <a href="pages/Pricing.html" target="_blank" id="pricing">
+        <i class="fas fa-info"></i> Pricing <span class="arrow-indicator">&#8592;</span>
+      </a>
     </div>
+    
+    <style>
+      .arrow-indicator {
+        float: right;
+        margin-right: 10px;
+        /* Add dashed line before the arrow similar to your image */
+        border-left: 2px dashed rgba(255, 255, 255, 0.6);
+        padding-left: 80px;
+        /* Add animation */
+        animation: arrowPulse 1.5s infinite;
+      }
+      
+      /* Define the animation */
+      @keyframes arrowPulse {
+        0% {
+          opacity: 0.5;
+          transform: translateX(0);
+        }
+        50% {
+          opacity: 1;
+          transform: translateX(-10px);
+        }
+        100% {
+          opacity: 0.5;
+          transform: translateX(0);
+        }
+      }
+      
+      /* Additional styling for the sidebar items */
+      .sidenav a {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .sidenav a:hover {
+        padding-right: 30px;
+      }
+      
+      .sidenav a:hover .arrow-indicator {
+        animation: arrowPulse 0.8s infinite;
+      }
+    </style>
 
 
     <!-- <div class="version">
@@ -171,9 +227,9 @@
                 </a>
             </div>
         </div> -->
-        <footer>
-          <p>© 2025 Avishkar Deshmukh. All Rights Reserved.</p>
-        </footer>
+    <footer>
+      <p>© 2025 Avishkar Deshmukh. All Rights Reserved.</p>
+    </footer>
 
     <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
