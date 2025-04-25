@@ -28,48 +28,229 @@ body {
   padding: 40px 20px;
 }
 
+/* Header Styling */
 header {
   text-align: center;
-  padding: 60px 20px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
-  border-radius: 0 0 50% 50%/0 0 100px 100px;
-  margin-bottom: 40px;
+  padding: 60px 20px 40px;
   position: relative;
   overflow: hidden;
-  box-shadow: var(--shadow);
+  background: linear-gradient(135deg, rgba(110, 0, 255, 0.05), rgba(167, 0, 255, 0.08));
+  border-radius: 0 0 30px 30px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 30px;
 }
 
 header::before {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 20px 20px;
-  opacity: 0.2;
-  transform: rotate(30deg);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  z-index: 2;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(110, 0, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(167, 0, 255, 0.03) 0%, transparent 50%);
+  z-index: 1;
   pointer-events: none;
 }
 
+header h1, header h2, header p {
+  position: relative;
+  z-index: 3;
+}
+
 header h1 {
-  font-size: 3em;
   margin-bottom: 15px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  animation: fadeInDown 1s ease;
+  font-family: var(--font-tertiary);
+  color: var(--dark);
+  font-size: 2.5rem;
+  transition: var(--transition-normal);
+}
+
+header h2 {
+  color: var(--primary);
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  opacity: 0.9;
 }
 
 header p {
-  font-size: 1.2em;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
-  opacity: 0.9;
+  color: var(--dark);
+  opacity: 0.8;
   line-height: 1.6;
-  animation: fadeIn 1.2s ease;
 }
 
+/* Breadcrumbs Styling */
+.breadcrumbs {
+  padding: 12px 25px;
+  background-color: white;
+  border-radius: 50px;
+  margin: 20px 0;
+  font-size: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
+  position: relative;
+  z-index: 5;
+}
+
+.breadcrumbs:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.breadcrumbs a {
+  color: var(--dark);
+  text-decoration: none;
+  margin-right: 8px;
+  position: relative;
+  transition: all 0.3s;
+  padding: 5px 8px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbs a:hover {
+  color: var(--primary);
+  background-color: rgba(110, 0, 255, 0.05);
+}
+
+.breadcrumbs a i {
+  margin-right: 6px;
+  font-size: 14px;
+  color: var(--primary);
+}
+
+.breadcrumbs a::after {
+  content: '›';
+  margin-left: 8px;
+  color: #999;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.breadcrumbs a:last-child {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.breadcrumbs a:last-child::after {
+  content: '';
+}
+
+.breadcrumbs .current {
+  color: var(--primary);
+  font-weight: 500;
+  margin-right: 0;
+  padding: 5px 8px;
+  border-radius: 20px;
+}
+
+/* Animation for breadcrumbs */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.breadcrumbs a {
+  animation: fadeInRight 0.5s ease forwards;
+}
+
+.breadcrumbs a:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.breadcrumbs a:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.breadcrumbs a:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.breadcrumbs .current {
+  animation: fadeInRight 0.5s ease forwards;
+  animation-delay: 0.4s;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  header {
+    padding: 40px 15px 30px;
+    border-radius: 0 0 20px 20px;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  header h2 {
+    font-size: 1.1rem;
+  }
+  
+  .breadcrumbs {
+    padding: 10px 20px;
+    border-radius: 30px;
+    margin: 15px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 30px 15px 25px;
+  }
+  
+  header h1 {
+    font-size: 1.7rem;
+  }
+  
+  header h2 {
+    font-size: 1rem;
+  }
+  
+  .breadcrumbs {
+    font-size: 0.8rem;
+    padding: 8px 15px;
+  }
+  
+  .breadcrumbs a {
+    margin-right: 5px;
+    padding: 3px 6px;
+  }
+  
+  .breadcrumbs a::after {
+    margin-left: 5px;
+    font-size: 14px;
+  }
+  
+  .breadcrumbs a i {
+    margin-right: 4px;
+    font-size: 12px;
+  }
+}
 .resume-card {
   background: white;
   border-radius: 20px;

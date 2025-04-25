@@ -35,6 +35,31 @@
   <div class="bg">
     <div class="container-wrapper">
       <div class="container" data-aos="fade-up">
+        <div class="navbar" id="myNavbar">
+          <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+          <a href="pages/resume.html"><i class="fas fa-book"></i> Resume <span
+              class="arrow-indicator"></span></a>
+          <a href="pages/contact.html"><i class="fas fa-address-book"></i> Contact <span
+              class="arrow-indicator"></span></a>
+          <a href="pages/Pricing.html"><i class="fas fa-info"></i> Pricing <span
+              class="arrow-indicator"></span></a>
+          <a href="pages/feedback.html"><i class="fas fa-question"></i> Feedback <span
+              class="arrow-indicator"></span></a>
+          <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+          </a>
+        </div>
+
+        <script>
+          function toggleMenu() {
+            var x = document.getElementById("myNavbar");
+            if (x.className === "navbar") {
+              x.className += " responsive";
+            } else {
+              x.className = "navbar";
+            }
+          }
+        </script>
         <img src="https://res.cloudinary.com/dtrmjjphv/image/upload/v1744211702/Avishkar_Avatar_xqwduw.webp"
           alt="Profile Picture" class="profile-img">
         <h1>Avishkar Deshmukh's Services</h1>
@@ -48,7 +73,7 @@
             target="_blank" rel="noopener noreferrer">
             <i class="bi bi-chat-left-dots"></i> Message
           </a>
-          <div class="dropdown">
+          <!-- <div class="dropdown">
             <button class="more-btn">...</button>
             <div class="dropdown-content">
               <a href="https://davishkar.blogspot.com"><i class="bi bi-file-earmark-person"></i> View
@@ -56,37 +81,115 @@
               <a href="mailto:dev.avishkar@gmail.com"><i class="bi bi-envelope"></i> Contact via Email</a>
               <a href="tel:+919146964882"><i class="bi bi-calendar"></i> Schedule a Call</a>
             </div>
-          </div>
+          </div> -->
         </div>
+
+        
+
       </div>
 
+
       <section class="about-section" data-aos="fade-up" data-aos-delay="100">
-        <h2>About</h2>
-        <p>I'm <strong>Avishkar Deshmukh</strong>, a dedicated beginner web developer eager to create
-          responsive,
-          user-friendly websites.</p>
-        <p>Proficient in <strong>HTML, CSS, and JavaScript</strong>, I focus on clean, maintainable code and
-          engaging user experiences.</p>
-        <p>I continuously learn and stay updated with industry trends to deliver high-quality projects.</p>
-        <p>Let's collaborate to bring your web ideas to life!</p>
-        <p>Connect with me on email me at
-          <a href="mailto:dev.avishkar@gmail.com">
-            <i class="bi bi-envelope"></i> dev.avishkar@gmail.com
-          </a>, <a href="mailto:deshmukhavishkar2@gmail.com">
-            <i class="bi bi-envelope"></i> deshmukhavishkar2@gmail.com
-          </a>
-        </p>
-
-        <div class="button-group">
-          <button class="availability">
-            <span> <i class="bi bi-geo-alt-fill"></i></i> Available : Remote</span>
-          </button>
-
-          <a href="pages/Pricing.html" class="pricing-btn">
-            <span><i class="bi bi-cash"></i> Pricing</span>
-            Starting at $5.00/hr
-          </a>
-
+        <h2>About Me</h2>
+        
+        <div class="about-content">
+          <p>I'm <strong>Avishkar Deshmukh</strong>, a passionate full-stack web developer with expertise in creating responsive, scalable, and user-centric digital solutions that drive business growth.</p>
+          
+          <div class="skills-container">
+            <div class="skill-category">
+              <h3><i class="bi bi-laptop"></i> Frontend Development</h3>
+              <ul class="skill-list">
+                <li><span class="skill-tag">HTML5</span></li>
+                <li><span class="skill-tag">CSS3</span></li>
+                <li><span class="skill-tag">JavaScript</span></li>
+                <li><span class="skill-tag">React.js</span></li>
+                <li><span class="skill-tag">Bootstrap</span></li>
+                <li><span class="skill-tag">Tailwind CSS</span></li>
+                <li><span class="skill-tag">SASS/SCSS</span></li>
+              </ul>
+            </div>
+            
+            <div class="skill-category">
+              <h3><i class="bi bi-server"></i> Backend Development</h3>
+              <ul class="skill-list">
+                <li><span class="skill-tag">PHP</span></li>
+                <li><span class="skill-tag">Node.js</span></li>
+                <li><span class="skill-tag">Express</span></li>
+                <li><span class="skill-tag">RESTful APIs</span></li>
+              </ul>
+            </div>
+            
+            <div class="skill-category">
+              <h3><i class="bi bi-database"></i> Database</h3>
+              <ul class="skill-list">
+                <li><span class="skill-tag">MySQL</span></li>
+                <li><span class="skill-tag">MongoDB</span></li>
+                <li><span class="skill-tag">Firebase</span></li>
+              </ul>
+            </div>
+            
+            <div class="skill-category">
+              <h3><i class="bi bi-tools"></i> Tools & Others</h3>
+              <ul class="skill-list">
+                <li><span class="skill-tag">Git</span></li>
+                <li><span class="skill-tag">GitHub</span></li>
+                <li><span class="skill-tag">Figma</span></li>
+                <li><span class="skill-tag">Adobe Photoshop</span></li>
+                <li><span class="skill-tag">Premiere Pro</span></li>
+                <li><span class="skill-tag">Responsive Design</span></li>
+                <li><span class="skill-tag">SEO Basics</span></li>
+              </ul>
+            </div>
+          </div>
+          
+          <p>With a strong foundation in both front-end and back-end technologies, I specialize in crafting seamless web experiences that perfectly balance aesthetic appeal with functional efficiency. My collaborative approach ensures your vision is brought to life with precision and creativity.</p>
+          
+          <p>I'm committed to continuous learning and staying updated with the latest industry standards to deliver modern, optimized, and future-proof solutions for your digital needs.</p>
+          
+          <div class="contact-info">
+            <h3><i class="bi bi-envelope-paper"></i> Get In Touch</h3>
+            <p>
+              <a href="mailto:dev.avishkar@gmail.com" class="email-link">
+                <i class="bi bi-envelope"></i> dev.avishkar@gmail.com
+              </a>
+              <a href="mailto:deshmukhavishkar2@gmail.com" class="email-link">
+                <i class="bi bi-envelope"></i> deshmukhavishkar2@gmail.com
+              </a>
+            </p>
+          </div>
+        </div>
+        
+        <div class="service-details">
+          <div class="button-group">
+            <button class="availability">
+              <span><i class="bi bi-geo-alt-fill"></i> Available: Remote</span>
+            </button>
+            
+            <a href="pages/Pricing.html" class="pricing-btn">
+              <div class="pricing-content">
+                <span class="pricing-title"><i class="bi bi-cash"></i> Pricing</span>
+                <div class="pricing-info">
+                  <span class="pricing-text">Starting at:</span>
+                  <span class="pricing-value">₹750/hr <span class="pricing-usd">(~$8.79/hr)</span></span>
+                </div>
+              </div>
+            </a>
+          </div>
+          
+          <div class="service-packages">
+            <div class="package">
+              <h4>Basic Website</h4>
+              <p class="price">₹4,000 onwards</p>
+            </div>
+            <div class="package">
+              <h4>GBM SETUP</h4>
+              <p class="price">₹299 onwards</p>
+            </div>
+            <div class="package">
+              <h4>Logo Design</h4>
+              <p class="price">₹499 onwards</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -148,67 +251,7 @@
 
     </div>
 
-    <div id="mySidenav" class="sidenav">
-      <!-- FAB-style links added as sidenav entries -->
-      <a href="pages/feedback.html" target="_blank" id="feedback">
-        <i class="fas fa-question"></i> Feedback <span class="arrow-indicator">&#8592;</span>
-      </a>
-      
-      <a href="pages/resume.html" target="_blank" id="resume">
-        <i class="fas fa-book"></i> Resume <span class="arrow-indicator">&#8592;</span>
-      </a>
-      
-      <a href="pages/contact.html" target="_blank" id="contactPage">
-        <i class="fas fa-address-book"></i> Contact <span class="arrow-indicator">&#8592;</span>
-      </a>
-      
-      <a href="pages/Pricing.html" target="_blank" id="pricing">
-        <i class="fas fa-info"></i> Pricing <span class="arrow-indicator">&#8592;</span>
-      </a>
-    </div>
-    
-    <style>
-      .arrow-indicator {
-        float: right;
-        margin-right: 10px;
-        /* Add dashed line before the arrow similar to your image */
-        /* border-left: 2px dashed rgba(255, 255, 255, 0.6); */
-        padding-left: 80px;
-        /* Add animation */
-        animation: arrowPulse 1.5s infinite;
-      }
-      
-      /* Define the animation */
-      @keyframes arrowPulse {
-        0% {
-          opacity: 0.5;
-          transform: translateX(0);
-        }
-        50% {
-          opacity: 1;
-          transform: translateX(-10px);
-        }
-        100% {
-          opacity: 0.5;
-          transform: translateX(0);
-        }
-      }
-      
-      /* Additional styling for the sidebar items */
-      .sidenav a {
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .sidenav a:hover {
-        padding-right: 30px;
-      }
-      
-      .sidenav a:hover .arrow-indicator {
-        animation: arrowPulse 0.8s infinite;
-      }
-    </style>
+
 
 
     <!-- <div class="version">
