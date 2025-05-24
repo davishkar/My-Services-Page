@@ -24,6 +24,7 @@
   <!-- AOS Animation Library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <meta name="google-site-verification" content="Q_pZz3g3AiwHY7YFGjAmXqogc34bSQFAJQgP4ZUIUkE" />
+
 </head>
 
 <body>
@@ -35,23 +36,33 @@
   <div class="bg">
     <div class="container-wrapper">
       <div class="container" data-aos="fade-up">
-        <nav class="navbar" id="myNavbar" role="navigation" aria-label="Main navigation">
-          <a href="index.html" class="active" aria-current="page"><i class="fas fa-home"></i> Home</a>
+        <div class="navbar" id="myNavbar">
+          <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
           <a href="pages/resume.html"><i class="fas fa-book"></i> Resume <span class="arrow-indicator"></span></a>
           <a href="pages/contact.html"><i class="fas fa-address-book"></i> Contact <span
               class="arrow-indicator"></span></a>
           <a href="pages/Pricing.html"><i class="fas fa-info"></i> Pricing <span class="arrow-indicator"></span></a>
           <a href="pages/feedback.html"><i class="fas fa-question"></i> Feedback <span
               class="arrow-indicator"></span></a>
-          <a href="pages/legalpage.html"><i class="fas fa-shield-alt"></i> Legal Section <span
+          <a href="pages/legalpage.html"><i class="fas fa-shield-alt"></i> legal-section <span
               class="arrow-indicator"></span></a>
-          <button class="icon" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false">
+          <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
-          </button>
-        </nav>
+          </a>
+        </div>
 
+        <script>
+          function toggleMenu() {
+            var x = document.getElementById("myNavbar");
+            if (x.className === "navbar") {
+              x.className += " responsive";
+            } else {
+              x.className = "navbar";
+            }
+          }
+        </script>
         <img src="https://res.cloudinary.com/dtrmjjphv/image/upload/v1744211702/Avishkar_Avatar_xqwduw.webp"
-          alt="Avishkar Deshmukh Profile Picture" class="profile-img" loading="lazy">
+          alt="Profile Picture" class="profile-img">
         <h1>Avishkar Deshmukh's Services</h1>
         <div class="actions">
           <a class="request-btn" href="https://www.linkedin.com/services/page/2819523305150a4092/" target="_blank"
@@ -59,12 +70,25 @@
             <i class="bi bi-bag-check"></i> Request Services
           </a>
           <a class="message-btn"
-            href="https://api.whatsapp.com/send?phone=9146964882&text=Hi,%20I%20am%20[YourName],%20and%20I%20am%20interested%20in%20your%20services.%20You%20can%20reach%20me%20at%20[YourEmail].%20Could%20you%20please%20provide%20more%20details?"
+            href="https://api.whatsapp.com/send?phone=9146964882&amp;text=Hi,%20I%20am%20[YourName]%2C%20and%20I%20am%20interested%20in%20your%20services.%20You%20can%20reach%20me%20at%20[YourEmail].%20Could%20you%20please%20provide%20more%20details%3F"
             target="_blank" rel="noopener noreferrer">
             <i class="bi bi-chat-left-dots"></i> Message
           </a>
+          <!-- <div class="dropdown">
+            <button class="more-btn">...</button>
+            <div class="dropdown-content">
+              <a href="https://davishkar.blogspot.com"><i class="bi bi-file-earmark-person"></i> View
+                Portfolio</a>
+              <a href="mailto:dev.avishkar@gmail.com"><i class="bi bi-envelope"></i> Contact via Email</a>
+              <a href="tel:+919146964882"><i class="bi bi-calendar"></i> Schedule a Call</a>
+            </div>
+          </div> -->
         </div>
+
+
+
       </div>
+
 
       <section class="about-section" data-aos="fade-up" data-aos-delay="100">
         <h2>About Me</h2>
@@ -205,29 +229,31 @@
         <h2>Media</h2>
         <div class="row">
           <div class="column">
-            <img src="images/web_designing.png" alt="Web Designing Portfolio Example" style="width:100%" onclick="openModal(this);" loading="lazy">
+            <img src="images/web_designing.png" alt="Web Designing" style="width:100%" onclick="myFunction(this);">
           </div>
           <div class="column">
-            <img src="images/landing_page.png" alt="Landing Page Design Example" style="width:100%" onclick="openModal(this);" loading="lazy">
+            <img src="images/landing_page.png" alt="Landing Page" style="width:100%" onclick="myFunction(this);">
           </div>
           <div class="column">
-            <img src="images/logo_design.png" alt="Logo Design Portfolio Example" style="width:100%" onclick="openModal(this);" loading="lazy">
+            <img src="images/logo_design.png" alt="Logo Design" style="width:100%" onclick="myFunction(this);">
           </div>
           <div class="column">
-            <img src="images/seo.png" alt="SEO Services Illustration" style="width:100%" onclick="openModal(this);" loading="lazy">
+            <img src="images/seo.png" alt="SEO" style="width:100%" onclick="myFunction(this);">
           </div>
           <div class="column">
-            <img src="images/content creation.png" alt="Content Creation Services" style="width:100%" onclick="openModal(this);" loading="lazy">
+            <img src="images/content creation.png" alt="Content Creation" style="width:100%"
+              onclick="myFunction(this);">
           </div>
         </div>
 
         <!-- Modal to show expanded image -->
-        <div class="modal" id="imgModal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
-          <span class="closebtn" onclick="closeModal()" aria-label="Close modal">&times;</span>
-          <img id="expandedImg" alt="">
+        <div class="modal" id="imgModal">
+          <span class="closebtn" onclick="closeModal()">&times;</span>
+          <img id="expandedImg">
           <div id="imgtext"></div>
         </div>
       </section>
+
     </div>
 
     <footer>
@@ -236,68 +262,7 @@
 
     <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      // Initialize AOS
-      AOS.init();
-
-      // Toggle mobile menu
-      function toggleMenu() {
-        const navbar = document.getElementById("myNavbar");
-        const toggleButton = navbar.querySelector('.icon');
-        
-        if (navbar.classList.contains("responsive")) {
-          navbar.classList.remove("responsive");
-          toggleButton.setAttribute('aria-expanded', 'false');
-        } else {
-          navbar.classList.add("responsive");
-          toggleButton.setAttribute('aria-expanded', 'true');
-        }
-      }
-
-      // Modal functionality for images
-      function openModal(img) {
-        const modal = document.getElementById("imgModal");
-        const expandedImg = document.getElementById("expandedImg");
-        const imgText = document.getElementById("imgtext");
-        
-        modal.style.display = "block";
-        modal.setAttribute('aria-hidden', 'false');
-        expandedImg.src = img.src;
-        expandedImg.alt = img.alt;
-        imgText.textContent = img.alt;
-        
-        // Focus management for accessibility
-        modal.focus();
-      }
-
-      function closeModal() {
-        const modal = document.getElementById("imgModal");
-        modal.style.display = "none";
-        modal.setAttribute('aria-hidden', 'true');
-      }
-
-      // Close modal with Escape key
-      document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-          closeModal();
-        }
-      });
-
-      // Close modal when clicking outside the image
-      document.getElementById("imgModal").addEventListener('click', function(event) {
-        if (event.target === this) {
-          closeModal();
-        }
-      });
-
-      // Loading screen
-      window.addEventListener('load', function() {
-        const loadingScreen = document.querySelector('.loading-screen');
-        if (loadingScreen) {
-          loadingScreen.style.display = 'none';
-        }
-      });
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
