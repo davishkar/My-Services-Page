@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://davishkar.github.io/My-Services-Page/sitemap.xml
