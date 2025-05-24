@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal Information - Avishkar Deshmukh's Services</title>
+  <style>
+:root {
+  --primary: #6e00ff;
+  --primary-light: #9847ff;
+  --primary-dark: #5200bf;
+  --secondary: #a700ff;
+  --accent: #ff5500;
+  --accent-light: #ff7733;
+  --twitter: #1e90ff;
+  --instagram: #ff00ff;
+  --github: #333333;
+  --facebook: #4267B2;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --font-primary: "Josefin Sans", sans-serif;
+  --font-secondary: "Josefin Sans", sans-serif;
+  --font-tertiary: 'Protest Guerrilla', sans-serif;
+  --font-quaternary: 'Black Ops One', system-ui;
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 20px rgba(0,0,0,0.1);
+  --transition-fast: all 0.2s ease;
+  --transition-normal: all 0.3s ease;
+  --transition-slow: all 0.5s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, var(--light) 0%, #e8f4f8 100%);
+  color: var(--dark);
+  font-family: var(--font-primary);
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.bg {
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.container-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo i {
+  font-size: 3rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.logo h1 {
+  font-family: var(--font-quaternary);
+  color: var(--primary-dark);
+  font-size: 2.5rem;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.breadcrumbs {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 1rem;
+  background: rgba(255,255,255,0.7);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.breadcrumbs a {
+  color: var(--primary);
+  text-decoration: none;
+  margin: 0 0.5rem;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.breadcrumbs a:hover {
+  color: var(--accent);
+}
+
+.breadcrumbs a::after {
+  content: " / ";
+  color: var(--dark);
+  margin-left: 0.5rem;
+}
+
+.breadcrumbs a:last-child::after {
+  content: "";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-quaternary);
+  color: var(--primary-dark);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.2rem;
+  border-bottom: 3px solid var(--primary);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-top: 2.5rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+  color: var(--secondary);
+}
+
+p, li {
+  font-family: var(--font-primary);
+  color: var(--dark);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+ul, ol {
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: var(--transition-fast);
+  font-weight: 600;
+}
+
+a:hover {
+  color: var(--accent-light);
+  text-decoration: underline;
+}
+
+.card {
+  background: rgba(255,255,255,0.95);
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 3rem;
+  transition: var(--transition-slow);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.effective-date {
+  background: var(--primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.contact-info {
+  background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+  color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.contact-info strong {
+  font-size: 1.2rem;
+}
+
+.highlight-box {
+  background: linear-gradient(135deg, #fff3e0, #ffeaa7);
+  border-left: 5px solid var(--accent);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 10px 10px 0;
+}
+
+.legal-section {
+  margin-bottom: 4rem;
+}
+
+footer {
+  background: linear-gradient(135deg, var(--dark), #ffffff);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  margin-top: 4rem;
+  border-radius: 15px 15px 0 0;
+}
+
+@media (max-width: 768px) {
+  .container-wrapper {
+    padding: 0 1rem;
+  }
+  
+  .card {
+    padding: 2rem;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="bg">
+    <div class="container-wrapper">
+      <div class="logo">
+        <i class="fas fa-shield-alt"></i>
+        <h1>Avishkar Services - Legal Information</h1>
+      </div>
+      
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs">
+        <a href="../index.html">Home</a>
+        <a href="legalpage.html">Legal Pages</a>
+      </nav>
+
+      <div class="card legal-section">
+        <h1><i class="fas fa-user-shield"></i> Privacy Policy</h1>
+        <div class="effective-date">Effective Date: January 1, 2025</div>
+        
+        <p>At <strong>Avishkar Deshmukh's Services</strong>, we respect your privacy. This policy explains how we collect, use, and protect your information when you use our website or services.</p>
+
+        <h2>1. Information We Collect</h2>
+        
+        <h3>Personal Information</h3>
+        <p>We may collect the information you voluntarily provide when you:</p>
+        <ul>
+          <li>Fill out contact or service request forms</li>
+          <li>Subscribe to newsletters or updates</li>
+          <li>Communicate with us via email or phone</li>
+          <li>Provide feedback or testimonials</li>
+        </ul>
+        
+        <p>This may include your:</p>
+        <ul>
+          <li>Name, email address, and phone number</li>
+          <li>Company name and job title</li>
+          <li>Project details or requirements</li>
+          <li>Any other information you choose to share</li>
+        </ul>
+
+        <h3>Automatically Collected Information</h3>
+        <p>When you visit our site, we may collect technical details like:</p>
+        <ul>
+          <li>IP address and location</li>
+          <li>Browser and device type</li>
+          <li>Pages visited and time spent</li>
+          <li>Referring website</li>
+        </ul>
+
+        <h2>2. How We Use Your Information</h2>
+        <p>Your data helps us to:</p>
+        <ul>
+          <li>Deliver and improve our services</li>
+          <li>Respond to your inquiries</li>
+          <li>Manage communications and updates</li>
+          <li>Comply with legal requirements</li>
+          <li>Protect against fraud and security risks</li>
+        </ul>
+
+        <h2>3. Third-Party Services</h2>
+        <p>We use trusted third parties for:</p>
+        <ul>
+          <li>Form processing (Formspree) — <a href="https://formspree.io/legal/privacy-policy/" target="_blank">Privacy Policy</a></li>
+          <li>Website analytics (e.g., Google Analytics)</li>
+          <li>Email marketing and hosting services</li>
+        </ul>
+
+        <h2>4. Data Security & Retention</h2>
+        <p>We implement security measures to protect your information, though no system is perfectly secure. We keep your data only as long as necessary.</p>
+
+        <h2>5. Your Rights</h2>
+        <p>Depending on your location, you can:</p>
+        <ul>
+          <li>Access, correct, or delete your data</li>
+          <li>Object to or restrict processing</li>
+        </ul>
+        <p>Contact us at <strong>dev.avishkar@gmail.com</strong> to exercise your rights.</p>
+
+        <h2>6. International Transfers</h2>
+        <p>Data may be processed outside your country with appropriate protections.</p>
+
+        <h2>7. Updates</h2>
+        <p>We may update this policy. Changes will be posted here.</p>
+
+        <div class="contact-info">
+          <strong>Questions?</strong><br>
+          <a href="mailto:dev.avishkar@gmail.com" style="color: white;">dev.avishkar@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="card legal-section">
+        <h1><i class="fas fa-file-contract"></i> Terms and Conditions</h1>
+        <div class="effective-date">Effective Date: January 1, 2025</div>
+
+        <p>Welcome to <strong>Avishkar Deshmukh's Services</strong>. By using our website and services, you agree to the following terms:</p>
+
+        <h2>1. Acceptance</h2>
+        <p>Using our site means you accept these Terms. If you disagree, please do not use our services.</p>
+
+        <h2>2. Services</h2>
+        <p>We offer professional services including:</p>
+        <ul>
+          <li>Web and software development</li>
+          <li>Digital marketing</li>
+          <li>Business consulting</li>
+          <li>Technical support</li>
+        </ul>
+
+        <h2>3. User Responsibilities</h2>
+        <p>You agree to:</p>
+        <ul>
+          <li>Provide accurate info</li>
+          <li>Use services lawfully</li>
+          <li>Avoid harmful activities</li>
+          <li>Protect login credentials</li>
+          <li>Report unauthorized access</li>
+        </ul>
+
+        <h2>4. Intellectual Property</h2>
+        <p>All site content is owned by us or our licensors. You may not copy or use it without permission.</p>
+
+        <h2>5. Service Terms</h2>
+        <ul>
+          <li>Project details and terms will be defined in individual agreements.</li>
+          <li>Payment and cancellation terms will be specified separately.</li>
+        </ul>
+
+        <h2>6. Limitation of Liability</h2>
+        <p>We aren't liable for indirect damages, loss of data, or other losses.</p>
+
+        <h2>7. Indemnification</h2>
+        <p>You agree to hold us harmless from any claims arising from your use or violation of these Terms.</p>
+
+        <h2>8. Termination</h2>
+        <p>We may suspend or end your access if you violate these Terms.</p>
+
+        <h2>9. Governing Law</h2>
+        <p>These Terms are governed by laws of <strong>[Your Jurisdiction]</strong>. Disputes will be settled there.</p>
+
+        <h2>10. Changes</h2>
+        <p>We may update these Terms with prior notice for material changes.</p>
+
+        <div class="contact-info">
+          <strong>Questions?</strong><br>
+          <a href="mailto:dev.avishkar@gmail.com" style="color: white;">dev.avishkar@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="card legal-section">
+        <h1><i class="fas fa-exclamation-triangle"></i> Disclaimer</h1>
+        <div class="effective-date">Effective Date: January 1, 2025</div>
+
+        <h2>General Disclaimer</h2>
+        <p>The information contained on the <strong>Avishkar Deshmukh's Services</strong> website is provided on an "as is" basis. To the fullest extent permitted by law, this Company:</p>
+
+        <ul>
+          <li>Excludes all representations and warranties relating to this website and its contents</li>
+          <li>Excludes all liability for damages arising out of or in connection with your use of this website</li>
+          <li>Does not guarantee the accuracy, completeness, or timeliness of any information</li>
+          <li>Reserves the right to change any information without notice</li>
+        </ul>
+
+        <h2>Professional Services Disclaimer</h2>
+        <p>While we strive to provide high-quality professional services, we make no warranties or guarantees regarding:</p>
+        <ul>
+          <li>Specific outcomes or results from our services</li>
+          <li>Compatibility with all systems or platforms</li>
+          <li>Uninterrupted or error-free service delivery</li>
+          <li>Meeting all client expectations or requirements</li>
+        </ul>
+
+        <h2>Third-Party Content and Links</h2>
+        <p>Our website may contain links to third-party websites or services. We do not endorse or assume responsibility for the content, privacy policies, or practices of any third-party websites or services.</p>
+
+        <h2>Technical Disclaimer</h2>
+        <div class="highlight-box">
+          <p><strong>No Warranty:</strong> All technical solutions, code, and digital products are provided without warranty of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+        </div>
+
+        <h2>Limitation of Liability</h2>
+        <p>In no event shall Avishkar Deshmukh's Services be liable for any damages whatsoever, including but not limited to:</p>
+        <ul>
+          <li>Direct, indirect, incidental, or consequential damages</li>
+          <li>Loss of profits, data, or business opportunities</li>
+          <li>Damages resulting from system failures or security breaches</li>
+          <li>Any damages arising from the use or inability to use our services</li>
+        </ul>
+
+        <h2>Client Responsibilities</h2>
+        <p>Clients are responsible for:</p>
+        <ul>
+          <li>Providing accurate and complete project requirements</li>
+          <li>Maintaining backups of their data and systems</li>
+          <li>Testing and validating delivered solutions in their environment</li>
+          <li>Implementing appropriate security measures</li>
+          <li>Complying with all applicable laws and regulations</li>
+        </ul>
+
+        <h2>Updates and Modifications</h2>
+        <p>This disclaimer may be updated from time to time without notice. Your continued use of our website and services constitutes acceptance of any changes to this disclaimer.</p>
+
+        <div class="contact-info">
+          <strong>Legal Inquiries</strong><br>
+          For any legal questions or concerns, please contact:<br>
+          <a href="mailto:dev.avishkar@gmail.com" style="color: white;">dev.avishkar@gmail.com</a>
+        </div>
+      </div>
+
+      <footer>
+        <p>&copy; 2025 Avishkar Deshmukh's Services. All rights reserved.</p>
+        <p>This website and its contents are protected by copyright and other intellectual property laws.</p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
