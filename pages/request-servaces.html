@@ -1,0 +1,583 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Professional Web Development & Digital Services | Avishkar Services</title>
+  <meta name="description" content="Expert web development, mobile app development, digital marketing, and IT consulting services. Get professional solutions for your business needs. Free consultation available.">
+  <meta name="keywords" content="web development, mobile app development, digital marketing, IT consulting, website design, e-commerce development, SEO services, social media marketing">
+  <meta name="author" content="Avishkar Services">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Professional Web Development & Digital Services | Avishkar Services">
+  <meta property="og:description" content="Expert web development, mobile app development, digital marketing, and IT consulting services. Get professional solutions for your business needs.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://davishkar.github.io/My-Services-Page/">
+  <meta property="og:image" content="https://davishkar.github.io/My-Services-Page/og-image.jpg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Professional Web Development & Digital Services">
+  <meta name="twitter:description" content="Expert web development, mobile app development, digital marketing, and IT consulting services.">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://davishkar.github.io/My-Services-Page/">
+  
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Avishkar Services",
+    "description": "Professional web development, mobile app development, and digital marketing services",
+    "url": "https://davishkar.github.io/My-Services-Page/",
+    "telephone": "+9146964882",
+    "email": "dev.avishkar@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "India"
+    },
+    "serviceType": [
+      "Web Development",
+      "Mobile App Development", 
+      "Digital Marketing",
+      "IT Consulting",
+      "E-commerce Development",
+      "SEO Services"
+    ],
+    "priceRange": "$$",
+    //*"aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "127"
+    }*//
+  }
+  </script>
+  
+  <!-- External Resources -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .bg {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container-wrapper {
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      text-align: center;
+      padding: 30px 20px 20px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+    }
+
+    .logo i {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .logo h1 {
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+
+    .breadcrumbs {
+      padding: 15px 30px;
+      background: rgba(102, 126, 234, 0.1);
+      font-size: 14px;
+    }
+
+    .breadcrumbs a {
+      color: #667eea;
+      text-decoration: none;
+      margin-right: 15px;
+      position: relative;
+    }
+
+    .breadcrumbs a:not(:last-child)::after {
+      content: '>';
+      position: absolute;
+      right: -10px;
+      color: #999;
+    }
+
+    .card {
+      padding: 0;
+    }
+
+    .card-header {
+      text-align: center;
+      padding: 30px;
+      background: white;
+    }
+
+    .card-header h2 {
+      color: #333;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      font-weight: 300;
+    }
+
+    .card-header p {
+      color: #666;
+      font-size: 1.1rem;
+    }
+
+    .card-body {
+      padding: 0 30px 30px;
+      background: white;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+      position: relative;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 15px 50px 15px 15px;
+      border: 2px solid #e1e5e9;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: #f8f9fa;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: #667eea;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .form-icon {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #667eea;
+      font-size: 1.2rem;
+      pointer-events: none;
+      margin-top: 15px;
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+      padding-right: 15px;
+    }
+
+    textarea + .form-icon {
+      top: 45px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .service-item {
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .service-item:hover {
+      background: #e9ecef;
+      transform: translateY(-2px);
+    }
+
+    .service-item input[type="checkbox"] {
+      margin-right: 10px;
+      transform: scale(1.2);
+      accent-color: #667eea;
+    }
+
+    .service-item.checked {
+      background: rgba(102, 126, 234, 0.1);
+      border-color: #667eea;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+    }
+
+    .btn i {
+      margin-right: 10px;
+    }
+
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 40px;
+      background: linear-gradient(135deg, #28a745, #20c997);
+      color: white;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+
+    .success-icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    .success-message h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      font-weight: 300;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #f8f9fa;
+      color: #666;
+      border-top: 1px solid #e1e5e9;
+    }
+
+    .footer a {
+      color: #667eea;
+      text-decoration: none;
+    }
+
+    .section-divider {
+      margin: 30px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: #e1e5e9;
+    }
+
+    .section-divider span {
+      background: white;
+      padding: 0 20px;
+      color: #666;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .card-body {
+        padding: 0 20px 20px;
+      }
+      
+      .breadcrumbs {
+        padding: 15px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg">
+    <div class="container-wrapper">
+      <div class="container">
+        <div class="logo">
+          <i class="fas fa-comment-dots"></i>
+          <h1>Avishkar Services</h1>
+        </div>
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs">
+          <a href="../index.html">Home</a>
+          <a href="#">Services</a>
+        </nav>
+
+        <div class="card">
+          <div class="card-header">
+            <h2>Service Request Form</h2>
+            <p>Tell us about your project needs and we'll help bring your ideas to life!</p>
+          </div>
+
+          <div class="card-body">
+            <form id="feedbackForm" action="https://formspree.io/f/xzzrlpwk" method="POST">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+                <i class="fas fa-user form-icon"></i>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+                <i class="fas fa-envelope form-icon"></i>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number">
+                <i class="fas fa-phone form-icon"></i>
+              </div>
+
+              <div class="form-group">
+                <label>Services You Need</label>
+                <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">Select all services you would like to request:</p>
+                <div class="services-grid">
+                  <div class="service-item">
+                    <input type="checkbox" id="web-dev" name="services[]" value="Web Development">
+                    <label for="web-dev" style="margin: 0; cursor: pointer;">
+                      <i class="fas fa-code" style="margin-right: 8px; color: #667eea;"></i>
+                      Web Development
+                    </label>
+                  </div>
+                  <div class="service-item">
+                    <input type="checkbox" id="graphic-design" name="services[]" value="Graphic Design">
+                    <label for="graphic-design" style="margin: 0; cursor: pointer;">
+                      <i class="fas fa-palette" style="margin-right: 8px; color: #667eea;"></i>
+                      Graphic Design
+                    </label>
+                  </div>
+                  <div class="service-item">
+                    <input type="checkbox" id="logo-design" name="services[]" value="Logo Design">
+                    <label for="logo-design" style="margin: 0; cursor: pointer;">
+                      <i class="fas fa-trademark" style="margin-right: 8px; color: #667eea;"></i>
+                      Logo Design
+                    </label>
+                  </div>
+                  <div class="service-item">
+                    <input type="checkbox" id="seo" name="services[]" value="SEO">
+                    <label for="seo" style="margin: 0; cursor: pointer;">
+                      <i class="fas fa-search" style="margin-right: 8px; color: #667eea;"></i>
+                      SEO
+                    </label>
+                  </div>
+                  <div class="service-item">
+                    <input type="checkbox" id="writing" name="services[]" value="Writing">
+                    <label for="writing" style="margin: 0; cursor: pointer;">
+                      <i class="fas fa-pen" style="margin-right: 8px; color: #667eea;"></i>
+                      Writing
+                    </label>
+                  </div>
+                  <div class="service-item">
+                    <input type="checkbox" id="editing" name="services[]" value="Editing">
+                    <label for="editing" style="margin: 0; cursor: pointer;">
+                      <i class="fas fa-edit" style="margin-right: 8px; color: #667eea;"></i>
+                      Editing
+                    </label>
+                  </div>
+                  <div class="service-item">
+                    <input type="checkbox" id="web-design" name="services[]" value="Web Design">
+                    <label for="web-design" style="margin: 0; cursor: pointer;">
+                      <i class="fas fa-desktop" style="margin-right: 8px; color: #667eea;"></i>
+                      Web Design
+                    </label>
+                  </div>
+                  <div class="service-item">
+                    <input type="checkbox" id="other" name="services[]" value="Other">
+                    <label for="other" style="margin: 0; cursor: pointer;">
+                      <i class="fas fa-ellipsis-h" style="margin-right: 8px; color: #667eea;"></i>
+                      Other
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group" id="otherServiceGroup" style="display: none;">
+                <label for="otherService">Please specify other service</label>
+                <input type="text" id="otherService" name="other_service" class="form-control" placeholder="Describe the service you need">
+                <i class="fas fa-question form-icon"></i>
+              </div>
+
+              <div class="form-group">
+                <label for="budget">Your Budget (Optional)</label>
+                <input type="text" id="budget" name="budget" class="form-control" placeholder="Enter your budget (e.g., ₹25,000 or $500)">
+                <i class="fas fa-rupee-sign form-icon"></i>
+              </div>
+
+              <div class="form-group">
+                <label for="timeline">Project Timeline (Optional)</label>
+                <select id="timeline" name="timeline" class="form-control">
+                  <option value="" disabled selected>When do you need this completed?</option>
+                  <option value="asap">ASAP (Rush job)</option>
+                  <option value="1-week">Within 1 week</option>
+                  <option value="2-weeks">Within 2 weeks</option>
+                  <option value="1-month">Within 1 month</option>
+                  <option value="flexible">Flexible timeline</option>
+                </select>
+                <i class="fas fa-calendar form-icon"></i>
+              </div>
+
+              <div class="form-group">
+                <label for="details">Project Details</label>
+                <textarea id="details" name="project_details" class="form-control" placeholder="Please describe your project requirements, goals, and any specific details we should know..." required></textarea>
+                <i class="fas fa-clipboard-list form-icon"></i>
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn">
+                  <i class="fas fa-rocket"></i> Submit Service Request
+                </button>
+              </div>
+            </form>
+
+            <div class="success-message" id="successMessage">
+              <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <h3>Request Submitted!</h3>
+              <p>Thank you for choosing Avishkar Services. We'll review your request and get back to you within 24 hours!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+          &copy; 2025 Avishkar Services | <a href="tel:+919146964882">+91 9146964882</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Input field animations
+      $('.form-control').focus(function () {
+        $(this).parent().addClass('animate__animated animate__pulse');
+      }).blur(function () {
+        $(this).parent().removeClass('animate__animated animate__pulse');
+      });
+
+      // Subtle input field scale
+      $('.form-control').on('focus', function () {
+        $(this).css('transform', 'scale(1.02)');
+      }).on('blur', function () {
+        $(this).css('transform', 'scale(1)');
+      });
+
+      // Service item interactions
+      $('.service-item').click(function(e) {
+        if (e.target.type !== 'checkbox') {
+          const checkbox = $(this).find('input[type="checkbox"]');
+          checkbox.prop('checked', !checkbox.prop('checked')).trigger('change');
+        }
+      });
+
+      // Handle checkbox changes
+      $('input[type="checkbox"]').change(function() {
+        const serviceItem = $(this).closest('.service-item');
+        if ($(this).is(':checked')) {
+          serviceItem.addClass('checked');
+        } else {
+          serviceItem.removeClass('checked');
+        }
+
+        // Show/hide other service input
+        if ($(this).attr('id') === 'other') {
+          if ($(this).is(':checked')) {
+            $('#otherServiceGroup').slideDown();
+            $('#otherService').attr('required', true);
+          } else {
+            $('#otherServiceGroup').slideUp();
+            $('#otherService').attr('required', false).val('');
+          }
+        }
+      });
+
+      // Form submission
+      $('#feedbackForm').submit(function (e) {
+        // Collect selected services
+        const selectedServices = [];
+        $('input[name="services[]"]:checked').each(function() {
+          selectedServices.push($(this).val());
+        });
+        
+        // Add hidden input with selected services as string
+        if (selectedServices.length > 0) {
+          $('<input>').attr({
+            type: 'hidden',
+            name: 'selected_services',
+            value: selectedServices.join(', ')
+          }).appendTo(this);
+        }
+
+        // Allow form to submit naturally to Formspree
+        return true;
+      });
+
+      // Add smooth scrolling for better UX
+      $('html').css('scroll-behavior', 'smooth');
+    });
+  </script>
+</body>
+
+</html>
