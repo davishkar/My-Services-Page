@@ -700,7 +700,27 @@ h1::after {
     padding: 10px;
   }
 }
+/* Fix for the hamburger icon display */
+.navbar .icon {
+    display: none;
+}
 
+@media screen and (max-width: 768px) {
+    .navbar a.icon {
+        display: flex; /* Changed from 'block' to 'flex' to match your existing styles */
+        position: absolute;
+        right: 15px;
+        top: 15px; /* Uncommented this line */
+        background: linear-gradient(45deg, var(--primary-light), var(--primary));
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+}
 /* Section Styling */
 section {
   background-color: white;
