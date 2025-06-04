@@ -213,33 +213,33 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Add typing effect to headings (optional - can be performance intensive)
-    const headings = document.querySelectorAll('h1, h2');
-    headings.forEach(heading => {
-        const text = heading.textContent;
-        if (text.trim()) {
-            heading.textContent = '';
+    // const headings = document.querySelectorAll('h1, h2');
+    // headings.forEach(heading => {
+    //     const text = heading.textContent;
+    //     if (text.trim()) {
+    //         heading.textContent = '';
             
-            let i = 0;
-            const typeWriter = () => {
-                if (i < text.length) {
-                    heading.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 100);
-                }
-            };
+    //         let i = 0;
+    //         const typeWriter = () => {
+    //             if (i < text.length) {
+    //                 heading.textContent += text.charAt(i);
+    //                 i++;
+    //                 setTimeout(typeWriter, 100);
+    //             }
+    //         };
             
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        typeWriter();
-                        observer.unobserve(entry.target);
-                    }
-                });
-            });
+    //         const observer = new IntersectionObserver((entries) => {
+    //             entries.forEach(entry => {
+    //                 if (entry.isIntersecting) {
+    //                     typeWriter();
+    //                     observer.unobserve(entry.target);
+    //                 }
+    //             });
+    //         });
             
-            observer.observe(heading);
-        }
-    });
+    //         observer.observe(heading);
+    //     }
+    // });
 
 });
 
