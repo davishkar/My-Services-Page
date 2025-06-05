@@ -1,13 +1,8 @@
-Here’s your updated README file with **better and professional markdown badges** for GitHub — including technology stack, license, and contact info:
-
----
-
-````markdown
 # Avishkar Deshmukh's Services Website
 
 Welcome to the **Avishkar Deshmukh’s Services** website — a showcase of modern web design and development by Avishkar Deshmukh.
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-Click_Here-brightgreen?style=for-the-badge&logo=githubpages)](https://davishkar.github.io/Services_page/)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge&logo=livechat)](https://davishkar.github.io/Services_page/)
 ![HTML](https://img.shields.io/badge/HTML-5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
