@@ -4,46 +4,18 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-  <url>
-    <loc>https://davishkar.github.io/My-Services-Page/</loc>
-    <lastmod>2025-06-05</lastmod>
-    <priority>1.0</priority>
-  </url>
 
-  <url>
-    <loc>https://davishkar.github.io/My-Services-Page/pages/resume.html</loc>
-    <lastmod>2025-06-05</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://davishkar.github.io/My-Services-Page/pages/contact.html</loc>
-    <lastmod>2025-06-05</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://davishkar.github.io/My-Services-Page/pages/pricing.html</loc>
-    <lastmod>2025-06-05</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://davishkar.github.io/My-Services-Page/pages/feedback.html</loc>
-    <lastmod>2025-06-05</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://davishkar.github.io/My-Services-Page/pages/legalpage.html</loc>
-    <lastmod>2025-06-05</lastmod>
-    <priority>0.8</priority>
-  </url>
 <url>
   <loc>https://davishkar.github.io/My-Services-Page/</loc>
   <lastmod>2025-06-05T02:33:09+00:00</lastmod>
   <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://davishkar.github.io/My-Services-Page/index.html</loc>
+  <lastmod>2025-06-05T02:33:09+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://davishkar.github.io/My-Services-Page/pages/resume.html</loc>
@@ -71,6 +43,5 @@
   <priority>0.80</priority>
 </url>
 
+
 </urlset>
-<!-- End of sitemap.xml -->
-<!-- This sitemap is automatically generated to help search engines index the pages of the My Services Page project. -->  
