@@ -7,31 +7,69 @@
 
   <url>
     <loc>https://davishkar.github.io/My-Services-Page/</loc>
-    <lastmod>2025-05-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-06-05</lastmod>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://davishkar.github.io/My-Services-Page/contact.html</loc>
-    <lastmod>2025-05-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://davishkar.github.io/My-Services-Page/pages/resume.html</loc>
+    <lastmod>2025-06-05</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://davishkar.github.io/My-Services-Page/feedback.html</loc>
-    <lastmod>2025-05-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://davishkar.github.io/My-Services-Page/pages/contact.html</loc>
+    <lastmod>2025-06-05</lastmod>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://davishkar.github.io/My-Services-Page/request-service.html</loc>
-    <lastmod>2025-05-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://davishkar.github.io/My-Services-Page/pages/pricing.html</loc>
+    <lastmod>2025-06-05</lastmod>
+    <priority>0.8</priority>
   </url>
+
+  <url>
+    <loc>https://davishkar.github.io/My-Services-Page/pages/feedback.html</loc>
+    <lastmod>2025-06-05</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://davishkar.github.io/My-Services-Page/pages/legalpage.html</loc>
+    <lastmod>2025-06-05</lastmod>
+    <priority>0.8</priority>
+  </url>
+<url>
+  <loc>https://davishkar.github.io/My-Services-Page/</loc>
+  <lastmod>2025-06-05T02:33:09+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://davishkar.github.io/My-Services-Page/pages/resume.html</loc>
+  <lastmod>2025-06-05T02:33:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://davishkar.github.io/My-Services-Page/pages/contact.html</loc>
+  <lastmod>2025-06-05T02:33:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://davishkar.github.io/My-Services-Page/pages/Pricing.html</loc>
+  <lastmod>2025-06-05T02:33:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://davishkar.github.io/My-Services-Page/pages/feedback.html</loc>
+  <lastmod>2025-06-05T02:33:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://davishkar.github.io/My-Services-Page/pages/legalpage.html</loc>
+  <lastmod>2025-06-05T02:33:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
 
 </urlset>
 <!-- End of sitemap.xml -->
