@@ -1,0 +1,250 @@
+/* Modern XML Sitemap Styling */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+urlset {
+    display: block;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Main header */
+urlset::before {
+    content: "🗺️ Website Sitemap";
+    display: block;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 15px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.5px;
+}
+
+urlset::after {
+    content: "Navigate through all available pages on this website";
+    display: block;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/* URL containers */
+url {
+    display: block;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    margin-bottom: 24px;
+    padding: 28px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+url::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #00d4ff, #090979);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+url:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+url:hover::before {
+    opacity: 1;
+}
+
+/* Priority-based styling */
+url:has(priority:contains("1.00")) {
+    background: rgba(255, 215, 0, 0.15);
+    border-color: rgba(255, 215, 0, 0.4);
+}
+
+url:has(priority:contains("1.00"))::before {
+    background: linear-gradient(90deg, #ffd700, #ffb347);
+}
+
+/* URL styling */
+loc {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 16px;
+    word-break: break-all;
+    line-height: 1.4;
+    text-decoration: none;
+    position: relative;
+}
+
+loc::before {
+    content: "🔗";
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+/* Metadata container */
+lastmod, priority {
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 8px;
+}
+
+/* Last modified styling */
+lastmod {
+    background: rgba(74, 144, 226, 0.2);
+    color: #90cdf4;
+    padding: 8px 14px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(74, 144, 226, 0.3);
+}
+
+lastmod::before {
+    content: "📅 ";
+    margin-right: 4px;
+}
+
+/* Priority styling */
+priority {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(238, 90, 36, 0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+priority::before {
+    content: "⭐ ";
+    margin-right: 4px;
+}
+
+/* High priority special styling */
+priority:contains("1.00") {
+    background: linear-gradient(135deg, #ffd700, #ffb347);
+    color: #8b4513;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    urlset {
+        padding: 30px 15px;
+    }
+    
+    urlset::before {
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+    }
+    
+    urlset::after {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    
+    url {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    loc {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+    
+    lastmod, priority {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 8px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    urlset::before {
+        font-size: 1.8rem;
+    }
+    
+    url {
+        padding: 16px;
+    }
+    
+    loc {
+        font-size: 1rem;
+    }
+    
+    lastmod, priority {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}
+
+/* Animation effects */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+url {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+url:nth-child(1) { animation-delay: 0.1s; }
+url:nth-child(2) { animation-delay: 0.2s; }
+url:nth-child(3) { animation-delay: 0.3s; }
+url:nth-child(4) { animation-delay: 0.4s; }
+url:nth-child(5) { animation-delay: 0.5s; }
+url:nth-child(6) { animation-delay: 0.6s; }
+url:nth-child(7) { animation-delay: 0.7s; }
+
+/* Scroll indicator */
+urlset::after {
+    position: relative;
+}
+
+/* Enhanced visual effects */
+url:hover loc {
+    color: #90cdf4;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Loading state */
+urlset {
+    opacity: 0;
+    animation: siteMapFadeIn 1s ease-out 0.3s forwards;
+}
+
+@keyframes siteMapFadeIn {
+    to {
+        opacity: 1;
+    }
+}
