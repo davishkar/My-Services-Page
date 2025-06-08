@@ -1,17 +1,15 @@
 :root {
-  --primary: #6e00ff;
-  --secondary: #a700ff;
-  --accent: #ff00e6;
-  --light: #f8f9fa;
-  --dark: #343a40;
-  --whatsapp: #25d366;
-}
-:root {
-  --primary: #6e00ff;
-  --secondary: #a700ff;
-  --accent: #ff5500;
-  --light: #f8f9fa;
-  --dark: #212529;
+   --primary: #0077b6;         /* Clean tech blue */
+  --primary-light: #00b4d8;   /* Bright cyan/teal highlight */
+  --primary-dark: #023e8a;    /* Deep navy for text/shadows */
+
+  --secondary: #03045e;       /* Very dark blue, nearly black */
+  --accent: #48cae4;          /* Lighter vibrant blue for buttons or hover */
+  
+  --light: #f1f5f9;           /* Light gray background */
+  --dark: #0b0c10;            /* Deep neutral dark tone for contrast */
+  
+  --whatsapp: #25d366;  
 }
 
 * {

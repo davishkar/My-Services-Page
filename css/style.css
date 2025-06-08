@@ -1,17 +1,21 @@
 /* Global Variables */
 :root {
-  --primary: #6e00ff;
-  --primary-light: #9847ff;
-  --primary-dark: #5200bf;
-  --secondary: #a700ff;
-  --accent: #ff5500;
-  --accent-light: #ff7733;
-  --twitter: #1e90ff;
-  --instagram: #ff00ff;
-  --github: #333333;
-  --facebook: #4267b2;
-  --light: #f8f9fa;
-  --dark: #212529;
+  --primary: #0d6efd;         /* Blue 600 – strong base */
+  --primary-light: #3ea6ff;   /* Light cyan-blue for highlights */
+  --primary-dark: #003566;    /* Deep navy blue for dark elements */
+  
+  --secondary: #00b4d8;       /* Teal/aqua for modern accents */
+  --accent: #38bdf8;          /* Sky blue for interactive UI elements */
+  --accent-light: #90e0ef;    /* Pale aqua for backgrounds/hover */
+  
+  --twitter: #1da1f2;         /* Default brand blue */
+  --instagram: #e1306c;       /* More fitting with tech-themed brand */
+  --github: #24292e;          /* GitHub standard */
+  --facebook: #1877f2;        /* Facebook brand color */
+  
+  --light: #f1f5f9;           /* Soft gray-white for clean UI */
+  --dark: #0f172a;            /* Charcoal blue for deep backgrounds */
+
   --font-primary: "Josefin Sans", sans-serif;
   --font-secondary: "Josefin Sans", sans-serif;
   --font-tertiary: "Protest Guerrilla", sans-serif;

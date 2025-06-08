@@ -1,13 +1,15 @@
 :root {
-  --primary: #6e00ff;
-  --secondary: #a700ff;
-  --accent: #ff5500;
-  --twitter: #1e90ff;
-  --instagram: #ff00ff;
-  --github: #333333;
-  --facebook: #4267B2;
-  --light: #f8f9fa;
-  --dark: #212529;
+   --primary: #0077b6;         /* Modern tech blue */
+  --secondary: #00b4d8;       /* Aqua/teal accent */
+  --accent: #48cae4;          /* Light sky blue for hovers/CTAs */
+  
+  --twitter: #1da1f2;         /* Twitter brand blue */
+  --instagram: #e1306c;       /* Instagram gradient pink base */
+  --github: #24292e;          /* GitHub black */
+  --facebook: #1877f2;        /* Facebook brand blue */
+  
+  --light: #f1f5f9;           /* Soft white-gray background */
+  --dark: #0b0c10;            /* Deep black-blue for contrast */
 }
 
 * {
