@@ -2,212 +2,183 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Avishkar Digital Studio - Feedback Form</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  <link rel="stylesheet" href="../css/feedback.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avishkar Digital Studio - Feedback Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="../css/feedback.css">
 
- <!-- Favicon -->
-<link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
-<link rel="icon" href="../favicon_io/favicon.ico" type="image/x-icon">
-<link rel="manifest" href="../favicon_io/site.webmanifest">
-<link rel="icon" type="image/png" sizes="192x192" href="../favicon_io/android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="../favicon_io/android-chrome-512x512.png">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
+    <link rel="icon" href="../favicon_io/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="../favicon_io/site.webmanifest">
+    <link rel="icon" type="image/png" sizes="192x192" href="../favicon_io/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../favicon_io/android-chrome-512x512.png">
 
 </head>
 
 <body>
 
 
-  <div class="bg">
-    <div class="container-wrapper">
-      <div class="container">
-        <div class="logo">
-          <i class="fas fa-comment-dots"></i>
-          <h1>Avishkar Digital Studio</h1>
-        </div>
-        <!-- Breadcrumbs -->
-        <nav class="breadcrumbs">
-          <a href="../index.html">Home</a>
-          <a href="#">Feedback</a>
-        </nav>
+    <div class="bg">
+        <div class="container-wrapper">
+            <div class="container">
+                <div class="logo">
+                    <i class="fas fa-comment-dots"></i>
+                    <h1>Avishkar Digital Studio</h1>
+                </div>
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs">
+                    <a href="../index.html">Home</a>
+                    <a href="#">Feedback</a>
+                </nav>
 
-        <div class="card">
-            <div class="card-header">
-                <h2><i class="fas fa-comments"></i> Support & Feedback Form</h2>
-                <p>We're here to help! Please provide detailed information about your issue or feedback to help us assist you better and improve our programme.</p>
-            </div>
-
-            <div class="card-body">
-                <form id="feedbackForm" action="https://formspree.io/f/mzzeydqn" method="POST" enctype="multipart/form-data">
-                    
-                    <div class="form-section">
-                        <h3><i class="fas fa-user"></i> Contact Information</h3>
-                        
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name" required>
-                            <i class="fas fa-user form-icon"></i>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
-                            <i class="fas fa-envelope form-icon"></i>
-                        </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-comments"></i> Support & Feedback Form</h2>
+                        <p>We're here to help! Please provide detailed information about your issue or feedback to help
+                            us assist you better and improve our services.</p>
                     </div>
 
-                    <div class="form-section">
-                        <h3><i class="fas fa-tags"></i> Issue Category</h3>
-                        
-                        <div class="form-group">
-                            <label for="category">Select an area *</label>
-                            <select id="category" name="category" class="form-control" required>
-                                <option value="" disabled selected>Choose the area that best describes your issue</option>
-                                <option value="general-feedback">General Feedback</option>
-                                <option value="points-streak">Points/Streak Issue</option>
-                                <option value="account-issues">Issues with my account</option>
-                                <option value="technical-support">Technical Support</option>
-                                <option value="programme-content">Programme Content</option>
-                                <option value="other">Other</option>
-                            </select>
-                            <i class="fas fa-list form-icon"></i>
-                        </div>
-                    </div>
+                    <div class="card-body">
+                        <form id="feedbackForm" action="https://formspree.io/f/mzzeydqn" method="POST">
 
-                    <div class="form-section">
-                        <h3><i class="fas fa-edit"></i> Details</h3>
-                        
-                        <div class="form-group">
-                            <label for="feedback">Detailed Description *</label>
-                            <textarea id="feedback" name="feedback" class="form-control" placeholder="Please provide as many details as you can. Your feedback will be used to improve the programme and to help you find more information. Include steps to reproduce the issue, error messages, or specific suggestions." required></textarea>
-                            <i class="fas fa-comment form-icon"></i>
-                            <div class="help-text">
-                                Be as specific as possible. Include what you were trying to do, what happened, and what you expected to happen.
-                            </div>
-                        </div>
+                            <div class="form-section">
+                                <h3><i class="fas fa-user"></i> Contact Information</h3>
 
-                        <div class="form-group">
-                            <label for="screenshot">Upload Screenshot (Optional)</label>
-                            <div class="file-upload-wrapper">
-                                <input type="file" id="screenshot" name="screenshot" class="file-upload" accept="image/*,.pdf,.doc,.docx">
-                                <label for="screenshot" class="file-upload-label">
-                                    <i class="fas fa-cloud-upload-alt"></i>
-                                    <span>Click to upload screenshot or document</span>
-                                </label>
-                                <div class="file-info" id="fileInfo">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span id="fileName"></span>
+                                <div class="form-group">
+                                    <label for="name">Full Name *</label>
+                                    <input type="text" id="name" name="name" class="form-control"
+                                        placeholder="Enter your full name" required>
+                                    <i class="fas fa-user form-icon"></i>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" class="form-control"
+                                        placeholder="Enter your email address" required>
+                                    <i class="fas fa-envelope form-icon"></i>
                                 </div>
                             </div>
-                            <div class="help-text">
-                                Screenshots help us understand your issue better. Accepted formats: JPG, PNG, GIF, PDF, DOC, DOCX (Max 10MB)
+
+                            <div class="form-section">
+                                <h3><i class="fas fa-tags"></i> Issue Category</h3>
+
+                                <div class="form-group">
+                                    <label for="category">Select an area *</label>
+                                    <select id="category" name="category" class="form-control" required>
+                                        <option value="" disabled selected>Choose the area that best describes your
+                                            issue</option>
+                                        <option value="general-feedback">General Feedback</option>
+                                        <option value="website-issue">Issue with Website You Built</option>
+                                        <option value="design-request">Request/Edit in Poster/Logo Design</option>
+                                        <option value="form-not-working">Form Not Working on My Website</option>
+                                        <option value="payment-integration">Payment/Contact Form Integration Issue
+                                        </option>
+                                        <option value="seo-performance">Website Speed/SEO Related Issue</option>
+                                        <option value="domain-hosting">Domain or Hosting Related Query</option>
+                                        <option value="customization-request">Need Customization or Update</option>
+                                        <option value="bug-report">Bug or Error Report</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <i class="fas fa-list form-icon"></i>
+                                </div>
                             </div>
+
+                            <div class="form-section">
+                                <h3><i class="fas fa-edit"></i> Details</h3>
+
+                                <div class="form-group">
+                                    <label for="feedback">Detailed Description *</label>
+                                    <textarea id="feedback" name="feedback" class="form-control"
+                                        placeholder="Please provide as many details as possible. Include error messages, expectations, and suggestions."
+                                        required></textarea>
+                                    <i class="fas fa-comment form-icon"></i>
+                                    <div class="help-text">
+                                        Be as specific as possible. Include what you were trying to do, what happened,
+                                        and what you expected.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn">
+                                    <i class="fas fa-paper-plane"></i>
+                                    <span>Submit Support Request</span>
+                                </button>
+                            </div>
+                        </form>
+
+                        <div class="success-message" id="successMessage">
+                            <div class="success-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h3>Thank You!</h3>
+                            <p>Your support request has been submitted successfully. We'll get back to you as soon as
+                                possible.</p>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <button type="submit" class="btn">
-                            <i class="fas fa-paper-plane"></i>
-                            <span>Submit Support Request</span>
-                        </button>
+                    <div class="footer">
+                        <p>Need immediate help? Contact us at <a
+                                href="mailto:support@example.com">support@example.com</a></p>
                     </div>
-                </form>
+                </div>
 
-                <div class="success-message" id="successMessage">
-                    <div class="success-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h3>Thank You!</h3>
-                    <p>Your support request has been submitted successfully. We'll get back to you as soon as possible.</p>
+                <script>
+                    // Form submission animation
+                    document.getElementById('feedbackForm').addEventListener('submit', function (e) {
+                        const submitBtn = document.querySelector('.btn');
+                        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Submitting...</span>';
+                        submitBtn.disabled = true;
+                    });
+
+                    // Input animation
+                    document.querySelectorAll('.form-control').forEach(input => {
+                        input.addEventListener('focus', function () {
+                            this.parentElement.classList.add('focused');
+                        });
+                        input.addEventListener('blur', function () {
+                            this.parentElement.classList.remove('focused');
+                        });
+                    });
+                </script>
+
+
+                <div class="footer">
+                    &copy; 2025 Avishkar Digital Studio
                 </div>
             </div>
         </div>
-
-        <div class="footer">
-            <p>Need immediate help? Contact us at <a href="mailto:dev.avishkar@gmail.com">dev.avishkar@gmail.com</a></p>
-        </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        // File upload handling
-        document.getElementById('screenshot').addEventListener('change', function(e) {
-            const fileInfo = document.getElementById('fileInfo');
-            const fileName = document.getElementById('fileName');
-            
-            if (e.target.files.length > 0) {
-                const file = e.target.files[0];
-                fileName.textContent = file.name + ' (' + Math.round(file.size / 1024) + ' KB)';
-                fileInfo.style.display = 'block';
-            } else {
-                fileInfo.style.display = 'none';
-            }
-        });
-
-        // Form submission handling
-        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show loading state
-            const submitBtn = document.querySelector('.btn');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Submitting...</span>';
-            submitBtn.disabled = true;
-            
-            // Simulate form submission (replace with actual form submission)
-            setTimeout(() => {
-                document.getElementById('feedbackForm').style.display = 'none';
-                document.getElementById('successMessage').style.display = 'block';
-            }, 2000);
-        });
-
-        // Form animations
-        document.querySelectorAll('.form-control').forEach(input => {
-            input.addEventListener('focus', function() {
-                this.parentElement.classList.add('focused');
+        $(document).ready(function () {
+            // Input field pulse animation
+            $('.form-control').focus(function () {
+                $(this).parent().addClass('animate__animated animate__pulse');
+            }).blur(function () {
+                $(this).parent().removeClass('animate__animated animate__pulse');
             });
-            
-            input.addEventListener('blur', function() {
-                this.parentElement.classList.remove('focused');
+
+            // Subtle input field scale
+            $('.form-control').on('focus', function () {
+                $(this).css('transform', 'scale(1.02)');
+            }).on('blur', function () {
+                $(this).css('transform', 'scale(1)');
+            });
+
+            // Let the form submit naturally to Formspree
+            $('#feedbackForm').submit(function (e) {
+                // Allow default submission
+                return true;
             });
         });
     </script>
-
-        <div class="footer">
-          &copy; 2025 Avishkar Digital Studio
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      // Input field pulse animation
-      $('.form-control').focus(function () {
-        $(this).parent().addClass('animate__animated animate__pulse');
-      }).blur(function () {
-        $(this).parent().removeClass('animate__animated animate__pulse');
-      });
-
-      // Subtle input field scale
-      $('.form-control').on('focus', function () {
-        $(this).css('transform', 'scale(1.02)');
-      }).on('blur', function () {
-        $(this).css('transform', 'scale(1)');
-      });
-
-      // Let the form submit naturally to Formspree
-      $('#feedbackForm').submit(function (e) {
-        // Allow default submission
-        return true;
-      });
-    });
-  </script>
 
 </body>
 
