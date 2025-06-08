@@ -1,6 +1,6 @@
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    
+
     // Initialize AOS if it exists
     if (typeof AOS !== 'undefined') {
         AOS.init({
@@ -27,11 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close menu when clicking on a nav link (mobile)
     const navLinks = document.querySelectorAll('.navbar a:not(.icon)');
     const navbar = document.getElementById("myNavbar");
-    
+
     if (navbar && navLinks.length > 0) {
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                // Close mobile menu when a link is clicked
                 if (window.innerWidth <= 768) {
                     navbar.classList.remove("responsive");
                 }
@@ -93,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 icon.style.transform = 'scale(1.2)';
             }
         });
-        
+
         service.addEventListener('mouseleave', () => {
             service.style.transform = 'translateY(0)';
             const icon = service.querySelector('i');
@@ -103,10 +102,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Smooth Scroll for Anchor Links
+    // ✅ Fixed Smooth Scroll for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            const target = document.querySelector(this.getAttribute('href'));
+            const href = this.getAttribute('href');
+            if (href === '#' || href.length < 2) {
+                e.preventDefault();
+                return;
+            }
+
+            const target = document.querySelector(href);
             if (target) {
                 e.preventDefault();
                 target.scrollIntoView({
@@ -123,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
             button.style.transform = 'translateY(-3px)';
             button.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.3)';
         });
-        
+
         button.addEventListener('mouseleave', () => {
             button.style.transform = 'translateY(0)';
             button.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
@@ -150,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 content.style.transform = 'translateY(0)';
             }
         });
-        
+
         dropdown.addEventListener('mouseleave', () => {
             const content = dropdown.querySelector('.dropdown-content');
             if (content) {
@@ -163,29 +168,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Responsive Navigation
+    // Responsive Navigation Flex Direction
     const mediaQuery = window.matchMedia('(max-width: 768px)');
     function handleTabletChange(e) {
         const actions = document.querySelector('.actions');
         if (actions) {
-            if (e.matches) {
-                // Mobile-specific code
-                actions.style.flexDirection = 'column';
-            } else {
-                // Desktop-specific code
-                actions.style.flexDirection = 'row';
-            }
+            actions.style.flexDirection = e.matches ? 'column' : 'row';
         }
     }
     mediaQuery.addListener(handleTabletChange);
     handleTabletChange(mediaQuery);
 
-    // Add scroll reveal animations for elements with data-aos
+    // Scroll reveal animations for elements with data-aos
     const scrollElements = document.querySelectorAll('[data-aos]');
     scrollElements.forEach(element => {
         element.style.opacity = '0';
         element.style.transform = 'translateY(20px)';
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -196,65 +195,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
-        
+
         observer.observe(element);
     });
 
-    // Add hover effect to profile image
+    // Profile image hover effect
     const profileImg = document.querySelector('.profile-img');
     if (profileImg) {
         profileImg.addEventListener('mouseenter', () => {
             profileImg.style.transform = 'scale(1.05) rotate(5deg)';
         });
-        
+
         profileImg.addEventListener('mouseleave', () => {
             profileImg.style.transform = 'scale(1) rotate(0)';
         });
     }
 
-    // Add typing effect to headings (optional - can be performance intensive)
-    // const headings = document.querySelectorAll('h1, h2');
-    // headings.forEach(heading => {
-    //     const text = heading.textContent;
-    //     if (text.trim()) {
-    //         heading.textContent = '';
-            
-    //         let i = 0;
-    //         const typeWriter = () => {
-    //             if (i < text.length) {
-    //                 heading.textContent += text.charAt(i);
-    //                 i++;
-    //                 setTimeout(typeWriter, 100);
-    //             }
-    //         };
-            
-    //         const observer = new IntersectionObserver((entries) => {
-    //             entries.forEach(entry => {
-    //                 if (entry.isIntersecting) {
-    //                     typeWriter();
-    //                     observer.unobserve(entry.target);
-    //                 }
-    //             });
-    //         });
-            
-    //         observer.observe(heading);
-    //     }
-    // });
-
 });
 
-// Image Modal Functionality (Global functions)
+// Image Modal Functionality
 window.myFunction = function(imgs) {
     const modal = document.getElementById("imgModal");
     const expandedImg = document.getElementById("expandedImg");
     const imgText = document.getElementById("imgtext");
-    
+
     if (modal && expandedImg && imgText) {
         modal.style.display = "flex";
         expandedImg.src = imgs.src;
         imgText.innerHTML = imgs.alt;
-        
-        // Add animation class
+
         setTimeout(() => {
             expandedImg.classList.add('modal-zoom-in');
         }, 10);
@@ -264,11 +233,11 @@ window.myFunction = function(imgs) {
 window.closeModal = function() {
     const modal = document.getElementById("imgModal");
     const expandedImg = document.getElementById("expandedImg");
-    
+
     if (modal && expandedImg) {
         expandedImg.classList.remove('modal-zoom-in');
         expandedImg.classList.add('modal-zoom-out');
-        
+
         setTimeout(() => {
             modal.style.display = "none";
             expandedImg.classList.remove('modal-zoom-out');
@@ -276,7 +245,6 @@ window.closeModal = function() {
     }
 };
 
-// Close modal when clicking outside the image
 window.addEventListener('click', (event) => {
     const modal = document.getElementById("imgModal");
     if (modal && event.target === modal) {
