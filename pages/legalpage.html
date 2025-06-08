@@ -1,279 +1,606 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Legal Information - Avishkar Digital Studio</title>
- <!-- Favicon -->
-<link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
-<link rel="icon" href="../favicon_io/favicon.ico" type="image/x-icon">
-<link rel="manifest" href="../favicon_io/site.webmanifest">
-<link rel="icon" type="image/png" sizes="192x192" href="../favicon_io/android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="../favicon_io/android-chrome-512x512.png">
-
+  <title>Avishkar Services - Legal Information</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-:root {
-  --primary: #6e00ff;
-  --primary-light: #9847ff;
-  --primary-dark: #5200bf;
-  --secondary: #a700ff;
-  --accent: #ff5500;
-  --accent-light: #ff7733;
-  --twitter: #1e90ff;
-  --instagram: #ff00ff;
-  --github: #333333;
-  --facebook: #4267B2;
-  --light: #f8f9fa;
-  --dark: #212529;
-  --font-primary: "Josefin Sans", sans-serif;
-  --font-secondary: "Josefin Sans", sans-serif;
-  --font-tertiary: 'Protest Guerrilla', sans-serif;
-  --font-quaternary: 'Black Ops One', system-ui;
-  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
-  --shadow-lg: 0 10px 20px rgba(0,0,0,0.1);
-  --transition-fast: all 0.2s ease;
-  --transition-normal: all 0.3s ease;
-  --transition-slow: all 0.5s ease;
-}
+    :root {
+      --primary: #6e00ff;
+      --primary-light: #8a2be2;
+      --accent: #1e90ff;
+      --accent-orange: #ff5500;
+      --background: #f9f9fb;
+      --card-bg: #ffffff;
+      --text-primary: #212529;
+      --text-secondary: #6c757d;
+      --border: #e0e0e0;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+      --border-radius: 12px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-* {
-  box-sizing: border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  background: linear-gradient(135deg, var(--light) 0%, #e8f4f8 100%);
-  color: var(--dark);
-  font-family: var(--font-primary);
-  line-height: 1.7;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-}
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--background);
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-.bg {
-  min-height: 100vh;
-  padding: 2rem 0;
-}
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: white;
+      padding: 2rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
 
-.container-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
 
-.logo {
-  text-align: center;
-  margin-bottom: 2rem;
-}
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
 
-.logo i {
-  font-size: 3rem;
-  color: var(--primary);
-  margin-bottom: 1rem;
-  display: block;
-}
+    .logo-icon {
+      font-size: 2.5rem;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.8rem;
+      border-radius: 50%;
+      backdrop-filter: blur(10px);
+    }
 
-.logo h1 {
-  font-family: var(--font-quaternary);
-  color: var(--primary-dark);
-  font-size: 2.5rem;
-  margin: 0;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-}
+    .logo-text h1 {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-bottom: 0.2rem;
+    }
 
-.breadcrumbs {
-  text-align: center;
-  margin-bottom: 3rem;
-  padding: 1rem;
-  background: rgba(255,255,255,0.7);
-  border-radius: 10px;
-  backdrop-filter: blur(10px);
-}
+    .logo-text p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
 
-.breadcrumbs a {
-  color: var(--primary);
-  text-decoration: none;
-  margin: 0 0.5rem;
-  font-weight: 600;
-  transition: var(--transition-fast);
-}
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
 
-.breadcrumbs a:hover {
-  color: var(--accent);
-}
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      transition: var(--transition);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
 
-.breadcrumbs a::after {
-  content: " / ";
-  color: var(--dark);
-  margin-left: 0.5rem;
-}
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
 
-.breadcrumbs a:last-child::after {
-  content: "";
-}
+    /* Hero Section */
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-quaternary);
-  color: var(--primary-dark);
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
+    .hero-content {
+      background: var(--card-bg);
+      padding: 3rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
 
-h1 {
-  font-size: 2.2rem;
-  border-bottom: 3px solid var(--primary);
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
-}
+    .hero-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent), var(--accent-orange));
+    }
 
-h2 {
-  font-size: 1.8rem;
-  color: var(--primary);
-  margin-top: 2.5rem;
-}
+    .hero-icon {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
 
-h3 {
-  font-size: 1.4rem;
-  color: var(--secondary);
-}
+    .hero h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-p, li {
-  font-family: var(--font-primary);
-  color: var(--dark);
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-}
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
 
-ul, ol {
-  margin-left: 2rem;
-  margin-bottom: 1.5rem;
-}
+    /* Main Content */
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
 
-li {
-  margin-bottom: 0.5rem;
-  padding-left: 0.5rem;
-}
+    /* Tab Navigation */
+    .tab-nav {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      background: var(--card-bg);
+      padding: 0.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      overflow-x: auto;
+    }
 
-a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: var(--transition-fast);
-  font-weight: 600;
-}
+    .tab-btn {
+      flex: 1;
+      min-width: 200px;
+      padding: 1rem 1.5rem;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-weight: 500;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
 
-a:hover {
-  color: var(--accent-light);
-  text-decoration: underline;
-}
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      box-shadow: 0 4px 15px rgba(110, 0, 255, 0.3);
+    }
 
-.card {
-  background: rgba(255,255,255,0.95);
-  padding: 3rem;
-  border-radius: 15px;
-  box-shadow: var(--shadow-lg);
-  margin-bottom: 3rem;
-  transition: var(--transition-slow);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.2);
-}
+    .tab-btn:hover:not(.active) {
+      background: rgba(110, 0, 255, 0.1);
+      color: var(--primary);
+    }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-}
+    /* Tab Content */
+    .tab-content {
+      display: none;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      animation: fadeIn 0.5s ease-in-out;
+    }
 
-.effective-date {
-  background: var(--primary);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  display: inline-block;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  font-size: 0.9rem;
-}
+    .tab-content.active {
+      display: block;
+    }
 
-.contact-info {
-  background: linear-gradient(135deg, var(--primary-light), var(--secondary));
-  color: white;
-  padding: 1.5rem;
-  border-radius: 10px;
-  margin: 2rem 0;
-  text-align: center;
-}
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
 
-.contact-info strong {
-  font-size: 1.2rem;
-}
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-.highlight-box {
-  background: linear-gradient(135deg, #fff3e0, #ffeaa7);
-  border-left: 5px solid var(--accent);
-  padding: 1.5rem;
-  margin: 2rem 0;
-  border-radius: 0 10px 10px 0;
-}
+    .tab-inner {
+      padding: 3rem;
+    }
 
-.legal-section {
-  margin-bottom: 4rem;
-}
+    /* Typography */
+    .section-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
 
-footer {
-  background: linear-gradient(135deg, var(--dark), #ffffff);
-  color: white;
-  text-align: center;
-  padding: 2rem;
-  font-size: 0.9rem;
-  margin-top: 4rem;
-  border-radius: 15px 15px 0 0;
-}
+    .section-title i {
+      font-size: 1.8rem;
+    }
 
-@media (max-width: 768px) {
-  .container-wrapper {
-    padding: 0 1rem;
-  }
-  
-  .card {
-    padding: 2rem;
-  }
-  
-  h1 {
-    font-size: 1.8rem;
-  }
-  
-  h2 {
-    font-size: 1.5rem;
-  }
-}
-</style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    .subsection-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 2rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .effective-date {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 25px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    ul,
+    ol {
+      margin: 1rem 0 1.5rem 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    li {
+      margin-bottom: 0.8rem;
+      padding-left: 1.5rem;
+      position: relative;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    ul li::before {
+      content: '▶';
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+      font-size: 0.8rem;
+    }
+
+    /* Highlight Boxes */
+    .highlight-box {
+      background: linear-gradient(135deg, #fff9e6, #ffeaa7);
+      border-left: 4px solid var(--accent-orange);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      position: relative;
+    }
+
+    .highlight-box::before {
+      content: '⚠️';
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .warning-box {
+      background: linear-gradient(135deg, #ffe6e6, #ffcccc);
+      border-left: 4px solid #dc3545;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    }
+
+    .info-box {
+      background: linear-gradient(135deg, #e6f3ff, #cce7ff);
+      border-left: 4px solid var(--accent);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    }
+
+    /* Contact CTA */
+    .contact-cta {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      text-align: center;
+      margin: 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-cta::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.7;
+      }
+
+      50% {
+        transform: scale(1.1);
+        opacity: 0.3;
+      }
+    }
+
+    .contact-cta h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-cta p {
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      z-index: 1;
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-email:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+      color: white;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--text-primary);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      text-align: center;
+    }
+
+    .footer-nav {
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-nav a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      margin: 0 1rem;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .footer-nav a:hover {
+      color: white;
+    }
+
+    .footer p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero-content {
+        padding: 2rem;
+      }
+
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+
+      .tab-nav {
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+
+      .tab-btn {
+        min-width: unset;
+      }
+
+      .tab-inner {
+        padding: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
+
+      .main-content {
+        padding: 0 1rem 4rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 2rem 1rem;
+      }
+
+      .tab-inner {
+        padding: 1.5rem;
+      }
+
+      .contact-cta {
+        padding: 1.5rem;
+      }
+    }
+
+    /* Accessibility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Focus styles */
+    .tab-btn:focus,
+    .contact-email:focus,
+    .nav-links a:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+  </style>
 </head>
+
 <body>
-  <div class="bg">
-    <div class="container-wrapper">
-      <div class="logo">
-        <i class="fas fa-shield-alt"></i>
-        <h1>Avishkar Services - Legal Information</h1>
+  <!-- Header -->
+  <!-- <header class="header" role="banner">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Avishkar Services</h1>
+                    <p>Legal Information</p>
+                </div>
+            </div>
+            <nav role="navigation" aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="#privacy" onclick="showTab('privacy')">Privacy Policy</a></li>
+                    <li><a href="#terms" onclick="showTab('terms')">Terms & Conditions</a></li>
+                    <li><a href="#disclaimer" onclick="showTab('disclaimer')">Disclaimer</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header> -->
+
+  <!-- Hero Section -->
+  <section class="hero" role="banner">
+    <div class="hero-content">
+      <div class="hero-icon">
+        <i class="fas fa-balance-scale" aria-hidden="true"></i>
       </div>
-      
-      <!-- Breadcrumbs -->
-      <nav class="breadcrumbs">
-        <a href="../index.html">Home</a>
-        <a href="legalpage.html">Legal Pages</a>
-      </nav>
+      <h2>Legal Information & Policies</h2>
+      <p>Transparency and trust are fundamental to our service. Review our comprehensive legal policies to understand
+        how we protect your rights and data while delivering exceptional digital solutions.</p>
+    </div>
+  </section>
 
-      <div class="card legal-section">
-        <h1><i class="fas fa-user-shield"></i> Privacy Policy</h1>
+  <!-- Main Content -->
+  <main class="main-content" role="main">
+    <!-- Tab Navigation -->
+    <div class="tab-nav" role="tablist" aria-label="Legal information sections">
+      <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="privacy-panel" id="privacy-tab"
+        onclick="showTab('privacy')">
+        <i class="fas fa-user-shield" aria-hidden="true"></i>
+        <span>Privacy Policy</span>
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="terms-panel" id="terms-tab"
+        onclick="showTab('terms')">
+        <i class="fas fa-file-contract" aria-hidden="true"></i>
+        <span>Terms & Conditions</span>
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="disclaimer-panel" id="disclaimer-tab"
+        onclick="showTab('disclaimer')">
+        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+        <span>Disclaimer</span>
+      </button>
+    </div>
+
+    <!-- Privacy Policy Tab -->
+    <div class="tab-content active" id="privacy-panel" role="tabpanel" aria-labelledby="privacy-tab">
+      <div class="tab-inner">
+        <h2 class="section-title">
+          <i class="fas fa-user-shield" aria-hidden="true"></i>
+          Privacy Policy
+        </h2>
         <div class="effective-date">Effective Date: January 1, 2025</div>
-        
-        <p>At <strong>Avishkar Digital Studio</strong>, we respect your privacy. This policy explains how we collect, use, and protect your information when you use our website or services.</p>
 
-        <h2>1. Information We Collect</h2>
-        
-        <h3>Personal Information</h3>
+        <p>At <strong>Avishkar Digital Studio</strong>, we respect your privacy. This policy explains how we collect,
+          use, and protect your information when you use our website or services.</p>
+
+        <h3 class="subsection-title">1. Information We Collect</h3>
+
+        <h4>Personal Information</h4>
         <p>We may collect the information you voluntarily provide when you:</p>
         <ul>
           <li>Fill out contact or service request forms</li>
@@ -281,7 +608,7 @@ footer {
           <li>Communicate with us via email or phone</li>
           <li>Provide feedback or testimonials</li>
         </ul>
-        
+
         <p>This may include your:</p>
         <ul>
           <li>Name, email address, and phone number</li>
@@ -290,7 +617,7 @@ footer {
           <li>Any other information you choose to share</li>
         </ul>
 
-        <h3>Automatically Collected Information</h3>
+        <h4>Automatically Collected Information</h4>
         <p>When you visit our site, we may collect technical details like:</p>
         <ul>
           <li>IP address and location</li>
@@ -299,7 +626,7 @@ footer {
           <li>Referring website</li>
         </ul>
 
-        <h2>2. How We Use Your Information</h2>
+        <h3 class="subsection-title">2. How We Use Your Information</h3>
         <p>Your data helps us to:</p>
         <ul>
           <li>Deliver and improve our services</li>
@@ -309,160 +636,453 @@ footer {
           <li>Protect against fraud and security risks</li>
         </ul>
 
-        <h2>3. Third-Party Services</h2>
+        <h3 class="subsection-title">3. Third-Party Services</h3>
         <p>We use trusted third parties for:</p>
         <ul>
-          <li>Form processing (Formspree) — <a href="https://formspree.io/legal/privacy-policy/" target="_blank">Privacy Policy</a></li>
-          <li>Website analytics (e.g., Google Analytics)</li>
-          <li>Email marketing and hosting services</li>
+          <li><strong>Form Processing:</strong> Formspree — <a href="https://formspree.io/legal/privacy-policy/"
+              target="_blank" rel="noopener">Privacy Policy</a></li>
+          <li><strong>Website Analytics:</strong> e.g., Google Analytics</li>
+          <li><strong>Email Marketing and Hosting Services</strong></li>
         </ul>
 
-        <h2>4. Data Security & Retention</h2>
-        <p>We implement security measures to protect your information, though no system is perfectly secure. We keep your data only as long as necessary.</p>
+        <h3 class="subsection-title">4. Data Security & Retention</h3>
+        <p>We implement security measures to protect your information, though no system is perfectly secure. We keep
+          your data only as long as necessary.</p>
 
-        <h2>5. Your Rights</h2>
+        <h3 class="subsection-title">5. Your Rights</h3>
         <p>Depending on your location, you can:</p>
         <ul>
           <li>Access, correct, or delete your data</li>
           <li>Object to or restrict processing</li>
         </ul>
-        <p>Contact us at <strong>dev.avishkar@gmail.com</strong> to exercise your rights.</p>
+        <p>Contact us at <a href="mailto:dev.avishkar@gmail.com">dev.avishkar@gmail.com</a> to exercise your rights.</p>
 
-        <h2>6. International Transfers</h2>
+        <h3 class="subsection-title">6. International Transfers</h3>
         <p>Data may be processed outside your country with appropriate protections.</p>
 
-        <h2>7. Updates</h2>
+        <h3 class="subsection-title">7. Updates</h3>
         <p>We may update this policy. Changes will be posted here.</p>
-
-        <div class="contact-info">
-          <strong>Questions?</strong><br>
-          <a href="mailto:dev.avishkar@gmail.com" style="color: white;">dev.avishkar@gmail.com</a>
-        </div>
       </div>
+    </div>
 
-      <div class="card legal-section">
-        <h1><i class="fas fa-file-contract"></i> Terms and Conditions</h1>
+    <!-- Terms & Conditions Tab -->
+    <div class="tab-content" id="terms-panel" role="tabpanel" aria-labelledby="terms-tab">
+      <div class="tab-inner">
+        <h2 class="section-title">
+          <i class="fas fa-file-contract" aria-hidden="true"></i>
+          Terms & Conditions
+        </h2>
         <div class="effective-date">Effective Date: January 1, 2025</div>
 
-        <p>Welcome to <strong>Avishkar Digital Studio</strong>. By using our website and services, you agree to the following terms:</p>
+        <p>Welcome to <strong>Avishkar Digital Studio</strong>. By using our website and services, you agree to the
+          following terms:</p>
 
-        <h2>1. Acceptance</h2>
-        <p>Using our site means you accept these Terms. If you disagree, please do not use our services.</p>
-
-        <h2>2. Services</h2>
-        <p>We offer professional services including:</p>
         <ul>
-          <li>Web and software development</li>
-          <li>Digital marketing</li>
-          <li>Business consulting</li>
-          <li>Technical support</li>
+          <li><strong>Acceptance:</strong> Using our site means you accept these Terms. If you disagree, please do not
+            use our services.</li>
+          <li><strong>Services:</strong> We offer professional services including:
+            <ul>
+              <li>Web and software development</li>
+              <li>Digital marketing</li>
+              <li>Business consulting</li>
+              <li>Technical support</li>
+            </ul>
+          </li>
+          <li><strong>User Responsibilities:</strong> You agree to:
+            <ul>
+              <li>Provide accurate info</li>
+              <li>Use services lawfully</li>
+              <li>Avoid harmful activities</li>
+              <li>Protect login credentials</li>
+              <li>Report unauthorized access</li>
+            </ul>
+          </li>
+          <li><strong>Intellectual Property:</strong> All site content is owned by us or our licensors. You may not copy
+            or use it without permission.</li>
+          <li><strong>Service Terms:</strong> Project details and terms will be defined in individual agreements.
+            Payment and cancellation terms will be specified separately.</li>
+          <li><strong>Limitation of Liability:</strong> We aren't liable for indirect damages, loss of data, or other
+            losses.</li>
+          <li><strong>Indemnification:</strong> You agree to hold us harmless from any claims arising from your use or
+            violation of these Terms.</li>
+          <li><strong>Termination:</strong> We may suspend or end your access if you violate these Terms.</li>
+          <li><strong>Governing Law:</strong> These Terms are governed by laws of [Your Jurisdiction]. Disputes will be
+            settled there.</li>
+          <li><strong>Changes:</strong> We may update these Terms with prior notice for material changes.</li>
         </ul>
 
-        <h2>3. User Responsibilities</h2>
-        <p>You agree to:</p>
+        <h3 class="subsection-title">1. Acceptance of Terms</h3>
+        <p>By using our website or services, you acknowledge that you have read, understood, and agree to these Terms
+          and Conditions. If you do not agree with any part of these terms, please discontinue use of our services
+          immediately.</p>
+
+        <h3 class="subsection-title">2. Services Overview</h3>
+        <p>Avishkar Services provides the following professional and creative digital solutions:</p>
         <ul>
-          <li>Provide accurate info</li>
-          <li>Use services lawfully</li>
-          <li>Avoid harmful activities</li>
-          <li>Protect login credentials</li>
-          <li>Report unauthorized access</li>
+          <li>Web Development</li>
+          <li>Web Design Update Services</li>
+          <li>Graphic Design</li>
+          <li>Logo Design</li>
+          <li>SEO (Search Engine Optimization)</li>
+          <li>Content Writing</li>
+          <li>Editing</li>
+          <li>UI/UX Design and Branding Services</li>
+          <li>Technical Support and Maintenance</li>
         </ul>
 
-        <h2>4. Intellectual Property</h2>
-        <p>All site content is owned by us or our licensors. You may not copy or use it without permission.</p>
 
-        <h2>5. Service Terms</h2>
+        <h3 class="subsection-title">3. User Responsibilities</h3>
+        <p>As a user of our services, you agree to:</p>
         <ul>
-          <li>Project details and terms will be defined in individual agreements.</li>
-          <li>Payment and cancellation terms will be specified separately.</li>
+          <li>Provide accurate, current, and complete information</li>
+          <li>Use our services only for lawful purposes</li>
+          <li>Respect intellectual property rights</li>
+          <li>Maintain the confidentiality of your account credentials</li>
+          <li>Promptly notify us of any unauthorized access</li>
+          <li>Cooperate in good faith during project execution</li>
+          <li>Provide timely feedback and project approvals</li>
+          <li>Make payments according to agreed terms</li>
         </ul>
 
-        <h2>6. Limitation of Liability</h2>
-        <p>We aren't liable for indirect damages, loss of data, or other losses.</p>
+        <h3 class="subsection-title">4. Intellectual Property Rights</h3>
+        <p>All content, materials, and intellectual property on our website and in our services are owned by Avishkar
+          Services or our licensors. This includes but is not limited to:</p>
+        <ul>
+          <li>Website design, graphics, and multimedia content</li>
+          <li>Proprietary software and code libraries</li>
+          <li>Business methodologies and processes</li>
+          <li>Trademarks, logos, and brand materials</li>
+        </ul>
 
-        <h2>7. Indemnification</h2>
-        <p>You agree to hold us harmless from any claims arising from your use or violation of these Terms.</p>
-
-        <h2>8. Termination</h2>
-        <p>We may suspend or end your access if you violate these Terms.</p>
-
-        <h2>9. Governing Law</h2>
-        <p>These Terms are governed by laws of <strong>[Your Jurisdiction]</strong>. Disputes will be settled there.</p>
-
-        <h2>10. Changes</h2>
-        <p>We may update these Terms with prior notice for material changes.</p>
-
-        <div class="contact-info">
-          <strong>Questions?</strong><br>
-          <a href="mailto:dev.avishkar@gmail.com" style="color: white;">dev.avishkar@gmail.com</a>
+        <div class="info-box">
+          <p><strong>Client Work:</strong> For custom development projects, intellectual property rights will be clearly
+            defined in individual project agreements. Generally, clients retain rights to their business logic and
+            content, while we retain rights to our methodologies and reusable components.</p>
         </div>
-      </div>
 
-      <div class="card legal-section">
-        <h1><i class="fas fa-exclamation-triangle"></i> Disclaimer</h1>
+        <h3 class="subsection-title">5. Service Terms & Project Management</h3>
+        <ul>
+          <li>Detailed project scope, timelines, and deliverables will be specified in individual contracts</li>
+          <li>Changes to project scope may result in additional costs and timeline adjustments</li>
+          <li>Payment terms, milestones, and refund policies will be outlined in project agreements</li>
+          <li>We reserve the right to suspend services for non-payment or breach of contract</li>
+          <li>Client approval is required at specified project milestones</li>
+        </ul>
+
+        <h3 class="subsection-title">6. Privacy & Data Protection</h3>
+        <p>Your privacy is important to us. Our collection and use of personal information is governed by our <a
+            href="#privacy-panel">Privacy Policy</a>, which is incorporated into these terms by reference.</p>
+
+        <h3 class="subsection-title">7. Limitation of Liability</h3>
+        <p>To the fullest extent permitted by law, Avishkar Services shall not be liable for:</p>
+        <ul>
+          <li>Indirect, incidental, special, or consequential damages</li>
+          <li>Loss of profits, data, business opportunities, or reputation</li>
+          <li>Damages resulting from third-party services or integrations</li>
+          <li>Service interruptions or technical failures beyond our control</li>
+        </ul>
+
+        <h3 class="subsection-title">8. Indemnification</h3>
+        <p>You agree to indemnify and hold harmless Avishkar Services from any claims, damages, or expenses arising from
+          your use of our services, violation of these terms, or infringement of third-party rights.</p>
+
+        <h3 class="subsection-title">9. Termination</h3>
+        <p>Either party may terminate services with appropriate notice as specified in individual agreements. We reserve
+          the right to immediately suspend or terminate access for violations of these terms or illegal activities.</p>
+
+        <h3 class="subsection-title">10. Governing Law & Dispute Resolution</h3>
+        <p>These terms are governed by the laws of [Your Jurisdiction]. Any disputes will be resolved through good faith
+          negotiation, mediation, or arbitration as specified in individual service agreements.</p>
+
+        <h3 class="subsection-title">11. Changes to Terms</h3>
+        <p>We may update these Terms and Conditions periodically. Material changes will be communicated through our
+          website or direct notification. Continued use of our services after changes constitutes acceptance of the
+          updated terms.</p>
+
+        <h3 class="subsection-title">12. Severability</h3>
+        <p>If any provision of these terms is found to be invalid or unenforceable, the remaining provisions will
+          continue in full force and effect.</p>
+      </div>
+    </div>
+
+    <!-- Disclaimer Tab -->
+    <div class="tab-content" id="disclaimer-panel" role="tabpanel" aria-labelledby="disclaimer-tab">
+      <div class="tab-inner">
+        <h2 class="section-title">
+          <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+          Disclaimer
+        </h2>
         <div class="effective-date">Effective Date: January 1, 2025</div>
 
-        <h2>General Disclaimer</h2>
-        <p>The information contained on the <strong>Avishkar Digital Studio</strong> website is provided on an "as is" basis. To the fullest extent permitted by law, this Company:</p>
-
+        <h3 class="subsection-title">General Disclaimer</h3>
+        <p>The information and services provided by <strong>Avishkar Services</strong> and content on the
+          <strong>Avishkar Digital Studio</strong> website are offered on an "as is" and "as available" basis. To the
+          fullest extent permitted by law, we:
+        </p>
         <ul>
-          <li>Excludes all representations and warranties relating to this website and its contents</li>
-          <li>Excludes all liability for damages arising out of or in connection with your use of this website</li>
-          <li>Does not guarantee the accuracy, completeness, or timeliness of any information</li>
-          <li>Reserves the right to change any information without notice</li>
+          <li>Exclude all representations and warranties relating to this website and its contents</li>
+          <li>Make no warranties or representations regarding the accuracy, completeness, or timeliness of information
+          </li>
+          <li>Exclude all liability for damages arising out of or in connection with your use of our website or services
+          </li>
+          <li>Reserve the right to change any information without notice</li>
+          <li>Do not guarantee uninterrupted or error-free service availability</li>
         </ul>
 
-        <h2>Professional Services Disclaimer</h2>
-        <p>While we strive to provide high-quality professional services, we make no warranties or guarantees regarding:</p>
+        <h3 class="subsection-title">Professional Services Disclaimer</h3>
+        <p>While we strive to deliver exceptional results and provide high-quality professional services, we cannot
+          guarantee:</p>
         <ul>
+          <li>Specific business outcomes or performance metrics</li>
           <li>Specific outcomes or results from our services</li>
+          <li>Compatibility with all existing systems or future updates</li>
           <li>Compatibility with all systems or platforms</li>
           <li>Uninterrupted or error-free service delivery</li>
           <li>Meeting all client expectations or requirements</li>
+          <li>Achievement of all projected timelines due to external factors</li>
+          <li>Specific search engine rankings or marketing results</li>
+          <li>Third-party service reliability or continued availability</li>
         </ul>
 
-        <h2>Third-Party Content and Links</h2>
-        <p>Our website may contain links to third-party websites or services. We do not endorse or assume responsibility for the content, privacy policies, or practices of any third-party websites or services.</p>
-
-        <h2>Technical Disclaimer</h2>
-        <div class="highlight-box">
-          <p><strong>No Warranty:</strong> All technical solutions, code, and digital products are provided without warranty of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+        <div class="warning-box">
+          <p><strong>Performance Disclaimer:</strong> Digital marketing results, website performance, and business
+            outcomes can vary significantly based on market conditions, competition, user behavior, and factors beyond
+            our direct control. Past performance does not guarantee future results.</p>
         </div>
 
-        <h2>Limitation of Liability</h2>
-        <p>In no event shall Avishkar Digital Studio be liable for any damages whatsoever, including but not limited to:</p>
+        <h3 class="subsection-title">Third-Party Content & Integrations</h3>
+        <p>Our services and website may include links to or integrations with third-party platforms, APIs, or services.
+          We disclaim responsibility for:</p>
         <ul>
-          <li>Direct, indirect, incidental, or consequential damages</li>
-          <li>Loss of profits, data, or business opportunities</li>
-          <li>Damages resulting from system failures or security breaches</li>
-          <li>Any damages arising from the use or inability to use our services</li>
+          <li>Third-party service availability, functionality, or security</li>
+          <li>Content accuracy or reliability from external sources</li>
+          <li>Changes to third-party APIs or terms of service</li>
+          <li>Data handling practices of external services</li>
+          <li>Compatibility issues arising from third-party updates</li>
+          <li>The content, privacy policies, or practices of any third-party websites or services</li>
         </ul>
 
-        <h2>Client Responsibilities</h2>
+        <h3 class="subsection-title">Technical Disclaimer</h3>
+        <div class="highlight-box">
+          <p><strong>No Technical Warranty:</strong> All software, code, websites, and digital solutions are provided
+            without warranty of any kind, whether express or implied, including but not limited to warranties of
+            merchantability, fitness for a particular purpose, or non-infringement of intellectual property rights.</p>
+        </div>
+
+        <ul>
+          <li>Software may contain bugs or vulnerabilities despite thorough testing</li>
+          <li>Performance may vary across different devices, browsers, or operating systems</li>
+          <li>Regular updates and maintenance may be required for optimal functionality</li>
+          <li>Security measures, while robust, cannot guarantee complete protection against all threats</li>
+          <li>Data backup and recovery procedures are recommended for all digital assets</li>
+        </ul>
+
+        <h3 class="subsection-title">Limitation of Liability</h3>
+        <p>Under no circumstances shall Avishkar Services or Avishkar Digital Studio be liable for any damages including
+          but not limited to:</p>
+        <ul>
+          <li>Direct, indirect, incidental, punitive, or consequential damages</li>
+          <li>Loss of profits, revenue, data, or business opportunities</li>
+          <li>Damages resulting from system failures or security breaches</li>
+          <li>Business interruption or system downtime</li>
+          <li>Any damages exceeding the total amount paid for our services</li>
+          <li>Damages arising from force majeure events or circumstances beyond our control</li>
+        </ul>
+
+        <h3 class="subsection-title">Client Responsibilities & Risk Acknowledgment</h3>
         <p>Clients are responsible for:</p>
         <ul>
-          <li>Providing accurate and complete project requirements</li>
+          <li>Providing accurate, complete, and timely project requirements</li>
           <li>Maintaining backups of their data and systems</li>
           <li>Testing and validating delivered solutions in their environment</li>
           <li>Implementing appropriate security measures</li>
           <li>Complying with all applicable laws and regulations</li>
+          <li>Complying with all applicable laws, regulations, and industry standards</li>
+          <li>Understanding the inherent risks associated with digital technologies</li>
+          <li>Obtaining necessary licenses, permits, or approvals for their business operations</li>
         </ul>
 
-        <h2>Updates and Modifications</h2>
-        <p>This disclaimer may be updated from time to time without notice. Your continued use of our website and services constitutes acceptance of any changes to this disclaimer.</p>
+        <h3 class="subsection-title">Industry-Specific Disclaimers</h3>
 
-        <div class="contact-info">
-          <strong>Legal Inquiries</strong><br>
-          For any legal questions or concerns, please contact:<br>
-          <a href="mailto:dev.avishkar@gmail.com" style="color: white;">dev.avishkar@gmail.com</a>
+        <h4>Financial & E-commerce</h4>
+        <p>For financial or e-commerce solutions, clients must ensure compliance with relevant regulations (PCI DSS,
+          PSD2, GDPR, etc.). We do not provide legal or financial advice.</p>
+
+        <h4>Healthcare & Medical</h4>
+        <p>Any healthcare-related solutions must comply with HIPAA, HITECH, and other applicable regulations. We do not
+          provide medical advice or guarantee regulatory compliance.</p>
+
+        <h4>Educational Technology</h4>
+        <p>Educational solutions must comply with FERPA, COPPA, and other privacy regulations. Content accuracy and
+          educational effectiveness are not guaranteed.</p>
+
+        <h3 class="subsection-title">Force Majeure</h3>
+        <p>We shall not be held liable for any failure or delay in performance due to circumstances beyond our
+          reasonable control, including but not limited to:</p>
+        <ul>
+          <li>Natural disasters, pandemics, or public health emergencies</li>
+          <li>Government actions, regulations, or sanctions</li>
+          <li>Internet outages, cyber attacks, or infrastructure failures</li>
+          <li>Third-party service disruptions or API changes</li>
+          <li>Labor disputes, strikes, or personnel unavailability</li>
+        </ul>
+
+        <h3 class="subsection-title">Updates & Modifications</h3>
+        <p>This disclaimer may be updated periodically without notice to reflect changes in our services, legal
+          requirements, or industry best practices. Your continued use of our website and services constitutes
+          acceptance of any changes to this disclaimer.</p>
+
+        <h3 class="subsection-title">Jurisdiction & Legal Compliance</h3>
+        <p>This disclaimer is governed by applicable local, national, and international laws. If any provision is deemed
+          invalid or unenforceable, the remaining provisions shall remain in full effect.</p>
+
+        <div class="info-box">
+          <p><strong>Legal Advice Disclaimer:</strong> This disclaimer does not constitute legal advice. For specific
+            legal questions related to your business or industry, please consult with qualified legal professionals.</p>
         </div>
       </div>
-
-      <footer>
-        <p>&copy; 2025 Avishkar Digital Studio. All rights reserved.</p>
-        <p>This website and its contents are protected by copyright and other intellectual property laws.</p>
-      </footer>
     </div>
-  </div>
+
+
+    <!-- Contact CTA -->
+    <div class="contact-cta">
+      <h3><i class="fas fa-envelope" aria-hidden="true"></i> Questions About Our Legal Policies?</h3>
+      <p>We're committed to transparency and are happy to clarify any aspect of our legal policies. Our team is here to
+        help you understand how we protect your rights and data.</p>
+      <a href="mailto:dev.avishkar@gmail.com" class="contact-email">
+        <i class="fas fa-paper-plane" aria-hidden="true"></i>
+        Contact Legal Team: dev.avishkar@gmail.com
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-content">
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#privacy" onclick="showTab('privacy')">Privacy Policy</a>
+        <a href="#terms" onclick="showTab('terms')">Terms & Conditions</a>
+        <a href="#disclaimer" onclick="showTab('disclaimer')">Disclaimer</a>
+        <a href="mailto:dev.avishkar@gmail.com">Contact Legal</a>
+      </nav>
+      <p>&copy; 2025 Avishkar Services. All rights reserved.</p>
+      <p>This document was last updated on January 1, 2025. Version 1.0</p>
+      <p>Protected by copyright and other intellectual property laws worldwide.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Tab functionality
+    function showTab(tabName) {
+      // Hide all tab contents
+      const tabContents = document.querySelectorAll('.tab-content');
+      tabContents.forEach(content => {
+        content.classList.remove('active');
+      });
+
+      // Remove active class from all tab buttons
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      tabButtons.forEach(button => {
+        button.classList.remove('active');
+        button.setAttribute('aria-selected', 'false');
+      });
+
+      // Show selected tab content
+      const selectedTab = document.getElementById(tabName + '-panel');
+      if (selectedTab) {
+        selectedTab.classList.add('active');
+      }
+
+      // Add active class to selected tab button
+      const selectedButton = document.getElementById(tabName + '-tab');
+      if (selectedButton) {
+        selectedButton.classList.add('active');
+        selectedButton.setAttribute('aria-selected', 'true');
+      }
+
+      // Update URL hash without triggering page jump
+      history.replaceState(null, null, '#' + tabName);
+    }
+
+    // Handle initial page load with hash
+    document.addEventListener('DOMContentLoaded', function () {
+      const hash = window.location.hash.substring(1);
+      if (hash && ['privacy', 'terms', 'disclaimer'].includes(hash)) {
+        showTab(hash);
+      }
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Keyboard navigation for tabs
+    document.addEventListener('keydown', function (e) {
+      const activeTab = document.querySelector('.tab-btn.active');
+      const tabButtons = Array.from(document.querySelectorAll('.tab-btn'));
+      const currentIndex = tabButtons.indexOf(activeTab);
+
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        let newIndex;
+
+        if (e.key === 'ArrowRight') {
+          newIndex = (currentIndex + 1) % tabButtons.length;
+        } else {
+          newIndex = (currentIndex - 1 + tabButtons.length) % tabButtons.length;
+        }
+
+        const newTab = tabButtons[newIndex];
+        const tabName = newTab.id.replace('-tab', '');
+        showTab(tabName);
+        newTab.focus();
+      }
+    });
+
+    // Add loading animation for tab transitions
+    function addLoadingAnimation() {
+      const activeContent = document.querySelector('.tab-content.active .tab-inner');
+      if (activeContent) {
+        activeContent.style.opacity = '0';
+        setTimeout(() => {
+          activeContent.style.opacity = '1';
+        }, 150);
+      }
+    }
+
+    // Enhance tab switching with loading animation
+    const originalShowTab = showTab;
+    showTab = function (tabName) {
+      addLoadingAnimation();
+      setTimeout(() => originalShowTab(tabName), 100);
+    };
+
+    // Add scroll-to-top functionality
+    let scrollTimer = null;
+    window.addEventListener('scroll', function () {
+      if (scrollTimer !== null) {
+        clearTimeout(scrollTimer);
+      }
+      scrollTimer = setTimeout(function () {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > 500) {
+          document.body.classList.add('scrolled');
+        } else {
+          document.body.classList.remove('scrolled');
+        }
+      }, 150);
+    });
+  </script>
 </body>
+
 </html>
