@@ -1443,6 +1443,8 @@ section h2::after {
   object-fit: cover;
   border-radius: 10px;
   transition: var(--transition-normal);
+  height: auto;
+  display: block;
 }
 
 .media-section .column:hover {
