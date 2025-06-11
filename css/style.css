@@ -619,14 +619,17 @@ h1::after {
 }
 
 .arrow-indicator {
-  position: relative;
-  margin-left: 5px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.3s ease;
 }
 
-.arrow-indicator::after {
-  content: "→";
-  opacity: 0;
-  transition: all 0.3s ease;
+.navbar a:hover .arrow-indicator {
+  transform: rotate(135deg);
 }
 
 .navbar a:hover .arrow-indicator::after {
