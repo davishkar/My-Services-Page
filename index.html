@@ -1203,182 +1203,182 @@
     <script src="script.min.js" defer></script>
     <!--Media-->
     <script>
-      const imageData = [
-        {
-          src: 'images/web_designing.webp',
-          name: 'web_designing',
-          alt: 'Web Designing',
-          title: 'Web Designing',
-          description: 'Modern, responsive web design solutions tailored to your business needs.'
-        },
-        {
-          src: 'images/landing_page.webp',
-          name: 'landing_page',
-          alt: 'Landing Page',
-          title: 'Landing Pages',
-          description: 'High-converting landing pages that drive results and engage visitors.'
-        },
-        {
-          src: 'images/logo_design.webp',
-          name: 'logo_design',
-          alt: 'Logo Design',
-          title: 'Logo Design',
-          description: 'Unique brand identity designs that make your business memorable.'
-        },
-        {
-          src: 'images/seo.webp',
-          name: 'seo',
-          alt: 'SEO',
-          title: 'SEO Optimization',
-          description: 'Search engine optimization to boost your online visibility.'
-        },
-        {
-          src: 'images/content creation.webp',
-          name: 'content_creation',
-          alt: 'Content Creation',
-          title: 'Content Creation',
-          description: 'Engaging content that connects with your audience and drives engagement.'
-        }
-      ];
+  const imageData = [
+    {
+      src: 'images/web_designing.webp',
+      name: 'web_designing',
+      alt: 'Web Designing',
+      title: 'Web Designing',
+      description: 'Modern, responsive web design solutions tailored to your business needs.'
+    },
+    {
+      src: 'images/landing_page.webp',
+      name: 'landing_page',
+      alt: 'Landing Page',
+      title: 'Landing Pages',
+      description: 'High-converting landing pages that drive results and engage visitors.'
+    },
+    {
+      src: 'images/logo_design.webp',
+      name: 'logo_design',
+      alt: 'Logo Design',
+      title: 'Logo Design',
+      description: 'Unique brand identity designs that make your business memorable.'
+    },
+    {
+      src: 'images/seo.webp',
+      name: 'seo',
+      alt: 'SEO',
+      title: 'SEO Optimization',
+      description: 'Search engine optimization to boost your online visibility.'
+    },
+    {
+      src: 'images/content%20creation.webp', // <-- URL encode space
+      name: 'content_creation',
+      alt: 'Content Creation',
+      title: 'Content Creation',
+      description: 'Engaging content that connects with your audience and drives engagement.'
+    }
+  ];
 
-      let modal, expandedImg, caption, closeBtn;
+  let modal, expandedImg, caption, closeBtn;
 
-      function initializeModal() {
-        modal = document.getElementById('imageModal');
-        expandedImg = document.getElementById('expandedImg');
-        caption = document.getElementById('modalCaption');
-        closeBtn = document.querySelector('.close-btn');
+  function initializeModal() {
+    modal = document.getElementById('imageModal');
+    expandedImg = document.getElementById('expandedImg');
+    caption = document.getElementById('modalCaption');
+    closeBtn = document.querySelector('.close-btn');
 
-        // Add close button event listener
-        if (closeBtn) {
-          closeBtn.addEventListener('click', closeModal);
-        }
-      }
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeModal);
+    }
+  }
 
-      function createImageElement(data, index) {
-        const container = document.createElement('div');
-        container.className = 'image-container';
-        container.tabIndex = 0;
-        container.setAttribute('role', 'button');
-        container.setAttribute('aria-label', `View ${data.title} in full size`);
+  function createImageElement(data) {
+    const container = document.createElement('div');
+    container.className = 'image-container';
+    container.tabIndex = 0;
+    container.setAttribute('role', 'button');
+    container.setAttribute('aria-label', `View ${data.title} in full size`);
 
-        const skeleton = document.createElement('div');
-        skeleton.className = 'loading-skeleton';
-        skeleton.innerHTML = '<i class="bi bi-image" style="font-size: 2rem; color: #ccc;"></i>';
-        container.appendChild(skeleton);
+    const skeleton = document.createElement('div');
+    skeleton.className = 'loading-skeleton';
+    skeleton.innerHTML = '<i class="bi bi-image" style="font-size: 2rem; color: #ccc;"></i>';
+    container.appendChild(skeleton);
 
-        const img = document.createElement('img');
-        img.className = 'gallery-image';
-        img.alt = data.alt;
-        img.loading = 'lazy';
-        img.decoding = 'async';
-        img.src = data.src;
+    const img = document.createElement('img');
+    img.className = 'gallery-image';
+    img.alt = data.alt;
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.src = data.src;
 
-        const overlay = document.createElement('div');
-        overlay.className = 'image-overlay';
-        overlay.innerHTML = `
-    <div class="overlay-title">${data.title}</div>
-    <div class="overlay-description">${data.description}</div>
-  `;
-
-        img.onload = function () {
-          skeleton.remove();
-          container.appendChild(img);
-          container.appendChild(overlay);
-
-          const openModal = () => openImageModal(img.src, data.title);
-          container.addEventListener('click', openModal);
-          container.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              openModal();
-            }
-          });
-        };
-
-        img.onerror = function () {
-          skeleton.innerHTML = `
-      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 200px; color: #666; text-align: center; padding: 1rem;">
-        <i class="bi bi-image" style="font-size: 3rem; margin-bottom: 1rem; color: #ccc;"></i>
-        <div style="font-size: 1.1rem; font-weight: 500;">${data.title}</div>
-        <div style="font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem;">Image not found</div>
-      </div>
+    const overlay = document.createElement('div');
+    overlay.className = 'image-overlay';
+    overlay.innerHTML = `
+      <div class="overlay-title">${data.title}</div>
+      <div class="overlay-description">${data.description}</div>
     `;
-          container.appendChild(overlay);
-        };
 
-        return container;
+    // Immediately append image and overlay
+    container.appendChild(img);
+    container.appendChild(overlay);
+
+    img.onload = function () {
+      skeleton.remove();
+    };
+
+    img.onerror = function () {
+      skeleton.innerHTML = `
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 200px; color: #666; text-align: center; padding: 1rem;">
+          <i class="bi bi-image" style="font-size: 3rem; margin-bottom: 1rem; color: #ccc;"></i>
+          <div style="font-size: 1.1rem; font-weight: 500;">${data.title}</div>
+          <div style="font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem;">Image not found</div>
+        </div>
+      `;
+    };
+
+    const openModal = () => openImageModal(img.src, data.title);
+    container.addEventListener('click', openModal);
+    container.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal();
       }
+    });
 
-      function initializeGallery() {
-        const gallery = document.getElementById('galleryGrid');
-        if (!gallery) return;
+    return container;
+  }
 
-        const fragment = document.createDocumentFragment();
-        imageData.forEach((data, index) => {
-          const imageElement = createImageElement(data, index);
-          fragment.appendChild(imageElement);
-        });
-        gallery.appendChild(fragment);
+  function initializeGallery() {
+    const gallery = document.getElementById('galleryGrid');
+    if (!gallery) return;
+
+    const fragment = document.createDocumentFragment();
+    imageData.forEach((data) => {
+      const imageElement = createImageElement(data);
+      fragment.appendChild(imageElement);
+    });
+    gallery.appendChild(fragment);
+  }
+
+  function openImageModal(src, title) {
+    if (!modal || !expandedImg || !caption) return;
+
+    expandedImg.src = src;
+    expandedImg.alt = title;
+    caption.textContent = title;
+
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden', 'false');
+    if (closeBtn) closeBtn.focus();
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', handleEscapeKey);
+    modal.addEventListener('click', handleBackdropClick);
+  }
+
+  function closeModal() {
+    if (!modal) return;
+
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    document.removeEventListener('keydown', handleEscapeKey);
+    modal.removeEventListener('click', handleBackdropClick);
+    setTimeout(() => {
+      if (!modal.classList.contains('show') && expandedImg) {
+        expandedImg.src = '';
       }
+    }, 300);
+  }
 
-      function openImageModal(src, title) {
-        if (!modal || !expandedImg || !caption) return;
+  function handleEscapeKey(e) {
+    if (e.key === 'Escape') closeModal();
+  }
 
-        expandedImg.src = src;
-        expandedImg.alt = title;
-        caption.textContent = title;
+  function handleBackdropClick(e) {
+    if (e.target === modal) closeModal();
+  }
 
-        modal.classList.add('show');
-        modal.setAttribute('aria-hidden', 'false');
-        if (closeBtn) closeBtn.focus();
-        document.body.style.overflow = 'hidden';
-        document.addEventListener('keydown', handleEscapeKey);
-        modal.addEventListener('click', handleBackdropClick);
-      }
+  function initialize() {
+    initializeModal();
+    initializeGallery();
+  }
 
-      function closeModal() {
-        if (!modal) return;
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialize);
+  } else {
+    initialize();
+  }
 
-        modal.classList.remove('show');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        document.removeEventListener('keydown', handleEscapeKey);
-        modal.removeEventListener('click', handleBackdropClick);
-        setTimeout(() => {
-          if (!modal.classList.contains('show') && expandedImg) {
-            expandedImg.src = '';
-          }
-        }, 300);
-      }
+  if ('performance' in window) {
+    window.addEventListener('load', () => {
+      const loadTime = performance.now();
+      console.log(`Gallery loaded in ${loadTime.toFixed(2)}ms`);
+    });
+  }
+</script>
 
-      function handleEscapeKey(e) {
-        if (e.key === 'Escape') closeModal();
-      }
-
-      function handleBackdropClick(e) {
-        if (e.target === modal) closeModal();
-      }
-
-      function initialize() {
-        initializeModal();
-        initializeGallery();
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initialize);
-      } else {
-        initialize();
-      }
-
-      if ('performance' in window) {
-        window.addEventListener('load', () => {
-          const loadTime = performance.now();
-          console.log(`Gallery loaded in ${loadTime.toFixed(2)}ms`);
-        });
-      }
-
-    </script>
 </body>
 
 </html>
