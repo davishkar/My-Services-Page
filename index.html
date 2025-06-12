@@ -645,57 +645,25 @@
         });
       </script>
 
-      <section class="media-section" data-aos="zoom-in" data-aos-delay="500">
-        <h2><i class="bi bi-collection"></i> Media</h2>
-        <div class="row">
-          <div class="column">
-            <img src="images/web_designing.webp" srcset="images/web_designing_400.webp 400w,
-                   images/web_designing_800.webp 800w,
-                   images/web_designing_1200.webp 1200w" sizes="(max-width: 480px) 400px, 
-                  (max-width: 768px) 600px, 
-                  (max-width: 1024px) 300px, 
-                  400px" alt="Web Designing" loading="lazy" onclick="myFunction(this);">
-          </div>
-          <div class="column">
-            <img src="images/landing_page.webp" srcset="images/landing_page_400.webp 400w,
-                   images/landing_page_800.webp 800w,
-                   images/landing_page_1200.webp 1200w" sizes="(max-width: 480px) 400px, 
-                  (max-width: 768px) 600px, 
-                  (max-width: 1024px) 300px, 
-                  400px" alt="Landing Page" loading="lazy" onclick="myFunction(this);">
-          </div>
-          <div class="column">
-            <img src="images/logo_design.webp" srcset="images/logo_design_400.webp 400w,
-                   images/logo_design.webp 800w,
-                   images/logo_design_1200.webp 1200w" sizes="(max-width: 480px) 400px, 
-                  (max-width: 768px) 600px, 
-                  (max-width: 1024px) 300px, 
-                  400px" alt="Logo Design" loading="lazy" onclick="myFunction(this);">
-          </div>
-          <div class="column">
-            <img src="images/seo.webp" srcset="images/seo_400.webp 400w,
-                   images/seo_800.webp 800w,
-                   images/seo_1200.webp 1200w" sizes="(max-width: 480px) 400px, 
-                  (max-width: 768px) 600px, 
-                  (max-width: 1024px) 300px, 
-                  400px" alt="SEO" loading="lazy" onclick="myFunction(this);">
-          </div>
-          <div class="column">
-            <img src="images/content_creation.webp" srcset="images/content_creation_400.webp 400w,
-                   images/content_creation_800.webp 800w,
-                   images/content_creation_1200.webp 1200w" sizes="(max-width: 480px) 400px, 
-                  (max-width: 768px) 600px, 
-                  (max-width: 1024px) 300px, 
-                  400px" alt="Content Creation" loading="lazy" onclick="myFunction(this);">
-          </div>
+      <!-- Media Gallery Section -->
+      <section class="media-section">
+        <h2><i class="bi bi-collection"></i> Media Gallery</h2>
+
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Images will be loaded here -->
         </div>
-        <!-- Modal to show expanded image -->
-        <div class="modal" id="imgModal">
-          <span class="closebtn" onclick="closeModal()">&times;</span>
-          <img id="expandedImg">
-          <div id="imgtext"></div>
-        </div>
+
+        <!-- Modal for expanded view -->
+        <!-- <div class="modal" id="imageModal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+          <div class="modal-content">
+            <button class="close-btn" aria-label="Close modal">&times;</button>
+            <img id="expandedImg" class="expanded-image" alt="">
+            <div id="modalCaption" class="modal-caption"></div>
+          </div>
+        </div> -->
+
       </section>
+
 
       <!-- FAQ Section -->
       <section class="faq-section" data-aos="fade-up">
@@ -1233,6 +1201,184 @@
     <!-- AOS Animation Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
     <script src="script.min.js" defer></script>
+    <!--Media-->
+    <script>
+      const imageData = [
+        {
+          src: 'images/web_designing.webp',
+          name: 'web_designing',
+          alt: 'Web Designing',
+          title: 'Web Designing',
+          description: 'Modern, responsive web design solutions tailored to your business needs.'
+        },
+        {
+          src: 'images/landing_page.webp',
+          name: 'landing_page',
+          alt: 'Landing Page',
+          title: 'Landing Pages',
+          description: 'High-converting landing pages that drive results and engage visitors.'
+        },
+        {
+          src: 'images/logo_design.webp',
+          name: 'logo_design',
+          alt: 'Logo Design',
+          title: 'Logo Design',
+          description: 'Unique brand identity designs that make your business memorable.'
+        },
+        {
+          src: 'images/seo.webp',
+          name: 'seo',
+          alt: 'SEO',
+          title: 'SEO Optimization',
+          description: 'Search engine optimization to boost your online visibility.'
+        },
+        {
+          src: 'images/content creation.webp',
+          name: 'content_creation',
+          alt: 'Content Creation',
+          title: 'Content Creation',
+          description: 'Engaging content that connects with your audience and drives engagement.'
+        }
+      ];
+
+      let modal, expandedImg, caption, closeBtn;
+
+      function initializeModal() {
+        modal = document.getElementById('imageModal');
+        expandedImg = document.getElementById('expandedImg');
+        caption = document.getElementById('modalCaption');
+        closeBtn = document.querySelector('.close-btn');
+
+        // Add close button event listener
+        if (closeBtn) {
+          closeBtn.addEventListener('click', closeModal);
+        }
+      }
+
+      function createImageElement(data, index) {
+        const container = document.createElement('div');
+        container.className = 'image-container';
+        container.tabIndex = 0;
+        container.setAttribute('role', 'button');
+        container.setAttribute('aria-label', `View ${data.title} in full size`);
+
+        const skeleton = document.createElement('div');
+        skeleton.className = 'loading-skeleton';
+        skeleton.innerHTML = '<i class="bi bi-image" style="font-size: 2rem; color: #ccc;"></i>';
+        container.appendChild(skeleton);
+
+        const img = document.createElement('img');
+        img.className = 'gallery-image';
+        img.alt = data.alt;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.src = data.src;
+
+        const overlay = document.createElement('div');
+        overlay.className = 'image-overlay';
+        overlay.innerHTML = `
+    <div class="overlay-title">${data.title}</div>
+    <div class="overlay-description">${data.description}</div>
+  `;
+
+        img.onload = function () {
+          skeleton.remove();
+          container.appendChild(img);
+          container.appendChild(overlay);
+
+          const openModal = () => openImageModal(img.src, data.title);
+          container.addEventListener('click', openModal);
+          container.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              openModal();
+            }
+          });
+        };
+
+        img.onerror = function () {
+          skeleton.innerHTML = `
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 200px; color: #666; text-align: center; padding: 1rem;">
+        <i class="bi bi-image" style="font-size: 3rem; margin-bottom: 1rem; color: #ccc;"></i>
+        <div style="font-size: 1.1rem; font-weight: 500;">${data.title}</div>
+        <div style="font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem;">Image not found</div>
+      </div>
+    `;
+          container.appendChild(overlay);
+        };
+
+        return container;
+      }
+
+      function initializeGallery() {
+        const gallery = document.getElementById('galleryGrid');
+        if (!gallery) return;
+
+        const fragment = document.createDocumentFragment();
+        imageData.forEach((data, index) => {
+          const imageElement = createImageElement(data, index);
+          fragment.appendChild(imageElement);
+        });
+        gallery.appendChild(fragment);
+      }
+
+      function openImageModal(src, title) {
+        if (!modal || !expandedImg || !caption) return;
+
+        expandedImg.src = src;
+        expandedImg.alt = title;
+        caption.textContent = title;
+
+        modal.classList.add('show');
+        modal.setAttribute('aria-hidden', 'false');
+        if (closeBtn) closeBtn.focus();
+        document.body.style.overflow = 'hidden';
+        document.addEventListener('keydown', handleEscapeKey);
+        modal.addEventListener('click', handleBackdropClick);
+      }
+
+      function closeModal() {
+        if (!modal) return;
+
+        modal.classList.remove('show');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', handleEscapeKey);
+        modal.removeEventListener('click', handleBackdropClick);
+        setTimeout(() => {
+          if (!modal.classList.contains('show') && expandedImg) {
+            expandedImg.src = '';
+          }
+        }, 300);
+      }
+
+      function handleEscapeKey(e) {
+        if (e.key === 'Escape') closeModal();
+      }
+
+      function handleBackdropClick(e) {
+        if (e.target === modal) closeModal();
+      }
+
+      function initialize() {
+        initializeModal();
+        initializeGallery();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initialize);
+      } else {
+        initialize();
+      }
+
+      if ('performance' in window) {
+        window.addEventListener('load', () => {
+          const loadTime = performance.now();
+          console.log(`Gallery loaded in ${loadTime.toFixed(2)}ms`);
+        });
+      }
+
+    </script>
 </body>
 
 </html>
