@@ -2269,8 +2269,6 @@ section h2::after {
   padding: 40px 30px;
   border-radius: 10px;
   background-color: linear-gradient(135deg, #1e90ff, #6e00ff);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   text-align: center;
   max-width: 800px;
   width: 100%;
