@@ -192,6 +192,7 @@
   </div>
 
   <div class="bg">
+     <div class="particle"></div>
     <!-- Navbar -->
     <div class="navbar" id="myNavbar" data-aos="fade-down">
       <a href="index.html" class="active">
@@ -235,38 +236,35 @@
 
     <!--main-->
     <div class="container-wrapper">
-      <div class="container" data-aos="fade-up">
+      <section class="container" data-aos="fade-up">
+        <div >
+          <div class="studio-profile">
+            <div class="studio-header">
+              <img
+                src="https://res.cloudinary.com/dtrmjjphv/image/upload/c_scale,w_400/v1749401598/avishkardigitalstudiomain_fldvdn.webp"
+                alt="Avishkar Digital Studio Logo" class="studio-logo">
 
-        <img
-          src="https://res.cloudinary.com/dtrmjjphv/image/upload/c_scale,w_400/v1749401598/avishkardigitalstudiomain_fldvdn.webp"
-          srcset="https://res.cloudinary.com/dtrmjjphv/image/upload/c_scale,w_200/v1749401598/avishkardigitalstudiomain_fldvdn.webp 200w,
-             https://res.cloudinary.com/dtrmjjphv/image/upload/c_scale,w_400/v1749401598/avishkardigitalstudiomain_fldvdn.webp 400w,
-             https://res.cloudinary.com/dtrmjjphv/image/upload/c_scale,w_800/v1749401598/avishkardigitalstudiomain_fldvdn.webp 800w"
-          sizes="(max-width: 768px) 200px, (max-width: 1024px) 400px, 800px" alt="Profile Picture" class="profile-img">
-        <h1>Avishkar Digital Studio</h1>
-        <div class="actions">
-          <a class="request-btn" href="pages/requestservices.html" target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-bag-check"></i> Request Services
-          </a>
-          <a class="message-btn"
-            href="https://api.whatsapp.com/send?phone=9146964882&amp;text=Hi,%20I%20am%20[YourName]%2C%20and%20I%20am%20interested%20in%20your%20services.%20You%20can%20reach%20me%20at%20[YourEmail].%20Could%20you%20please%20provide%20more%20details%3F"
-            target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-chat-left-dots"></i> Message
-          </a>
-          <!-- <div class="dropdown">
-            <button class="more-btn">...</button>
-            <div class="dropdown-content">
-              <a href="https://davishkar.blogspot.com"><i class="bi bi-file-earmark-person"></i> View
-                Portfolio</a>
-              <a href="mailto:dev.avishkar@gmail.com"><i class="bi bi-envelope"></i> Contact via Email</a>
-              <a href="tel:+919146964882"><i class="bi bi-calendar"></i> Schedule a Call</a>
+              <h1 class="studio-name">Avishkar Digital Studio</h1>
+              <p class="studio-tagline">Creative Digital Solutions & Innovation</p>
+              <p class="studio-description">
+                We craft exceptional digital experiences through innovative design, cutting-edge technology,
+                and strategic thinking. From brand identity to web development, we bring your vision to life
+                with precision and creativity.
+              </p>
             </div>
-          </div> -->
-        </div>
-
-
-
-      </div>
+            <div class="cta-section">
+              <a href="pages/requestservices.html" class="cta-btn cta-primary">
+                <i class="bi bi-briefcase"></i>
+                Start Your Project
+              </a>
+              <a href="https://api.whatsapp.com/send?phone=9146964882&text=Hi,%20I%20am%20interested%20in%20your%20services.%20Could%20you%20please%20provide%20more%20details?"
+                class="cta-btn cta-secondary">
+                <i class="bi bi-chat-dots"></i>
+                Let's Discuss
+              </a>
+            </div>
+          </div>
+      </section>
 
 
       <section class="about-section" data-aos="fade-left" data-aos-delay="100">
@@ -424,6 +422,7 @@
         </div>
       </section>
 
+
       <!-- Client Testimonials Section -->
       <section class="testimonials-section" data-aos="fade-up" data-aos-delay="300">
         <h2>
@@ -508,41 +507,21 @@
               </div>
             </div>
           </div>
+
         </div>
-        
         <div class="review-section">
-          <div class="floating-elements">
-            <div class="floating-star">★</div>
-            <div class="floating-star">★</div>
-            <div class="floating-star">★</div>
-            <div class="floating-star">★</div>
-          </div>
+          <h2 class="review-title">
+            <span class="love-emoji">💌</span>Love Our Service?
+          </h2>
+          <p class="review-subtitle">
+            Share your experience with others and help us grow! Your feedback means the world to us.
+          </p>
 
-          <div class="review-content" data-aos="fade-up" data-aos-delay="400">
-            <h2 class="review">💌 Love Our Service?</h2>
-            <p class="review-subtitle">
-              Share your experience with others and help us grow! Your feedback means the world to us and helps other
-              customers discover our amazing service.
-            </p>
-
-            <div class="stars">
-              <span class="star" style="--i: 0">★</span>
-              <span class="star" style="--i: 1">★</span>
-              <span class="star" style="--i: 2">★</span>
-              <span class="star" style="--i: 3">★</span>
-              <span class="star" style="--i: 4">★</span>
-            </div>
-
-            <a href="https://g.page/r/CTE-wqXv42MLEAE/review" class="review-button" target="_blank"
-              rel="noopener noreferrer">
-              <div class="google-icon">G</div>
-              Review Us on Google
-            </a>
-
-            <p class="social-proof">
-              Join hundreds of satisfied customers who've shared their experience
-            </p>
-          </div>
+          <a href="https://g.page/r/CTE-wqXv42MLEAE/review" class="review-button" target="_blank"
+            rel="noopener noreferrer">
+            <div class="google-icon"></div>
+            Review Us on Google
+          </a>
         </div>
 
       </section>
@@ -1126,181 +1105,181 @@
     <script src="script.min.js" defer></script>
     <!--Media-->
     <script>
-  const imageData = [
-    {
-      src: 'images/web_designing.webp',
-      name: 'web_designing',
-      alt: 'Web Designing',
-      title: 'Web Designing',
-      description: 'Modern, responsive web design solutions tailored to your business needs.'
-    },
-    {
-      src: 'images/landing_page.webp',
-      name: 'landing_page',
-      alt: 'Landing Page',
-      title: 'Landing Pages',
-      description: 'High-converting landing pages that drive results and engage visitors.'
-    },
-    {
-      src: 'images/logo_design.webp',
-      name: 'logo_design',
-      alt: 'Logo Design',
-      title: 'Logo Design',
-      description: 'Unique brand identity designs that make your business memorable.'
-    },
-    {
-      src: 'images/seo.webp',
-      name: 'seo',
-      alt: 'SEO',
-      title: 'SEO Optimization',
-      description: 'Search engine optimization to boost your online visibility.'
-    },
-    {
-      src: 'images/content%20creation.webp', // <-- URL encode space
-      name: 'content_creation',
-      alt: 'Content Creation',
-      title: 'Content Creation',
-      description: 'Engaging content that connects with your audience and drives engagement.'
-    }
-  ];
+      const imageData = [
+        {
+          src: 'images/web_designing.webp',
+          name: 'web_designing',
+          alt: 'Web Designing',
+          title: 'Web Designing',
+          description: 'Modern, responsive web design solutions tailored to your business needs.'
+        },
+        {
+          src: 'images/landing_page.webp',
+          name: 'landing_page',
+          alt: 'Landing Page',
+          title: 'Landing Pages',
+          description: 'High-converting landing pages that drive results and engage visitors.'
+        },
+        {
+          src: 'images/logo_design.webp',
+          name: 'logo_design',
+          alt: 'Logo Design',
+          title: 'Logo Design',
+          description: 'Unique brand identity designs that make your business memorable.'
+        },
+        {
+          src: 'images/seo.webp',
+          name: 'seo',
+          alt: 'SEO',
+          title: 'SEO Optimization',
+          description: 'Search engine optimization to boost your online visibility.'
+        },
+        {
+          src: 'images/content%20creation.webp', // <-- URL encode space
+          name: 'content_creation',
+          alt: 'Content Creation',
+          title: 'Content Creation',
+          description: 'Engaging content that connects with your audience and drives engagement.'
+        }
+      ];
 
-  let modal, expandedImg, caption, closeBtn;
+      let modal, expandedImg, caption, closeBtn;
 
-  function initializeModal() {
-    modal = document.getElementById('imageModal');
-    expandedImg = document.getElementById('expandedImg');
-    caption = document.getElementById('modalCaption');
-    closeBtn = document.querySelector('.close-btn');
+      function initializeModal() {
+        modal = document.getElementById('imageModal');
+        expandedImg = document.getElementById('expandedImg');
+        caption = document.getElementById('modalCaption');
+        closeBtn = document.querySelector('.close-btn');
 
-    if (closeBtn) {
-      closeBtn.addEventListener('click', closeModal);
-    }
-  }
+        if (closeBtn) {
+          closeBtn.addEventListener('click', closeModal);
+        }
+      }
 
-  function createImageElement(data) {
-    const container = document.createElement('div');
-    container.className = 'image-container';
-    container.tabIndex = 0;
-    container.setAttribute('role', 'button');
-    container.setAttribute('aria-label', `View ${data.title} in full size`);
+      function createImageElement(data) {
+        const container = document.createElement('div');
+        container.className = 'image-container';
+        container.tabIndex = 0;
+        container.setAttribute('role', 'button');
+        container.setAttribute('aria-label', `View ${data.title} in full size`);
 
-    const skeleton = document.createElement('div');
-    skeleton.className = 'loading-skeleton';
-    skeleton.innerHTML = '<i class="bi bi-image" style="font-size: 2rem; color: #ccc;"></i>';
-    container.appendChild(skeleton);
+        const skeleton = document.createElement('div');
+        skeleton.className = 'loading-skeleton';
+        skeleton.innerHTML = '<i class="bi bi-image" style="font-size: 2rem; color: #ccc;"></i>';
+        container.appendChild(skeleton);
 
-    const img = document.createElement('img');
-    img.className = 'gallery-image';
-    img.alt = data.alt;
-    img.loading = 'lazy';
-    img.decoding = 'async';
-    img.src = data.src;
+        const img = document.createElement('img');
+        img.className = 'gallery-image';
+        img.alt = data.alt;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.src = data.src;
 
-    const overlay = document.createElement('div');
-    overlay.className = 'image-overlay';
-    overlay.innerHTML = `
+        const overlay = document.createElement('div');
+        overlay.className = 'image-overlay';
+        overlay.innerHTML = `
       <div class="overlay-title">${data.title}</div>
       <div class="overlay-description">${data.description}</div>
     `;
 
-    // Immediately append image and overlay
-    container.appendChild(img);
-    container.appendChild(overlay);
+        // Immediately append image and overlay
+        container.appendChild(img);
+        container.appendChild(overlay);
 
-    img.onload = function () {
-      skeleton.remove();
-    };
+        img.onload = function () {
+          skeleton.remove();
+        };
 
-    img.onerror = function () {
-      skeleton.innerHTML = `
+        img.onerror = function () {
+          skeleton.innerHTML = `
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 200px; color: #666; text-align: center; padding: 1rem;">
           <i class="bi bi-image" style="font-size: 3rem; margin-bottom: 1rem; color: #ccc;"></i>
           <div style="font-size: 1.1rem; font-weight: 500;">${data.title}</div>
           <div style="font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem;">Image not found</div>
         </div>
       `;
-    };
+        };
 
-    const openModal = () => openImageModal(img.src, data.title);
-    container.addEventListener('click', openModal);
-    container.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openModal();
+        const openModal = () => openImageModal(img.src, data.title);
+        container.addEventListener('click', openModal);
+        container.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openModal();
+          }
+        });
+
+        return container;
       }
-    });
 
-    return container;
-  }
+      function initializeGallery() {
+        const gallery = document.getElementById('galleryGrid');
+        if (!gallery) return;
 
-  function initializeGallery() {
-    const gallery = document.getElementById('galleryGrid');
-    if (!gallery) return;
-
-    const fragment = document.createDocumentFragment();
-    imageData.forEach((data) => {
-      const imageElement = createImageElement(data);
-      fragment.appendChild(imageElement);
-    });
-    gallery.appendChild(fragment);
-  }
-
-  function openImageModal(src, title) {
-    if (!modal || !expandedImg || !caption) return;
-
-    expandedImg.src = src;
-    expandedImg.alt = title;
-    caption.textContent = title;
-
-    modal.classList.add('show');
-    modal.setAttribute('aria-hidden', 'false');
-    if (closeBtn) closeBtn.focus();
-    document.body.style.overflow = 'hidden';
-    document.addEventListener('keydown', handleEscapeKey);
-    modal.addEventListener('click', handleBackdropClick);
-  }
-
-  function closeModal() {
-    if (!modal) return;
-
-    modal.classList.remove('show');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    document.removeEventListener('keydown', handleEscapeKey);
-    modal.removeEventListener('click', handleBackdropClick);
-    setTimeout(() => {
-      if (!modal.classList.contains('show') && expandedImg) {
-        expandedImg.src = '';
+        const fragment = document.createDocumentFragment();
+        imageData.forEach((data) => {
+          const imageElement = createImageElement(data);
+          fragment.appendChild(imageElement);
+        });
+        gallery.appendChild(fragment);
       }
-    }, 300);
-  }
 
-  function handleEscapeKey(e) {
-    if (e.key === 'Escape') closeModal();
-  }
+      function openImageModal(src, title) {
+        if (!modal || !expandedImg || !caption) return;
 
-  function handleBackdropClick(e) {
-    if (e.target === modal) closeModal();
-  }
+        expandedImg.src = src;
+        expandedImg.alt = title;
+        caption.textContent = title;
 
-  function initialize() {
-    initializeModal();
-    initializeGallery();
-  }
+        modal.classList.add('show');
+        modal.setAttribute('aria-hidden', 'false');
+        if (closeBtn) closeBtn.focus();
+        document.body.style.overflow = 'hidden';
+        document.addEventListener('keydown', handleEscapeKey);
+        modal.addEventListener('click', handleBackdropClick);
+      }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initialize);
-  } else {
-    initialize();
-  }
+      function closeModal() {
+        if (!modal) return;
 
-  if ('performance' in window) {
-    window.addEventListener('load', () => {
-      const loadTime = performance.now();
-      console.log(`Gallery loaded in ${loadTime.toFixed(2)}ms`);
-    });
-  }
-</script>
+        modal.classList.remove('show');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', handleEscapeKey);
+        modal.removeEventListener('click', handleBackdropClick);
+        setTimeout(() => {
+          if (!modal.classList.contains('show') && expandedImg) {
+            expandedImg.src = '';
+          }
+        }, 300);
+      }
+
+      function handleEscapeKey(e) {
+        if (e.key === 'Escape') closeModal();
+      }
+
+      function handleBackdropClick(e) {
+        if (e.target === modal) closeModal();
+      }
+
+      function initialize() {
+        initializeModal();
+        initializeGallery();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initialize);
+      } else {
+        initialize();
+      }
+
+      if ('performance' in window) {
+        window.addEventListener('load', () => {
+          const loadTime = performance.now();
+          console.log(`Gallery loaded in ${loadTime.toFixed(2)}ms`);
+        });
+      }
+    </script>
 
 </body>
 
