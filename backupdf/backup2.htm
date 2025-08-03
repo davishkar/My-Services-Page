@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avishkar Digital Studio -Reviews us!</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Favicon -->
+<link rel="apple-touch-icon" sizes="57x57" href="../favicon_io/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="../favicon_io/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../favicon_io/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="../favicon_io/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../favicon_io/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="../favicon_io/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="../favicon_io/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="../favicon_io/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-icon-180x180.png">
+
+<link rel="icon" type="image/png" sizes="192x192" href="../favicon_io/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="../favicon_io/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
+
+<link rel="manifest" href="../favicon_io/manifest.json">
+<link rel="shortcut icon" href="../favicon_io/favicon.ico" type="image/x-icon">
+
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="../favicon_io/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <!-- Font Awesome Icon Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/review.css">
+</head>
+<body>
+    
+  <div class="container">
+    
+    <div class="header">
+      <h1><i class="fas fa-star"></i> Avishkar Digital Studio</h1>
+      <p class="subtitle">Customer Reviews & Feedback</p>
+      <!-- Breadcrumbs -->
+          <nav class="breadcrumbs">
+            <a href="../index.html">Home</a>
+            <a href="#">Reviews</a>
+          </nav>
+    </div>
+    <div class="content">
+      <div class="rating-overview">
+        <div class="overall-rating" id="overallRating">0.0</div>
+        <div class="rating-stars" id="overallStars">
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <div class="rating-text" id="ratingText">Based on 0 reviews</div>
+      </div>
+      
+      <div class="rating-breakdown">
+        <h3 class="breakdown-title">Rating Breakdown</h3>
+        <div class="row">
+          <div class="side">5 star</div>
+          <div class="middle">
+            <div class="bar-container">
+              <div class="bar-5" id="bar-5" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="right" id="count-5">0</div>
+        </div>
+        
+        <div class="row">
+          <div class="side">4 star</div>
+          <div class="middle">
+            <div class="bar-container">
+              <div class="bar-4" id="bar-4" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="right" id="count-4">0</div>
+        </div>
+        
+        <div class="row">
+          <div class="side">3 star</div>
+          <div class="middle">
+            <div class="bar-container">
+              <div class="bar-3" id="bar-3" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="right" id="count-3">0</div>
+        </div>
+        
+        <div class="row">
+          <div class="side">2 star</div>
+          <div class="middle">
+            <div class="bar-container">
+              <div class="bar-2" id="bar-2" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="right" id="count-2">0</div>
+        </div>
+        
+        <div class="row">
+          <div class="side">1 star</div>
+          <div class="middle">
+            <div class="bar-container">
+              <div class="bar-1" id="bar-1" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="right" id="count-1">0</div>
+        </div>
+      </div>
+      
+      <div class="review-form">
+        <h3 class="form-title">Share Your Experience</h3>
+        <form id="reviewForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="userName"><i class="fas fa-user"></i> Your Name *</label>
+              <input type="text" id="userName" required placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+              <label for="userEmail"><i class="fas fa-envelope"></i> Email Address *</label>
+              <input type="email" id="userEmail" required placeholder="Enter your email">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="userReview"><i class="fas fa-comment"></i> Your Review *</label>
+            <textarea id="userReview" required placeholder="Share your detailed experience with our services..."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <div class="rating-selector">
+              <span class="rating-label"><i class="fas fa-star-half-alt"></i> Rating:</span>
+              <div class="star-rating" id="starRating">
+                <span class="star" data-rating="1"><i class="fas fa-star"></i></span>
+                <span class="star" data-rating="2"><i class="fas fa-star"></i></span>
+                <span class="star" data-rating="3"><i class="fas fa-star"></i></span>
+                <span class="star" data-rating="4"><i class="fas fa-star"></i></span>
+                <span class="star" data-rating="5"><i class="fas fa-star"></i></span>
+              </div>
+            </div>
+          </div>
+          
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <i class="fas fa-paper-plane"></i> Submit Review
+          </button>
+        </form>
+      </div>
+      
+      <div class="reviews-list">
+        <h3 class="reviews-title">Customer Reviews</h3>
+        <div id="reviewsList">
+          <div class="loading">Loading reviews...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Firebase Configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAP-MhbZCeigYuKVSDlidl-SJPkwJnaiA8",
+  authDomain: "avishkarstudio-82406.firebaseapp.com",
+  projectId: "avishkarstudio-82406",
+  storageBucket: "avishkarstudio-82406.firebasestorage.app",
+  messagingSenderId: "365415246841",
+  appId: "1:365415246841:web:858339693f2a1762d96b28",
+  measurementId: "G-597DBSP668"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+// Global variables
+let selectedRating = 5;
+
+// localStorage key for device tracking
+const DEVICE_REVIEW_KEY = 'avishkar_review_submitted';
+
+// Check if device has already submitted a review
+function hasDeviceSubmittedReview() {
+  return localStorage.getItem(DEVICE_REVIEW_KEY) === 'true';
+}
+
+// Mark device as having submitted a review
+function markDeviceAsSubmitted() {
+  localStorage.setItem(DEVICE_REVIEW_KEY, 'true');
+}
+
+// Check device status on page load and update UI accordingly
+function checkDeviceStatus() {
+  if (hasDeviceSubmittedReview()) {
+    disableReviewForm();
+    showAlreadySubmittedMessage();
+  }
+}
+
+// Disable the review form
+function disableReviewForm() {
+  const form = document.getElementById('reviewForm');
+  const submitBtn = document.getElementById('submitBtn');
+  
+  // Disable all form inputs
+  const inputs = form.querySelectorAll('input, textarea, button');
+  inputs.forEach(input => {
+    input.disabled = true;
+  });
+  
+  // Update submit button
+  submitBtn.innerHTML = '<i class="fas fa-ban"></i> Review Already Submitted';
+  submitBtn.style.backgroundColor = '#6c757d';
+  submitBtn.style.cursor = 'not-allowed';
+}
+
+// Show message that review has already been submitted
+function showAlreadySubmittedMessage() {
+  const formTitle = document.querySelector('.form-title');
+  
+  // Create and insert message
+  const messageDiv = document.createElement('div');
+  messageDiv.className = 'already-submitted-message';
+  messageDiv.innerHTML = `
+    <div style="
+      background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    ">
+      <i class="fas fa-info-circle" style="font-size: 24px; margin-bottom: 10px;"></i>
+      <h4 style="margin: 10px 0; font-size: 18px;">Review Already Submitted</h4>
+      <p style="margin: 0; opacity: 0.9;">You have already submitted a review from this device. Thank you for your feedback!</p>
+    </div>
+  `;
+  
+  formTitle.insertAdjacentElement('afterend', messageDiv);
+}
+
+// Star rating functionality
+const stars = document.querySelectorAll('.star');
+stars.forEach(star => {
+  star.addEventListener('click', () => {
+    if (!hasDeviceSubmittedReview()) {
+      selectedRating = parseInt(star.dataset.rating);
+      updateStarDisplay();
+    }
+  });
+
+  star.addEventListener('mouseenter', () => {
+    if (!hasDeviceSubmittedReview()) {
+      const hoverRating = parseInt(star.dataset.rating);
+      highlightStars(hoverRating);
+    }
+  });
+});
+
+document.getElementById('starRating').addEventListener('mouseleave', () => {
+  if (!hasDeviceSubmittedReview()) {
+    updateStarDisplay();
+  }
+});
+
+function highlightStars(rating) {
+  stars.forEach((star, index) => {
+    if (index < rating) {
+      star.classList.add('active');
+    } else {
+      star.classList.remove('active');
+    }
+  });
+}
+
+function updateStarDisplay() {
+  highlightStars(selectedRating);
+}
+
+// Initialize star display
+updateStarDisplay();
+
+// Form submission
+document.getElementById('reviewForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  submitReview();
+});
+
+function submitReview() {
+  // First check: Has this device already submitted a review?
+  if (hasDeviceSubmittedReview()) {
+    alert('You have already submitted a review from this device.');
+    return;
+  }
+
+  // Validate form fields
+  const name = document.getElementById("userName").value.trim();
+  const email = document.getElementById("userEmail").value.trim();
+  const review = document.getElementById("userReview").value.trim();
+  
+  if (!name || !email || !review) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
+  // Validate email format
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+
+  // Update submit button to show loading state
+  const submitBtn = document.getElementById('submitBtn');
+  const originalContent = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+  // Submit review to Firestore
+  db.collection("reviews").add({
+    name: name,
+    email: email,
+    review: review,
+    rating: selectedRating,
+    timestamp: new Date(),
+    deviceId: generateDeviceId() // Optional: Add device fingerprint
+  }).then(() => {
+    // Mark device as having submitted a review
+    markDeviceAsSubmitted();
+    
+    // Reset form
+    document.getElementById("reviewForm").reset();
+    selectedRating = 5;
+    updateStarDisplay();
+    
+    // Reset button temporarily
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalContent;
+    
+    // Show success message
+    alert('Thank you for your review! Your feedback has been submitted successfully.');
+    
+    // Reload reviews to show the new one
+    loadReviews();
+    
+    // Disable form after successful submission
+    setTimeout(() => {
+      disableReviewForm();
+      showAlreadySubmittedMessage();
+    }, 1000);
+    
+  }).catch((error) => {
+    console.error("Error adding review: ", error);
+    
+    // Reset button on error
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalContent;
+    
+    // Show error message
+    alert('Error submitting review. Please try again. If the problem persists, please contact support.');
+  });
+}
+
+// Generate a simple device ID (optional - for additional tracking)
+function generateDeviceId() {
+  let deviceId = localStorage.getItem('avishkar_device_id');
+  if (!deviceId) {
+    deviceId = 'device_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+    localStorage.setItem('avishkar_device_id', deviceId);
+  }
+  return deviceId;
+}
+
+function loadReviews() {
+  db.collection("reviews").orderBy("timestamp", "desc").get().then(snapshot => {
+    let total = 0, count = 0;
+    const ratingCounts = {1:0, 2:0, 3:0, 4:0, 5:0};
+    const reviewsHtml = [];
+
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      total += data.rating;
+      count++;
+      ratingCounts[data.rating]++;
+      
+      // Create review HTML
+      const reviewDate = data.timestamp ? data.timestamp.toDate().toLocaleDateString() : 'Recent';
+      const initials = data.name.split(' ').map(n => n[0]).join('').toUpperCase();
+      
+      reviewsHtml.push(`
+        <div class="review-item animate__animated animate__fadeInUp">
+          <div class="review-header">
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">${initials}</div>
+              <div class="reviewer-details">
+                <h4>${escapeHtml(data.name)}</h4>
+                <p>${reviewDate}</p>
+              </div>
+            </div>
+            <div class="review-rating">
+              ${'★'.repeat(data.rating)}${'☆'.repeat(5-data.rating)}
+            </div>
+          </div>
+          <div class="review-text">${escapeHtml(data.review)}</div>
+        </div>
+      `);
+    });
+
+    // Update overall rating
+    const avg = count ? (total / count).toFixed(1) : 0;
+    document.getElementById('overallRating').textContent = avg;
+    document.getElementById('ratingText').textContent = `Based on ${count} review${count !== 1 ? 's' : ''}`;
+    
+    // Update star display
+    updateOverallStars(parseFloat(avg));
+    
+    // Update rating bars with animation
+    Object.keys(ratingCounts).forEach(rating => {
+      const percentage = count ? (ratingCounts[rating] / count * 100) : 0;
+      const bar = document.getElementById(`bar-${rating}`);
+      bar.style.width = '0%';
+      setTimeout(() => {
+        bar.style.transition = 'width 1s ease-in-out';
+        bar.style.width = percentage + '%';
+      }, 200);
+      document.getElementById(`count-${rating}`).textContent = ratingCounts[rating];
+    });
+    
+    // Update reviews list
+    const reviewsList = document.getElementById('reviewsList');
+    if (reviewsHtml.length > 0) {
+      reviewsList.innerHTML = reviewsHtml.join('');
+    } else {
+      reviewsList.innerHTML = '<div class="no-reviews">No reviews yet. Be the first to share your experience!</div>';
+    }
+    
+  }).catch((error) => {
+    console.error("Error loading reviews: ", error);
+    document.getElementById('reviewsList').innerHTML = '<div class="no-reviews">Error loading reviews. Please refresh the page.</div>';
+  });
+}
+
+function updateOverallStars(rating) {
+  const starsContainer = document.getElementById('overallStars');
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = (rating % 1) >= 0.5;
+  let starsHtml = '';
+  
+  for (let i = 0; i < 5; i++) {
+    if (i < fullStars) {
+      starsHtml += '<i class="fas fa-star"></i>';
+    } else if (i === fullStars && hasHalfStar) {
+      starsHtml += '<i class="fas fa-star-half-alt"></i>';
+    } else {
+      starsHtml += '<i class="far fa-star"></i>';
+    }
+  }
+  
+  starsContainer.innerHTML = starsHtml;
+}
+
+// Utility function to escape HTML and prevent XSS
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+// Initialize everything when page loads
+document.addEventListener('DOMContentLoaded', function() {
+  // Check device status first
+  checkDeviceStatus();
+  
+  // Load existing reviews
+  loadReviews();
+  
+  // Add some visual feedback for form interactions
+  const inputs = document.querySelectorAll('input, textarea');
+  inputs.forEach(input => {
+    input.addEventListener('focus', function() {
+      if (!hasDeviceSubmittedReview()) {
+        this.style.transform = 'scale(1.02)';
+        this.style.transition = 'transform 0.2s ease';
+      }
+    });
+    
+    input.addEventListener('blur', function() {
+      this.style.transform = 'scale(1)';
+    });
+  });
+});
+
+// Optional: Add a function to reset device status (for testing purposes)
+// Uncomment the line below to add a reset function
+// window.resetDeviceReviewStatus = () => localStorage.removeItem(DEVICE_REVIEW_KEY);
+  </script>
+</body>
+</html>
+// Firebase Configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAP-MhbZCeigYuKVSDlidl-SJPkwJnaiA8",
+  authDomain: "avishkarstudio-82406.firebaseapp.com",
+  projectId: "avishkarstudio-82406",
+  storageBucket: "avishkarstudio-82406.firebasestorage.app",
+  messagingSenderId: "365415246841",
+  appId: "1:365415246841:web:858339693f2a1762d96b28",
+  measurementId: "G-597DBSP668"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+// Global variables
+let selectedRating = 5;
+
+// localStorage key for device tracking
+const DEVICE_REVIEW_KEY = 'avishkar_review_submitted';
+
+// Check if device has already submitted a review
+function hasDeviceSubmittedReview() {
+  return localStorage.getItem(DEVICE_REVIEW_KEY) === 'true';
+}
+
+// Mark device as having submitted a review
+function markDeviceAsSubmitted() {
+  localStorage.setItem(DEVICE_REVIEW_KEY, 'true');
+}
+
+// Check device status on page load and update UI accordingly
+function checkDeviceStatus() {
+  if (hasDeviceSubmittedReview()) {
+    disableReviewForm();
+    showAlreadySubmittedMessage();
+  }
+}
+
+// Disable the review form
+function disableReviewForm() {
+  const form = document.getElementById('reviewForm');
+  const submitBtn = document.getElementById('submitBtn');
+  
+  // Disable all form inputs
+  const inputs = form.querySelectorAll('input, textarea, button');
+  inputs.forEach(input => {
+    input.disabled = true;
+  });
+  
+  // Update submit button
+  submitBtn.innerHTML = '<i class="fas fa-ban"></i> Review Already Submitted';
+  submitBtn.style.backgroundColor = '#6c757d';
+  submitBtn.style.cursor = 'not-allowed';
+}
+
+// Show message that review has already been submitted
+function showAlreadySubmittedMessage() {
+  const formTitle = document.querySelector('.form-title');
+  
+  // Create and insert message
+  const messageDiv = document.createElement('div');
+  messageDiv.className = 'already-submitted-message';
+  messageDiv.innerHTML = `
+    <div style="
+      background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    ">
+      <i class="fas fa-info-circle" style="font-size: 24px; margin-bottom: 10px;"></i>
+      <h4 style="margin: 10px 0; font-size: 18px;">Review Already Submitted</h4>
+      <p style="margin: 0; opacity: 0.9;">You have already submitted a review from this device. Thank you for your feedback!</p>
+    </div>
+  `;
+  
+  formTitle.insertAdjacentElement('afterend', messageDiv);
+}
+
+// Star rating functionality
+const stars = document.querySelectorAll('.star');
+stars.forEach(star => {
+  star.addEventListener('click', () => {
+    if (!hasDeviceSubmittedReview()) {
+      selectedRating = parseInt(star.dataset.rating);
+      updateStarDisplay();
+    }
+  });
+
+  star.addEventListener('mouseenter', () => {
+    if (!hasDeviceSubmittedReview()) {
+      const hoverRating = parseInt(star.dataset.rating);
+      highlightStars(hoverRating);
+    }
+  });
+});
+
+document.getElementById('starRating').addEventListener('mouseleave', () => {
+  if (!hasDeviceSubmittedReview()) {
+    updateStarDisplay();
+  }
+});
+
+function highlightStars(rating) {
+  stars.forEach((star, index) => {
+    if (index < rating) {
+      star.classList.add('active');
+    } else {
+      star.classList.remove('active');
+    }
+  });
+}
+
+function updateStarDisplay() {
+  highlightStars(selectedRating);
+}
+
+// Initialize star display
+updateStarDisplay();
+
+// Form submission
+document.getElementById('reviewForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  submitReview();
+});
+
+function submitReview() {
+  // First check: Has this device already submitted a review?
+  if (hasDeviceSubmittedReview()) {
+    alert('You have already submitted a review from this device.');
+    return;
+  }
+
+  // Validate form fields
+  const name = document.getElementById("userName").value.trim();
+  const email = document.getElementById("userEmail").value.trim();
+  const review = document.getElementById("userReview").value.trim();
+  
+  if (!name || !email || !review) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
+  // Validate email format
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+
+  // Update submit button to show loading state
+  const submitBtn = document.getElementById('submitBtn');
+  const originalContent = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+  // Submit review to Firestore
+  db.collection("reviews").add({
+    name: name,
+    email: email,
+    review: review,
+    rating: selectedRating,
+    timestamp: new Date(),
+    deviceId: generateDeviceId() // Optional: Add device fingerprint
+  }).then(() => {
+    // Mark device as having submitted a review
+    markDeviceAsSubmitted();
+    
+    // Reset form
+    document.getElementById("reviewForm").reset();
+    selectedRating = 5;
+    updateStarDisplay();
+    
+    // Reset button temporarily
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalContent;
+    
+    // Show success message
+    alert('Thank you for your review! Your feedback has been submitted successfully.');
+    
+    // Reload reviews to show the new one
+    loadReviews();
+    
+    // Disable form after successful submission
+    setTimeout(() => {
+      disableReviewForm();
+      showAlreadySubmittedMessage();
+    }, 1000);
+    
+  }).catch((error) => {
+    console.error("Error adding review: ", error);
+    
+    // Reset button on error
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalContent;
+    
+    // Show error message
+    alert('Error submitting review. Please try again. If the problem persists, please contact support.');
+  });
+}
+
+// Generate a simple device ID (optional - for additional tracking)
+function generateDeviceId() {
+  let deviceId = localStorage.getItem('avishkar_device_id');
+  if (!deviceId) {
+    deviceId = 'device_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+    localStorage.setItem('avishkar_device_id', deviceId);
+  }
+  return deviceId;
+}
+
+function loadReviews() {
+  db.collection("reviews").orderBy("timestamp", "desc").get().then(snapshot => {
+    let total = 0, count = 0;
+    const ratingCounts = {1:0, 2:0, 3:0, 4:0, 5:0};
+    const reviewsHtml = [];
+
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      total += data.rating;
+      count++;
+      ratingCounts[data.rating]++;
+      
+      // Create review HTML with detailed date formatting
+      let reviewDate = 'Recent';
+      if (data.timestamp) {
+        const date = data.timestamp.toDate();
+        reviewDate = formatReviewDateDetailed(date);
+      }
+      const initials = data.name.split(' ').map(n => n[0]).join('').toUpperCase();
+      
+      reviewsHtml.push(`
+        <div class="review-item animate__animated animate__fadeInUp">
+          <div class="review-header">
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">${initials}</div>
+              <div class="reviewer-details">
+                <h4>${escapeHtml(data.name)}</h4>
+                <p>${reviewDate}</p>
+              </div>
+            </div>
+            <div class="review-rating">
+              ${'★'.repeat(data.rating)}${'☆'.repeat(5-data.rating)}
+            </div>
+          </div>
+          <div class="review-text">${escapeHtml(data.review)}</div>
+        </div>
+      `);
+    });
+
+    // Update overall rating
+    const avg = count ? (total / count).toFixed(1) : 0;
+    document.getElementById('overallRating').textContent = avg;
+    document.getElementById('ratingText').textContent = `Based on ${count} review${count !== 1 ? 's' : ''}`;
+    
+    // Update star display
+    updateOverallStars(parseFloat(avg));
+    
+    // Update rating bars with animation
+    Object.keys(ratingCounts).forEach(rating => {
+      const percentage = count ? (ratingCounts[rating] / count * 100) : 0;
+      const bar = document.getElementById(`bar-${rating}`);
+      bar.style.width = '0%';
+      setTimeout(() => {
+        bar.style.transition = 'width 1s ease-in-out';
+        bar.style.width = percentage + '%';
+      }, 200);
+      document.getElementById(`count-${rating}`).textContent = ratingCounts[rating];
+    });
+    
+    // Update reviews list
+    const reviewsList = document.getElementById('reviewsList');
+    if (reviewsHtml.length > 0) {
+      reviewsList.innerHTML = reviewsHtml.join('');
+    } else {
+      reviewsList.innerHTML = '<div class="no-reviews">No reviews yet. Be the first to share your experience!</div>';
+    }
+    
+  }).catch((error) => {
+    console.error("Error loading reviews: ", error);
+    document.getElementById('reviewsList').innerHTML = '<div class="no-reviews">Error loading reviews. Please refresh the page.</div>';
+  });
+}
+
+function updateOverallStars(rating) {
+  const starsContainer = document.getElementById('overallStars');
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = (rating % 1) >= 0.5;
+  let starsHtml = '';
+  
+  for (let i = 0; i < 5; i++) {
+    if (i < fullStars) {
+      starsHtml += '<i class="fas fa-star"></i>';
+    } else if (i === fullStars && hasHalfStar) {
+      starsHtml += '<i class="fas fa-star-half-alt"></i>';
+    } else {
+      starsHtml += '<i class="far fa-star"></i>';
+    }
+  }
+  
+  starsContainer.innerHTML = starsHtml;
+}
+
+// Utility function to format review date nicely
+function formatReviewDate(date) {
+  const now = new Date();
+  const diffTime = Math.abs(now - date);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  
+  if (diffDays === 1) {
+    return 'Yesterday';
+  } else if (diffDays <= 7) {
+    return `${diffDays} days ago`;
+  } else if (diffDays <= 30) {
+    const weeks = Math.floor(diffDays / 7);
+    return weeks === 1 ? '1 week ago' : `${weeks} weeks ago`;
+  } else {
+    // For older dates, show formatted date
+    const options = { 
+      year: 'numeric', 
+      month: 'short', 
+      day: 'numeric' 
+    };
+    return date.toLocaleDateString('en-US', options);
+  }
+}
+
+// Alternative date formatting functions (choose one)
+function formatReviewDateSimple(date) {
+  // Simple format: Jan 15, 2024
+  const options = { 
+    year: 'numeric', 
+    month: 'short', 
+    day: 'numeric' 
+  };
+  return date.toLocaleDateString('en-US', options);
+}
+
+function formatReviewDateDetailed(date) {
+  // Detailed format: January 15, 2024 at 2:30 PM
+  const options = { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  };
+  return date.toLocaleDateString('en-US', options);
+}
+
+function formatReviewDateRelative(date) {
+  // Relative format: 2 hours ago, 3 days ago, etc.
+  const now = new Date();
+  const diffTime = Math.abs(now - date);
+  const diffMinutes = Math.floor(diffTime / (1000 * 60));
+  const diffHours = Math.floor(diffTime / (1000 * 60 * 60));
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  
+  if (diffMinutes < 60) {
+    return diffMinutes <= 1 ? 'Just now' : `${diffMinutes} minutes ago`;
+  } else if (diffHours < 24) {
+    return diffHours === 1 ? '1 hour ago' : `${diffHours} hours ago`;
+  } else if (diffDays < 7) {
+    return diffDays === 1 ? 'Yesterday' : `${diffDays} days ago`;
+  } else {
+    return date.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'short', 
+      day: 'numeric' 
+    });
+  }
+}
+
+// Utility function to escape HTML and prevent XSS
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+document.addEventListener('DOMContentLoaded', function() {
+  // Check device status first
+  checkDeviceStatus();
+  
+  // Load existing reviews
+  loadReviews();
+  
+  // Add some visual feedback for form interactions
+  const inputs = document.querySelectorAll('input, textarea');
+  inputs.forEach(input => {
+    input.addEventListener('focus', function() {
+      if (!hasDeviceSubmittedReview()) {
+        this.style.transform = 'scale(1.02)';
+        this.style.transition = 'transform 0.2s ease';
+      }
+    });
+    
+    input.addEventListener('blur', function() {
+      this.style.transform = 'scale(1)';
+    });
+  });
+});
+
+// Optional: Add a function to reset device status (for testing purposes)
+// Uncomment the line below to add a reset function
+// window.resetDeviceReviewStatus = () => localStorage.removeItem(DEVICE_REVIEW_KEY);

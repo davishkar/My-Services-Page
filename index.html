@@ -22,7 +22,7 @@
   <meta name="distribution" content="global">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="google-site-verification" content="Q_pZz3g3AiwHY7YFGjAmXqogc34bSQFAJQgP4ZUIUkE" />
+  <meta name="google-site-verification" content="Q_pZz3g3AiwHY7YFGjAmXqogc34bSQFAJQgP4ZUIUkE" />
   <!-- Facebook Meta Tags -->
   <meta property="og:url" content="https://github.com/davishkar/My-Services-Page">
   <meta property="og:type" content="website">
@@ -95,6 +95,9 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
     rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
 
 
 
@@ -438,128 +441,282 @@
 
 
       <!-- Client Testimonials Section -->
-      <section class="testimonials-section" data-aos="fade-up" data-aos-delay="300">
+    <section class="testimonials-section" data-aos="fade-up" data-aos-delay="300">
         <h2>
-          <i class="bi bi-chat-quote"></i>
-          Testimonials
+            <i class="bi bi-chat-quote"></i>
+            Testimonials
         </h2>
 
-        <div class="testimonials-grid">
-          <div class="testimonial-card" data-aos="flip-left" data-aos-delay="100">
-            <div class="testimonial-content">
-              <div class="stars">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-              </div>
-              <p>
-                "Avi built our e-commerce site in just 5 days. Professional, fast, and exceeded our expectations!"
-              </p>
-            </div>
-            <div class="testimonial-author">
-              <img src="https://cdn-icons-png.freepik.com/128/6994/6994705.png" srcset="https://cdn-icons-png.freepik.com/64/6994/6994705.png 64w,
-             https://cdn-icons-png.freepik.com/128/6994/6994705.png 128w,
-             https://cdn-icons-png.freepik.com/256/6994/6994705.png 256w" sizes="(max-width: 768px) 64px, 128px"
-                alt="Client Photo">
-              <div class="author-info">
-                <h3>Sarah Rodriguez</h3>
-                <span>E-commerce Store Owner</span>
-              </div>
-            </div>
-          </div>
+        <div class="testimonials-slider" data-aos="flip-left" data-aos-delay="100">
+            <!-- <h3 class="reviews-title">Customer Reviews</h3> -->
 
-          <div class="testimonial-card" data-aos="flip-left" data-aos-delay="200">
-            <div class="testimonial-content">
-              <div class="stars">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-              </div>
-              <p>
-                "Outstanding web development services! Avi's attention to detail and modern design approach transformed
-                our online presence completely."
-              </p>
-            </div>
-            <div class="testimonial-author">
-              <img src="https://cdn-icons-png.freepik.com/128/6994/6994705.png" srcset="https://cdn-icons-png.freepik.com/64/6994/6994705.png 64w,
-             https://cdn-icons-png.freepik.com/128/6994/6994705.png 128w,
-             https://cdn-icons-png.freepik.com/256/6994/6994705.png 256w" sizes="(max-width: 768px) 64px, 128px"
-                alt="Client Photo">
-              <div class="author-info">
-                <h3>Michael Patel</h3>
-                <span>Tech Startup Founder</span>
-              </div>
-            </div>
-          </div>
+            <div class="slider-wrapper">
+                <div id="reviewsList" class="reviews-container">
+                    <div class="loading">Loading reviews...</div>
+                </div>
 
-          <div class="testimonial-card" data-aos="flip-left" data-aos-delay="300">
-            <div class="testimonial-content">
-              <div class="stars">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-              </div>
-              <p>
-                "Incredible responsiveness and quality work. Our restaurant's website now looks amazing and functions
-                perfectly on all devices!"
-              </p>
+                <!-- Navigation Buttons -->
+                <button class="slider-nav prev-btn" onclick="prevSlide()">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <button class="slider-nav next-btn" onclick="nextSlide()">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
             </div>
-            <div class="testimonial-author">
-              <img src="https://cdn-icons-png.freepik.com/128/6994/6994705.png" srcset="https://cdn-icons-png.freepik.com/64/6994/6994705.png 64w,
-             https://cdn-icons-png.freepik.com/128/6994/6994705.png 128w,
-             https://cdn-icons-png.freepik.com/256/6994/6994705.png 256w" sizes="(max-width: 768px) 64px, 128px"
-                alt="Client Photo">
-              <div class="author-info">
-                <h3>Priya Kulkarni</h3>
-                <span>Restaurant Manager</span>
-              </div>
-            </div>
-          </div>
 
+            <!-- Dots Indicator -->
+            <div class="slider-dots" id="sliderDots"></div>
         </div>
+
         <div class="review-section">
-          <h2 class="review-title">
-            <span class="love-emoji">💌</span>Love Our Service?
-          </h2>
-          <p class="review-subtitle">
-            Share your experience with others and help us grow! Your feedback means the world to us.
-          </p>
+            <h2 class="review-title">
+                <span class="love-emoji">💌</span>Love Our Service?
+            </h2>
+            <p class="review-subtitle">
+                Share your experience with others and help us grow! Your feedback means the world to us.
+            </p>
 
-          <a href="pages/Review.html" class="review-button" target="_blank"
-            rel="noopener noreferrer">
-            <div class="google-icon"></div>
-            Review Us
-          </a>
+            <a href="pages/Review.html" class="review-button" target="_blank" rel="noopener noreferrer">
+                <div class="google-icon"></div>
+                Review Us
+            </a>
         </div>
+    </section>
 
-      </section>
+    <!-- Firebase SDK -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.0.0/firebase-app-compat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.0.0/firebase-firestore-compat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Your external JavaScript file -->
+    <script src="pages/reapp.js"></script>
+    <script>
+        // Global variables for slider
+        let currentSlide = 0;
+        let totalSlides = 0;
+        let reviewsData = [];
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-      <script>
-        // Initialize AOS animations
-        AOS.init({
-          duration: 800,
-          easing: 'ease-in-out',
-          once: true
+        // NO SAMPLE DATA - Only real Firebase data
+
+        // Function to generate star rating HTML
+        function generateStars(rating) {
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= rating) {
+                    stars += '<i class="bi bi-star-fill"></i>';
+                } else {
+                    stars += '<i class="bi bi-star"></i>';
+                }
+            }
+            return stars;
+        }
+
+        // Function to format date
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString(undefined, options);
+        }
+
+        // Function to create slider slides
+        function createSlides(reviews) {
+            let slidesHTML = '';
+
+            reviews.forEach((review, index) => {
+                slidesHTML += `
+                    <div class="review-slide">
+                        <div class="review-item">
+                            <div class="review-header">
+                                <span class="reviewer-name">${review.name}</span>
+                                <div class="star-rating">
+                                    ${generateStars(review.rating)}
+                                </div>
+                            </div>
+                            <p class="review-text">"${review.text}"</p>
+                            <div class="review-date">${formatDate(review.date)}</div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            return slidesHTML;
+        }
+
+        // Function to create dots indicator
+        function createDots(count) {
+            let dotsHTML = '';
+            for (let i = 0; i < count; i++) {
+                dotsHTML += `<span class="dot ${i === 0 ? 'active' : ''}" onclick="currentSlideGo(${i})"></span>`;
+            }
+            document.getElementById('sliderDots').innerHTML = dotsHTML;
+        }
+
+        // Slider navigation functions
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        function currentSlideGo(slideIndex) {
+            currentSlide = slideIndex;
+            updateSlider();
+        }
+
+        function updateSlider() {
+            const container = document.querySelector('.reviews-container');
+            const translateX = -currentSlide * 100;
+            container.style.transform = `translateX(${translateX}%)`;
+
+            // Update dots
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        // Hook into your reapp.js Firebase data
+        function connectToFirebaseReviews() {
+            const reviewsList = document.getElementById('reviewsList');
+
+            // Watch for changes in reviewsList (when reapp.js loads data)
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'childList') {
+                        const reviewItems = reviewsList.querySelectorAll('.review-item');
+                        if (reviewItems.length > 0) {
+                            // Firebase reviews loaded by reapp.js, convert to slider
+                            observer.disconnect();
+                            convertReviewsToSlider(reviewItems);
+                        }
+                    }
+                });
+            });
+
+            observer.observe(reviewsList, { childList: true, subtree: true });
+
+            // Stop observing after 10 seconds
+            setTimeout(() => observer.disconnect(), 10000);
+        }
+
+        // Convert Firebase review HTML to slider format
+        function convertReviewsToSlider(reviewItems) {
+            const firebaseReviews = [];
+
+            reviewItems.forEach(item => {
+                try {
+                    const reviewHeader = item.querySelector('.review-header');
+                    const reviewText = item.querySelector('.review-text');
+                    const reviewerInfo = reviewHeader.querySelector('.reviewer-info');
+                    const reviewRating = reviewHeader.querySelector('.review-rating');
+
+                    const name = reviewerInfo.querySelector('h4').textContent.trim();
+                    const date = reviewerInfo.querySelector('p').textContent.trim();
+                    const text = reviewText.textContent.trim();
+                    const stars = reviewRating.textContent;
+                    const rating = stars.split('★').length - 1; // Count filled stars
+
+                    firebaseReviews.push({
+                        name: name,
+                        rating: rating,
+                        text: text,
+                        date: date
+                    });
+                } catch (e) {
+                    console.log('Error parsing review item:', e);
+                }
+            });
+
+            if (firebaseReviews.length > 0) {
+                loadReviews(firebaseReviews);
+            }
+        }
+
+        // Function to load reviews (only from Firebase via reapp.js)
+        function loadReviews(reviews = null) {
+            const reviewsList = document.getElementById('reviewsList');
+
+            if (reviews && reviews.length > 0) {
+                // Use Firebase reviews data
+                reviewsData = reviews;
+                totalSlides = reviewsData.length;
+
+                // Create slides HTML
+                const slidesHTML = createSlides(reviewsData);
+                reviewsList.innerHTML = slidesHTML;
+
+                // Create dots indicator
+                createDots(totalSlides);
+
+                // Reset to first slide
+                currentSlide = 0;
+                updateSlider();
+
+                // Start auto-slide
+                startAutoSlide();
+            } else {
+                // No reviews available
+                reviewsList.innerHTML = '<div class="loading">No reviews available</div>';
+            }
+        }
+
+        // Auto-slide functionality
+        let autoSlideInterval;
+        function startAutoSlide() {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(() => {
+                nextSlide();
+            }, 5000); // Change slide every 5 seconds
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        // Pause auto-slide on hover
+        function setupHoverControls() {
+            const slider = document.querySelector('.testimonials-slider');
+            slider.addEventListener('mouseenter', stopAutoSlide);
+            slider.addEventListener('mouseleave', startAutoSlide);
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize AOS animations
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+
+            // Connect to Firebase reviews from reapp.js
+            connectToFirebaseReviews();
+            setupHoverControls();
         });
 
-        // Add some interactive effects
-        document.querySelectorAll('.testimonial-card').forEach(card => {
-          card.addEventListener('mouseenter', function () {
-            this.style.transform = 'translateY(-10px) scale(1.02)';
-          });
+        // Function that can be called from reapp.js to update reviews
+        window.updateReviewsSlider = function (newReviews) {
+            loadReviews(newReviews);
+        };
 
-          card.addEventListener('mouseleave', function () {
-            this.style.transform = 'translateY(0) scale(1)';
-          });
+        // Function to be called when Firebase reviews are loaded (hook for reapp.js)
+        window.onFirebaseReviewsLoaded = function (reviewsData) {
+            if (reviewsData && reviewsData.length > 0) {
+                loadReviews(reviewsData);
+            }
+        };
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+            }
         });
-      </script>
+    </script>
+
 
       <!-- Media Gallery Section -->
       <section class="media-section">
@@ -825,6 +982,7 @@
         rel="noopener noreferrer" style="color: #ffffff;">
         <i class="fas fa-shield-alt"></i> Policies & Terms
         <span class="arrow-indicator"></span>
+        <!-- version 2.0.0 -->
       </a>
 
     </footer>
