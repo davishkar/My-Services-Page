@@ -164,7 +164,7 @@
   </div>
 
   <script>
-    // Firebase Configuration
+ // Firebase Configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAP-MhbZCeigYuKVSDlidl-SJPkwJnaiA8",
   authDomain: "avishkarstudio-82406.firebaseapp.com",
@@ -191,6 +191,15 @@ const AuthModule = {
     const provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope('email');
     provider.addScope('profile');
+    
+    // Handle redirect result (for fallback method)
+    auth.getRedirectResult().then((result) => {
+      if (result.user) {
+        console.log('User signed in via redirect:', result.user);
+      }
+    }).catch((error) => {
+      console.error('Redirect sign-in error:', error);
+    });
     
     // Auth state listener
     auth.onAuthStateChanged(user => {
@@ -228,11 +237,50 @@ const AuthModule = {
   async signInWithGoogle() {
     try {
       const provider = new firebase.auth.GoogleAuthProvider();
-      const result = await auth.signInWithPopup(provider);
+      provider.addScope('email');
+      provider.addScope('profile');
+      
+      // Try popup first, fallback to redirect if popup fails
+      let result;
+      try {
+        result = await auth.signInWithPopup(provider);
+      } catch (popupError) {
+        console.warn('Popup blocked, trying redirect:', popupError);
+        // Fallback to redirect method
+        await auth.signInWithRedirect(provider);
+        return; // signInWithRedirect doesn't return a result immediately
+      }
+      
       console.log('User signed in:', result.user);
     } catch (error) {
-      console.error('Error signing in:', error);
-      alert('Error signing in with Google. Please try again.');
+      console.error('Detailed error:', error);
+      
+      let errorMessage = 'Error signing in with Google. ';
+      
+      switch (error.code) {
+        case 'auth/cancelled-popup-request':
+          errorMessage += 'Sign-in was cancelled.';
+          break;
+        case 'auth/popup-blocked':
+          errorMessage += 'Popup was blocked by browser. Please allow popups for this site.';
+          break;
+        case 'auth/popup-closed-by-user':
+          errorMessage += 'Sign-in popup was closed before completion.';
+          break;
+        case 'auth/network-request-failed':
+          errorMessage += 'Network error. Please check your internet connection.';
+          break;
+        case 'auth/invalid-api-key':
+          errorMessage += 'Invalid API key configuration.';
+          break;
+        case 'auth/operation-not-allowed':
+          errorMessage += 'Google Sign-In is not enabled in Firebase console.';
+          break;
+        default:
+          errorMessage += `Please try again. Error: ${error.message}`;
+      }
+      
+      alert(errorMessage);
     }
   },
 
