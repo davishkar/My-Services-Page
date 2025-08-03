@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avishkar Digital Studio -Reviews us!</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Favicon -->
+<link rel="apple-touch-icon" sizes="57x57" href="../favicon_io/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="../favicon_io/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../favicon_io/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="../favicon_io/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../favicon_io/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="../favicon_io/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="../favicon_io/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="../favicon_io/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-icon-180x180.png">
+
+<link rel="icon" type="image/png" sizes="192x192" href="../favicon_io/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="../favicon_io/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
+
+<link rel="manifest" href="../favicon_io/manifest.json">
+<link rel="shortcut icon" href="../favicon_io/favicon.ico" type="image/x-icon">
+
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="../favicon_io/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <!-- Font Awesome Icon Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/review.css">
+</head>
+<body>
+    
+  <div class="container">
+    
+    <div class="header">
+      <h1><i class="fas fa-star"></i> Avishkar Digital Studio</h1>
+      <p class="subtitle">Customer Reviews & Feedback</p>
+      <!-- Breadcrumbs -->
+          <nav class="breadcrumbs">
+            <a href="../index.html">Home</a>
+            <a href="#">Reviews</a>
+          </nav>
+    </div>
+    <div class="content">
+      <div class="rating-overview">
+        <div class="overall-rating" id="overallRating">0.0</div>
+        <div class="rating-stars" id="overallStars">
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <div class="rating-text" id="ratingText">Based on 0 reviews</div>
+      </div>
+      
+      <div class="rating-breakdown">
+        <h3 class="breakdown-title">Rating Breakdown</h3>
+        <div class="row">
+          <div class="side">5 star</div>
+          <div class="middle">
+            <div class="bar-container">
+              <div class="bar-5" id="bar-5" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="right" id="count-5">0</div>
+        </div>
+        
+        <div class="row">
+          <div class="side">4 star</div>
+          <div class="middle">
+            <div class="bar-container">
+              <div class="bar-4" id="bar-4" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="right" id="count-4">0</div>
+        </div>
+        
+        <div class="row">
+          <div class="side">3 star</div>
+          <div class="middle">
+            <div class="bar-container">
+              <div class="bar-3" id="bar-3" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="right" id="count-3">0</div>
+        </div>
+        
+        <div class="row">
+          <div class="side">2 star</div>
+          <div class="middle">
+            <div class="bar-container">
+              <div class="bar-2" id="bar-2" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="right" id="count-2">0</div>
+        </div>
+        
+        <div class="row">
+          <div class="side">1 star</div>
+          <div class="middle">
+            <div class="bar-container">
+              <div class="bar-1" id="bar-1" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="right" id="count-1">0</div>
+        </div>
+      </div>
+      
+      <div class="review-form">
+        <h3 class="form-title">Share Your Experience</h3>
+        <form id="reviewForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="userName"><i class="fas fa-user"></i> Your Name *</label>
+              <input type="text" id="userName" required placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+              <label for="userEmail"><i class="fas fa-envelope"></i> Email Address *</label>
+              <input type="email" id="userEmail" required placeholder="Enter your email">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="userReview"><i class="fas fa-comment"></i> Your Review *</label>
+            <textarea id="userReview" required placeholder="Share your detailed experience with our services..."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <div class="rating-selector">
+              <span class="rating-label"><i class="fas fa-star-half-alt"></i> Rating:</span>
+              <div class="star-rating" id="starRating">
+                <span class="star" data-rating="1"><i class="fas fa-star"></i></span>
+                <span class="star" data-rating="2"><i class="fas fa-star"></i></span>
+                <span class="star" data-rating="3"><i class="fas fa-star"></i></span>
+                <span class="star" data-rating="4"><i class="fas fa-star"></i></span>
+                <span class="star" data-rating="5"><i class="fas fa-star"></i></span>
+              </div>
+            </div>
+          </div>
+          
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <i class="fas fa-paper-plane"></i> Submit Review
+          </button>
+        </form>
+      </div>
+      
+      <div class="reviews-list">
+        <h3 class="reviews-title">Customer Reviews</h3>
+        <div id="reviewsList">
+          <div class="loading">Loading reviews...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAP-MhbZCeigYuKVSDlidl-SJPkwJnaiA8",
+      authDomain: "avishkarstudio-82406.firebaseapp.com",
+      projectId: "avishkarstudio-82406",
+      storageBucket: "avishkarstudio-82406.firebasestorage.app",
+      messagingSenderId: "365415246841",
+      appId: "1:365415246841:web:858339693f2a1762d96b28",
+      measurementId: "G-597DBSP668"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    let selectedRating = 5;
+
+    // Star rating functionality
+    const stars = document.querySelectorAll('.star');
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        selectedRating = parseInt(star.dataset.rating);
+        updateStarDisplay();
+      });
+
+      star.addEventListener('mouseenter', () => {
+        const hoverRating = parseInt(star.dataset.rating);
+        highlightStars(hoverRating);
+      });
+    });
+
+    document.getElementById('starRating').addEventListener('mouseleave', () => {
+      updateStarDisplay();
+    });
+
+    function highlightStars(rating) {
+      stars.forEach((star, index) => {
+        if (index < rating) {
+          star.classList.add('active');
+        } else {
+          star.classList.remove('active');
+        }
+      });
+    }
+
+    function updateStarDisplay() {
+      highlightStars(selectedRating);
+    }
+
+    // Initialize star display
+    updateStarDisplay();
+
+    // Form submission
+    document.getElementById('reviewForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      submitReview();
+    });
+
+    function submitReview() {
+      const name = document.getElementById("userName").value.trim();
+      const email = document.getElementById("userEmail").value.trim();
+      const review = document.getElementById("userReview").value.trim();
+      
+      if (!name || !email || !review) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+      db.collection("reviews").add({
+        name: name,
+        email: email,
+        review: review,
+        rating: selectedRating,
+        timestamp: new Date()
+      }).then(() => {
+        // Reset form
+        document.getElementById("reviewForm").reset();
+        selectedRating = 5;
+        updateStarDisplay();
+        
+        // Reset button
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Review';
+        
+        // Reload reviews
+        loadReviews();
+        
+        alert('Thank you for your review!');
+      }).catch((error) => {
+        console.error("Error adding review: ", error);
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Review';
+        alert('Error submitting review. Please try again.');
+      });
+    }
+
+    function loadReviews() {
+      db.collection("reviews").orderBy("timestamp", "desc").get().then(snapshot => {
+        let total = 0, count = 0;
+        const ratingCounts = {1:0, 2:0, 3:0, 4:0, 5:0};
+        const reviewsHtml = [];
+
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          total += data.rating;
+          count++;
+          ratingCounts[data.rating]++;
+          
+          // Create review HTML
+          const reviewDate = data.timestamp ? data.timestamp.toDate().toLocaleDateString() : 'Recent';
+          const initials = data.name.split(' ').map(n => n[0]).join('').toUpperCase();
+          
+          reviewsHtml.push(`
+            <div class="review-item">
+              <div class="review-header">
+                <div class="reviewer-info">
+                  <div class="reviewer-avatar">${initials}</div>
+                  <div class="reviewer-details">
+                    <h4>${data.name}</h4>
+                    <p>${reviewDate}</p>
+                  </div>
+                </div>
+                <div class="review-rating">
+                  ${'★'.repeat(data.rating)}${'☆'.repeat(5-data.rating)}
+                </div>
+              </div>
+              <div class="review-text">${data.review}</div>
+            </div>
+          `);
+        });
+
+        // Update overall rating
+        const avg = count ? (total / count).toFixed(1) : 0;
+        document.getElementById('overallRating').textContent = avg;
+        document.getElementById('ratingText').textContent = `Based on ${count} review${count !== 1 ? 's' : ''}`;
+        
+        // Update star display
+        updateOverallStars(parseFloat(avg));
+        
+        // Update rating bars
+        Object.keys(ratingCounts).forEach(rating => {
+          const percentage = count ? (ratingCounts[rating] / count * 100) : 0;
+          document.getElementById(`bar-${rating}`).style.width = percentage + '%';
+          document.getElementById(`count-${rating}`).textContent = ratingCounts[rating];
+        });
+        
+        // Update reviews list
+        const reviewsList = document.getElementById('reviewsList');
+        if (reviewsHtml.length > 0) {
+          reviewsList.innerHTML = reviewsHtml.join('');
+        } else {
+          reviewsList.innerHTML = '<div class="no-reviews">No reviews yet. Be the first to share your experience!</div>';
+        }
+      }).catch((error) => {
+        console.error("Error loading reviews: ", error);
+        document.getElementById('reviewsList').innerHTML = '<div class="no-reviews">Error loading reviews. Please refresh the page.</div>';
+      });
+    }
+
+    function updateOverallStars(rating) {
+      const starsContainer = document.getElementById('overallStars');
+      const fullStars = Math.floor(rating);
+      const hasHalfStar = (rating % 1) >= 0.5;
+      let starsHtml = '';
+      
+      for (let i = 0; i < 5; i++) {
+        if (i < fullStars) {
+          starsHtml += '<i class="fas fa-star"></i>';
+        } else if (i === fullStars && hasHalfStar) {
+          starsHtml += '<i class="fas fa-star-half-alt"></i>';
+        } else {
+          starsHtml += '<i class="far fa-star"></i>';
+        }
+      }
+      
+      starsContainer.innerHTML = starsHtml;
+    }
+
+    // Load reviews on page load
+    loadReviews();
+  </script>
+</body>
+</html>

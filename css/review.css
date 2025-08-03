@@ -468,3 +468,150 @@ textarea {
 }
 
 /* Accessibility: Remove extras for screen readers, focus highlights remain via default browser. */
+/* Authentication Styles */
+.auth-section {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  text-align: center;
+}
+
+.google-login-btn {
+  background: #fff;
+  color: #333;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.google-login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.google-login-btn i {
+  color: #4285f4;
+  font-size: 18px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,255,255,0.1);
+  padding: 15px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+.user-details {
+  flex: 1;
+  margin-left: 15px;
+  text-align: left;
+}
+
+.user-name {
+  display: block;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.user-email {
+  display: block;
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.sign-out-btn {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sign-out-btn:hover {
+  background: rgba(255,255,255,0.3);
+  transform: translateY(-1px);
+}
+
+/* Message Styles */
+.already-reviewed-message,
+.device-restriction-message {
+  margin-top: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.message-content {
+  color: #fff;
+}
+
+.message-content i {
+  font-size: 48px;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+
+.message-content h4 {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.message-content p {
+  margin: 0;
+  font-size: 16px;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+/* Form adjustments for readonly fields */
+input[readonly] {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .user-info {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .user-details {
+    margin-left: 0;
+    text-align: center;
+  }
+  
+  .google-login-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
