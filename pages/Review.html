@@ -29,10 +29,9 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="../favicon_io/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
- <!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
   <!-- Font Awesome Icon Library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../css/review.css">
@@ -164,7 +163,7 @@
   </div>
 
   <script>
- // Firebase Configuration
+    // Firebase Configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAP-MhbZCeigYuKVSDlidl-SJPkwJnaiA8",
   authDomain: "avishkarstudio-82406.firebaseapp.com",
@@ -178,457 +177,328 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-const auth = firebase.auth();
 
 // Global variables
 let selectedRating = 5;
-let currentUser = null;
 
-// Authentication Module
-const AuthModule = {
-  init() {
-    // Configure Google Auth Provider
-    const provider = new firebase.auth.GoogleAuthProvider();
-    provider.addScope('email');
-    provider.addScope('profile');
-    
-    // Handle redirect result (for fallback method)
-    auth.getRedirectResult().then((result) => {
-      if (result.user) {
-        console.log('User signed in via redirect:', result.user);
-      }
-    }).catch((error) => {
-      console.error('Redirect sign-in error:', error);
-    });
-    
-    // Auth state listener
-    auth.onAuthStateChanged(user => {
-      currentUser = user;
-      this.updateUI();
-      if (user) {
-        this.checkUserReviewStatus();
-      }
-    });
-    
-    // Add login button event listener
-    this.addLoginButton();
-  },
+// localStorage key for device tracking
+const DEVICE_REVIEW_KEY = 'avishkar_review_submitted';
 
-  addLoginButton() {
-    const formContainer = document.querySelector('.review-form');
-    const loginButton = document.createElement('div');
-    loginButton.id = 'authContainer';
-    loginButton.innerHTML = `
-      <div class="auth-section" id="authSection">
-        <button type="button" class="google-login-btn" id="googleLoginBtn">
-          <i class="fab fa-google"></i> Sign in with Google to review
-        </button>
-      </div>
-    `;
-    
-    // Insert before the form
-    const form = document.getElementById('reviewForm');
-    formContainer.insertBefore(loginButton, form);
-    
-    // Add click event
-    document.getElementById('googleLoginBtn').addEventListener('click', this.signInWithGoogle);
-  },
+// Check if device has already submitted a review
+function hasDeviceSubmittedReview() {
+  return localStorage.getItem(DEVICE_REVIEW_KEY) === 'true';
+}
 
-  async signInWithGoogle() {
-    try {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      provider.addScope('email');
-      provider.addScope('profile');
-      
-      // Try popup first, fallback to redirect if popup fails
-      let result;
-      try {
-        result = await auth.signInWithPopup(provider);
-      } catch (popupError) {
-        console.warn('Popup blocked, trying redirect:', popupError);
-        // Fallback to redirect method
-        await auth.signInWithRedirect(provider);
-        return; // signInWithRedirect doesn't return a result immediately
-      }
-      
-      console.log('User signed in:', result.user);
-    } catch (error) {
-      console.error('Detailed error:', error);
-      
-      let errorMessage = 'Error signing in with Google. ';
-      
-      switch (error.code) {
-        case 'auth/cancelled-popup-request':
-          errorMessage += 'Sign-in was cancelled.';
-          break;
-        case 'auth/popup-blocked':
-          errorMessage += 'Popup was blocked by browser. Please allow popups for this site.';
-          break;
-        case 'auth/popup-closed-by-user':
-          errorMessage += 'Sign-in popup was closed before completion.';
-          break;
-        case 'auth/network-request-failed':
-          errorMessage += 'Network error. Please check your internet connection.';
-          break;
-        case 'auth/invalid-api-key':
-          errorMessage += 'Invalid API key configuration.';
-          break;
-        case 'auth/operation-not-allowed':
-          errorMessage += 'Google Sign-In is not enabled in Firebase console.';
-          break;
-        default:
-          errorMessage += `Please try again. Error: ${error.message}`;
-      }
-      
-      alert(errorMessage);
-    }
-  },
+// Mark device as having submitted a review
+function markDeviceAsSubmitted() {
+  localStorage.setItem(DEVICE_REVIEW_KEY, 'true');
+}
 
-  async signOut() {
-    try {
-      await auth.signOut();
-      console.log('User signed out');
-    } catch (error) {
-      console.error('Error signing out:', error);
-    }
-  },
-
-  updateUI() {
-    const authSection = document.getElementById('authSection');
-    const form = document.getElementById('reviewForm');
-    
-    if (currentUser) {
-      // User is signed in
-      authSection.innerHTML = `
-        <div class="user-info">
-          <img src="${currentUser.photoURL || ''}" alt="Profile" class="user-avatar">
-          <div class="user-details">
-            <span class="user-name">Signed in as ${currentUser.displayName}</span>
-            <span class="user-email">${currentUser.email}</span>
-          </div>
-          <button type="button" class="sign-out-btn" id="signOutBtn">
-            <i class="fas fa-sign-out-alt"></i> Sign Out
-          </button>
-        </div>
-      `;
-      
-      document.getElementById('signOutBtn').addEventListener('click', this.signOut);
-      
-      // Pre-fill form with user data
-      document.getElementById('userName').value = currentUser.displayName || '';
-      document.getElementById('userEmail').value = currentUser.email || '';
-      document.getElementById('userName').readOnly = true;
-      document.getElementById('userEmail').readOnly = true;
-      
-    } else {
-      // User is not signed in
-      authSection.innerHTML = `
-        <button type="button" class="google-login-btn" id="googleLoginBtn">
-          <i class="fab fa-google"></i> Sign in with Google to review
-        </button>
-      `;
-      
-      document.getElementById('googleLoginBtn').addEventListener('click', this.signInWithGoogle);
-      form.style.display = 'none';
-    }
-  },
-
-  async checkUserReviewStatus() {
-    if (!currentUser) return;
-    
-    try {
-      // Check if user has already submitted a review
-      const querySnapshot = await db.collection("reviews")
-        .where("email", "==", currentUser.email)
-        .get();
-      
-      const form = document.getElementById('reviewForm');
-      const submitBtn = document.getElementById('submitBtn');
-      
-      if (!querySnapshot.empty) {
-        // User has already submitted a review
-        this.showAlreadyReviewedMessage();
-        form.style.display = 'none';
-      } else {
-        // User hasn't submitted a review yet
-        form.style.display = 'block';
-        submitBtn.disabled = false;
-      }
-    } catch (error) {
-      console.error('Error checking review status:', error);
-    }
-  },
-
-  showAlreadyReviewedMessage() {
-    const authSection = document.getElementById('authSection');
-    const existingMessage = document.getElementById('alreadyReviewedMessage');
-    
-    if (!existingMessage) {
-      const messageDiv = document.createElement('div');
-      messageDiv.id = 'alreadyReviewedMessage';
-      messageDiv.className = 'already-reviewed-message';
-      messageDiv.innerHTML = `
-        <div class="message-content">
-          <i class="fas fa-check-circle"></i>
-          <h4>Thank you for your feedback!</h4>
-          <p>You have already submitted a review. Each user can only submit one review per Google account.</p>
-        </div>
-      `;
-      authSection.appendChild(messageDiv);
-    }
+// Check device status on page load and update UI accordingly
+function checkDeviceStatus() {
+  if (hasDeviceSubmittedReview()) {
+    disableReviewForm();
+    showAlreadySubmittedMessage();
   }
-};
+}
 
-// Review Management Module
-const ReviewModule = {
-  init() {
-    this.setupStarRating();
-    this.setupFormSubmission();
-    this.loadReviews();
-  },
+// Disable the review form
+function disableReviewForm() {
+  const form = document.getElementById('reviewForm');
+  const submitBtn = document.getElementById('submitBtn');
+  
+  // Disable all form inputs
+  const inputs = form.querySelectorAll('input, textarea, button');
+  inputs.forEach(input => {
+    input.disabled = true;
+  });
+  
+  // Update submit button
+  submitBtn.innerHTML = '<i class="fas fa-ban"></i> Review Already Submitted';
+  submitBtn.style.backgroundColor = '#6c757d';
+  submitBtn.style.cursor = 'not-allowed';
+}
 
-  setupStarRating() {
-    const stars = document.querySelectorAll('.star');
-    stars.forEach(star => {
-      star.addEventListener('click', () => {
-        selectedRating = parseInt(star.dataset.rating);
-        this.updateStarDisplay();
-      });
+// Show message that review has already been submitted
+function showAlreadySubmittedMessage() {
+  const formTitle = document.querySelector('.form-title');
+  
+  // Create and insert message
+  const messageDiv = document.createElement('div');
+  messageDiv.className = 'already-submitted-message';
+  messageDiv.innerHTML = `
+    <div style="
+      background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    ">
+      <i class="fas fa-info-circle" style="font-size: 24px; margin-bottom: 10px;"></i>
+      <h4 style="margin: 10px 0; font-size: 18px;">Review Already Submitted</h4>
+      <p style="margin: 0; opacity: 0.9;">You have already submitted a review from this device. Thank you for your feedback!</p>
+    </div>
+  `;
+  
+  formTitle.insertAdjacentElement('afterend', messageDiv);
+}
 
-      star.addEventListener('mouseenter', () => {
-        const hoverRating = parseInt(star.dataset.rating);
-        this.highlightStars(hoverRating);
-      });
-    });
-
-    document.getElementById('starRating').addEventListener('mouseleave', () => {
-      this.updateStarDisplay();
-    });
-
-    // Initialize star display
-    this.updateStarDisplay();
-  },
-
-  highlightStars(rating) {
-    const stars = document.querySelectorAll('.star');
-    stars.forEach((star, index) => {
-      if (index < rating) {
-        star.classList.add('active');
-      } else {
-        star.classList.remove('active');
-      }
-    });
-  },
-
-  updateStarDisplay() {
-    this.highlightStars(selectedRating);
-  },
-
-  setupFormSubmission() {
-    document.getElementById('reviewForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      this.submitReview();
-    });
-  },
-
-  async submitReview() {
-    // Check if user is authenticated
-    if (!currentUser) {
-      alert('Please sign in with Google to submit a review.');
-      return;
+// Star rating functionality
+const stars = document.querySelectorAll('.star');
+stars.forEach(star => {
+  star.addEventListener('click', () => {
+    if (!hasDeviceSubmittedReview()) {
+      selectedRating = parseInt(star.dataset.rating);
+      updateStarDisplay();
     }
+  });
 
-    // Check localStorage for device-based restriction (fallback)
-    if (localStorage.getItem('reviewSubmitted') === 'true') {
-      alert('You have already submitted a review from this device.');
-      return;
+  star.addEventListener('mouseenter', () => {
+    if (!hasDeviceSubmittedReview()) {
+      const hoverRating = parseInt(star.dataset.rating);
+      highlightStars(hoverRating);
     }
+  });
+});
 
-    const name = document.getElementById("userName").value.trim();
-    const email = document.getElementById("userEmail").value.trim();
-    const review = document.getElementById("userReview").value.trim();
+document.getElementById('starRating').addEventListener('mouseleave', () => {
+  if (!hasDeviceSubmittedReview()) {
+    updateStarDisplay();
+  }
+});
+
+function highlightStars(rating) {
+  stars.forEach((star, index) => {
+    if (index < rating) {
+      star.classList.add('active');
+    } else {
+      star.classList.remove('active');
+    }
+  });
+}
+
+function updateStarDisplay() {
+  highlightStars(selectedRating);
+}
+
+// Initialize star display
+updateStarDisplay();
+
+// Form submission
+document.getElementById('reviewForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  submitReview();
+});
+
+function submitReview() {
+  // First check: Has this device already submitted a review?
+  if (hasDeviceSubmittedReview()) {
+    alert('You have already submitted a review from this device.');
+    return;
+  }
+
+  // Validate form fields
+  const name = document.getElementById("userName").value.trim();
+  const email = document.getElementById("userEmail").value.trim();
+  const review = document.getElementById("userReview").value.trim();
+  
+  if (!name || !email || !review) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
+  // Validate email format
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+
+  // Update submit button to show loading state
+  const submitBtn = document.getElementById('submitBtn');
+  const originalContent = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+  // Submit review to Firestore
+  db.collection("reviews").add({
+    name: name,
+    email: email,
+    review: review,
+    rating: selectedRating,
+    timestamp: new Date(),
+    deviceId: generateDeviceId() // Optional: Add device fingerprint
+  }).then(() => {
+    // Mark device as having submitted a review
+    markDeviceAsSubmitted();
     
-    if (!name || !email || !review) {
-      alert('Please fill in all required fields.');
-      return;
-    }
+    // Reset form
+    document.getElementById("reviewForm").reset();
+    selectedRating = 5;
+    updateStarDisplay();
+    
+    // Reset button temporarily
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalContent;
+    
+    // Show success message
+    alert('Thank you for your review! Your feedback has been submitted successfully.');
+    
+    // Reload reviews to show the new one
+    loadReviews();
+    
+    // Disable form after successful submission
+    setTimeout(() => {
+      disableReviewForm();
+      showAlreadySubmittedMessage();
+    }, 1000);
+    
+  }).catch((error) => {
+    console.error("Error adding review: ", error);
+    
+    // Reset button on error
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalContent;
+    
+    // Show error message
+    alert('Error submitting review. Please try again. If the problem persists, please contact support.');
+  });
+}
 
-    const submitBtn = document.getElementById('submitBtn');
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+// Generate a simple device ID (optional - for additional tracking)
+function generateDeviceId() {
+  let deviceId = localStorage.getItem('avishkar_device_id');
+  if (!deviceId) {
+    deviceId = 'device_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+    localStorage.setItem('avishkar_device_id', deviceId);
+  }
+  return deviceId;
+}
 
-    try {
-      // Double-check if user has already submitted a review
-      const existingReviews = await db.collection("reviews")
-        .where("email", "==", currentUser.email)
-        .get();
+function loadReviews() {
+  db.collection("reviews").orderBy("timestamp", "desc").get().then(snapshot => {
+    let total = 0, count = 0;
+    const ratingCounts = {1:0, 2:0, 3:0, 4:0, 5:0};
+    const reviewsHtml = [];
 
-      if (!existingReviews.empty) {
-        alert('You have already submitted a review with this Google account.');
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Review';
-        AuthModule.checkUserReviewStatus();
-        return;
-      }
-
-      // Submit the review
-      await db.collection("reviews").add({
-        name: name,
-        email: email,
-        review: review,
-        rating: selectedRating,
-        userId: currentUser.uid,
-        timestamp: new Date()
-      });
-
-      // Mark as submitted in localStorage
-      localStorage.setItem('reviewSubmitted', 'true');
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      total += data.rating;
+      count++;
+      ratingCounts[data.rating]++;
       
-      // Reset form
-      document.getElementById("reviewForm").reset();
-      selectedRating = 5;
-      this.updateStarDisplay();
+      // Create review HTML
+      const reviewDate = data.timestamp ? data.timestamp.toDate().toLocaleDateString() : 'Recent';
+      const initials = data.name.split(' ').map(n => n[0]).join('').toUpperCase();
       
-      // Reset button
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Review';
-      
-      // Reload reviews and update UI
-      this.loadReviews();
-      AuthModule.checkUserReviewStatus();
-      
-      alert('Thank you for your review!');
-      
-    } catch (error) {
-      console.error("Error adding review: ", error);
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Review';
-      alert('Error submitting review. Please try again.');
-    }
-  },
-
-  async loadReviews() {
-    try {
-      const snapshot = await db.collection("reviews").orderBy("timestamp", "desc").get();
-      
-      let total = 0, count = 0;
-      const ratingCounts = {1:0, 2:0, 3:0, 4:0, 5:0};
-      const reviewsHtml = [];
-
-      snapshot.forEach(doc => {
-        const data = doc.data();
-        total += data.rating;
-        count++;
-        ratingCounts[data.rating]++;
-        
-        // Create review HTML
-        const reviewDate = data.timestamp ? data.timestamp.toDate().toLocaleDateString() : 'Recent';
-        const initials = data.name.split(' ').map(n => n[0]).join('').toUpperCase();
-        
-        reviewsHtml.push(`
-          <div class="review-item">
-            <div class="review-header">
-              <div class="reviewer-info">
-                <div class="reviewer-avatar">${initials}</div>
-                <div class="reviewer-details">
-                  <h4>${data.name}</h4>
-                  <p>${reviewDate}</p>
-                </div>
-              </div>
-              <div class="review-rating">
-                ${'★'.repeat(data.rating)}${'☆'.repeat(5-data.rating)}
+      reviewsHtml.push(`
+        <div class="review-item animate__animated animate__fadeInUp">
+          <div class="review-header">
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">${initials}</div>
+              <div class="reviewer-details">
+                <h4>${escapeHtml(data.name)}</h4>
+                <p>${reviewDate}</p>
               </div>
             </div>
-            <div class="review-text">${data.review}</div>
+            <div class="review-rating">
+              ${'★'.repeat(data.rating)}${'☆'.repeat(5-data.rating)}
+            </div>
           </div>
-        `);
-      });
+          <div class="review-text">${escapeHtml(data.review)}</div>
+        </div>
+      `);
+    });
 
-      // Update overall rating
-      const avg = count ? (total / count).toFixed(1) : 0;
-      document.getElementById('overallRating').textContent = avg;
-      document.getElementById('ratingText').textContent = `Based on ${count} review${count !== 1 ? 's' : ''}`;
-      
-      // Update star display
-      this.updateOverallStars(parseFloat(avg));
-      
-      // Update rating bars
-      Object.keys(ratingCounts).forEach(rating => {
-        const percentage = count ? (ratingCounts[rating] / count * 100) : 0;
-        document.getElementById(`bar-${rating}`).style.width = percentage + '%';
-        document.getElementById(`count-${rating}`).textContent = ratingCounts[rating];
-      });
-      
-      // Update reviews list
-      const reviewsList = document.getElementById('reviewsList');
-      if (reviewsHtml.length > 0) {
-        reviewsList.innerHTML = reviewsHtml.join('');
-      } else {
-        reviewsList.innerHTML = '<div class="no-reviews">No reviews yet. Be the first to share your experience!</div>';
-      }
-      
-    } catch (error) {
-      console.error("Error loading reviews: ", error);
-      document.getElementById('reviewsList').innerHTML = '<div class="no-reviews">Error loading reviews. Please refresh the page.</div>';
-    }
-  },
-
-  updateOverallStars(rating) {
-    const starsContainer = document.getElementById('overallStars');
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = (rating % 1) >= 0.5;
-    let starsHtml = '';
+    // Update overall rating
+    const avg = count ? (total / count).toFixed(1) : 0;
+    document.getElementById('overallRating').textContent = avg;
+    document.getElementById('ratingText').textContent = `Based on ${count} review${count !== 1 ? 's' : ''}`;
     
-    for (let i = 0; i < 5; i++) {
-      if (i < fullStars) {
-        starsHtml += '<i class="fas fa-star"></i>';
-      } else if (i === fullStars && hasHalfStar) {
-        starsHtml += '<i class="fas fa-star-half-alt"></i>';
-      } else {
-        starsHtml += '<i class="far fa-star"></i>';
-      }
+    // Update star display
+    updateOverallStars(parseFloat(avg));
+    
+    // Update rating bars with animation
+    Object.keys(ratingCounts).forEach(rating => {
+      const percentage = count ? (ratingCounts[rating] / count * 100) : 0;
+      const bar = document.getElementById(`bar-${rating}`);
+      bar.style.width = '0%';
+      setTimeout(() => {
+        bar.style.transition = 'width 1s ease-in-out';
+        bar.style.width = percentage + '%';
+      }, 200);
+      document.getElementById(`count-${rating}`).textContent = ratingCounts[rating];
+    });
+    
+    // Update reviews list
+    const reviewsList = document.getElementById('reviewsList');
+    if (reviewsHtml.length > 0) {
+      reviewsList.innerHTML = reviewsHtml.join('');
+    } else {
+      reviewsList.innerHTML = '<div class="no-reviews">No reviews yet. Be the first to share your experience!</div>';
     }
     
-    starsContainer.innerHTML = starsHtml;
-  }
-};
+  }).catch((error) => {
+    console.error("Error loading reviews: ", error);
+    document.getElementById('reviewsList').innerHTML = '<div class="no-reviews">Error loading reviews. Please refresh the page.</div>';
+  });
+}
 
-// Device-based Review Restriction (Fallback)
-const DeviceModule = {
-  checkDeviceRestriction() {
-    // This runs only if user is not authenticated
-    if (!currentUser && localStorage.getItem('reviewSubmitted') === 'true') {
-      const form = document.getElementById('reviewForm');
-      form.style.display = 'none';
-      
-      const authSection = document.getElementById('authSection');
-      if (!document.getElementById('deviceRestrictionMessage')) {
-        const messageDiv = document.createElement('div');
-        messageDiv.id = 'deviceRestrictionMessage';
-        messageDiv.className = 'device-restriction-message';
-        messageDiv.innerHTML = `
-          <div class="message-content">
-            <i class="fas fa-info-circle"></i>
-            <h4>Review Already Submitted</h4>
-            <p>A review has already been submitted from this device. Please sign in with Google if you want to submit a review with your account.</p>
-          </div>
-        `;
-        authSection.appendChild(messageDiv);
-      }
-    }
-  }
-};
-
-// Initialize application
-document.addEventListener('DOMContentLoaded', () => {
-  AuthModule.init();
-  ReviewModule.init();
+function updateOverallStars(rating) {
+  const starsContainer = document.getElementById('overallStars');
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = (rating % 1) >= 0.5;
+  let starsHtml = '';
   
-  // Check device restriction after a short delay to ensure DOM is ready
-  setTimeout(() => {
-    DeviceModule.checkDeviceRestriction();
-  }, 100);
+  for (let i = 0; i < 5; i++) {
+    if (i < fullStars) {
+      starsHtml += '<i class="fas fa-star"></i>';
+    } else if (i === fullStars && hasHalfStar) {
+      starsHtml += '<i class="fas fa-star-half-alt"></i>';
+    } else {
+      starsHtml += '<i class="far fa-star"></i>';
+    }
+  }
+  
+  starsContainer.innerHTML = starsHtml;
+}
+
+// Utility function to escape HTML and prevent XSS
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+// Initialize everything when page loads
+document.addEventListener('DOMContentLoaded', function() {
+  // Check device status first
+  checkDeviceStatus();
+  
+  // Load existing reviews
+  loadReviews();
+  
+  // Add some visual feedback for form interactions
+  const inputs = document.querySelectorAll('input, textarea');
+  inputs.forEach(input => {
+    input.addEventListener('focus', function() {
+      if (!hasDeviceSubmittedReview()) {
+        this.style.transform = 'scale(1.02)';
+        this.style.transition = 'transform 0.2s ease';
+      }
+    });
+    
+    input.addEventListener('blur', function() {
+      this.style.transform = 'scale(1)';
+    });
+  });
 });
+
+// Optional: Add a function to reset device status (for testing purposes)
+// Uncomment the line below to add a reset function
+// window.resetDeviceReviewStatus = () => localStorage.removeItem(DEVICE_REVIEW_KEY);
   </script>
 </body>
 </html>
