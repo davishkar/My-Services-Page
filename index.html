@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>404 — Redirecting...</title>
-  <meta http-equiv="refresh" content="5;url=https://davishkar.github.io/AvishkarStudio/" />
+  <title>404 — Redirecting to Avishkar Studio</title>
+  <meta http-equiv="refresh" content="5;url=https://avishkarstudio.com/" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -16,6 +16,7 @@
       --accent2: #ff8c42;
       --text: #e8e8e0;
       --muted: #555566;
+      --green: #3ddc84;
     }
 
     body {
@@ -27,11 +28,11 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
+      overflow-x: hidden;
       position: relative;
+      padding: 2rem 1rem;
     }
 
-    /* Grid background */
     body::before {
       content: '';
       position: fixed;
@@ -44,7 +45,6 @@
       z-index: 0;
     }
 
-    /* Radial glow */
     body::after {
       content: '';
       position: fixed;
@@ -58,14 +58,14 @@
       position: relative;
       z-index: 1;
       text-align: center;
-      padding: 2rem;
-      max-width: 640px;
+      max-width: 660px;
+      width: 100%;
     }
 
-    /* Big 404 */
+    /* 404 */
     .big-404 {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(120px, 22vw, 220px);
+      font-size: clamp(100px, 22vw, 200px);
       line-height: 0.9;
       letter-spacing: -4px;
       background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
@@ -85,13 +85,12 @@
       99% { opacity: 0.9; }
     }
 
-    /* Glitch lines */
     .big-404::before, .big-404::after {
       content: '404';
       position: absolute;
       inset: 0;
-      -webkit-background-clip: text;
       background-clip: text;
+      -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .big-404::before {
@@ -123,34 +122,64 @@
     }
 
     .tagline {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.3em;
       color: var(--muted);
       text-transform: uppercase;
       margin-top: 0.5rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
 
-    .message {
-      font-size: 1rem;
-      color: var(--text);
+    /* Domain Notice */
+    .notice {
+      border-left: 3px solid var(--accent2);
+      background: rgba(255,140,66,0.06);
+      border-radius: 0 4px 4px 0;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .notice-label {
+      font-size: 0.63rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 0.5rem;
+    }
+
+    .notice-text {
+      font-size: 0.82rem;
       line-height: 1.8;
-      margin-bottom: 2.5rem;
-      opacity: 0.85;
+      color: var(--text);
+      opacity: 0.9;
     }
 
-    .message span {
-      color: var(--accent);
+    .highlight-old { color: var(--muted); text-decoration: line-through; }
+    .highlight-new { color: var(--accent2); font-weight: 700; }
+    .highlight-domain {
+      color: var(--green);
       font-weight: 700;
+      border-bottom: 1px solid rgba(61,220,132,0.4);
     }
 
-    /* Countdown bar */
+    /* Message */
+    .message {
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.9;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+    }
+    .message span { color: var(--accent); font-weight: 700; }
+
+    /* Countdown */
     .redirect-box {
       border: 1px solid rgba(255,69,69,0.3);
       border-radius: 4px;
       padding: 1.25rem 2rem;
       background: rgba(255,69,69,0.05);
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
       position: relative;
       overflow: hidden;
     }
@@ -164,15 +193,12 @@
       animation: fill 5s linear forwards;
     }
 
-    @keyframes fill {
-      from { width: 0%; }
-      to { width: 100%; }
-    }
+    @keyframes fill { from { width: 0%; } to { width: 100%; } }
 
     .redirect-text {
       position: relative;
       z-index: 1;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--accent2);
       letter-spacing: 0.1em;
     }
@@ -182,6 +208,8 @@
       font-family: 'Bebas Neue', sans-serif;
       color: var(--accent);
       letter-spacing: 0.1em;
+      position: relative;
+      z-index: 1;
     }
 
     /* Button */
@@ -189,7 +217,7 @@
       display: inline-block;
       text-decoration: none;
       font-family: 'Space Mono', monospace;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       padding: 0.9rem 2.5rem;
@@ -200,6 +228,7 @@
       position: relative;
       overflow: hidden;
       transition: color 0.3s;
+      margin-bottom: 2.5rem;
     }
 
     .btn::before {
@@ -217,74 +246,184 @@
     .btn:hover { color: var(--bg); }
     .btn span { position: relative; z-index: 1; }
 
-    .notice {
-      border-left: 3px solid var(--accent2);
-      background: rgba(255,140,66,0.06);
-      border-radius: 0 4px 4px 0;
-      padding: 1rem 1.5rem;
-      margin-bottom: 2rem;
-      text-align: left;
+    /* Divider */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+      margin: 0 0 1.75rem;
     }
 
-    .notice-label {
-      font-size: 0.65rem;
+    /* Privacy Policy Box */
+    .privacy-box {
+      border: 1px solid rgba(61,220,132,0.2);
+      border-radius: 4px;
+      background: rgba(61,220,132,0.03);
+      padding: 1.5rem 1.75rem;
+      text-align: left;
+      margin-bottom: 1.75rem;
+    }
+
+    .privacy-label {
+      font-size: 0.63rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--accent2);
-      margin-bottom: 0.5rem;
+      color: var(--green);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
     }
 
-    .notice-text {
-      font-size: 0.82rem;
-      line-height: 1.8;
-      color: var(--text);
-      opacity: 0.85;
+    .privacy-section {
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
     }
 
-    .notice-text span {
-      color: var(--accent2);
-      font-weight: 700;
+    .privacy-section:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
     }
 
-
-      margin-top: 3rem;
+    .privacy-section-title {
       font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8888aa;
+      margin-bottom: 0.4rem;
+    }
+
+    .privacy-section-body {
+      font-size: 0.71rem;
+      line-height: 1.85;
+      color: var(--muted);
+    }
+
+    .privacy-section-body strong { color: #9999bb; }
+
+    .privacy-section-body a {
+      color: var(--green);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(61,220,132,0.3);
+      transition: border-color 0.2s;
+    }
+
+    .privacy-section-body a:hover { border-color: var(--green); }
+
+    /* Footer */
+    .footer-note {
+      font-size: 0.6rem;
       color: var(--muted);
       letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .footer-note a {
+      color: var(--green);
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <div class="big-404">404</div>
-    <p class="tagline">Page not found &mdash; GitHub Pages</p>
 
+    <!-- 404 Header -->
+    <div class="big-404">404</div>
+    <p class="tagline">Page Not Found</p>
+
+    <!-- Domain Update Notice -->
     <div class="notice">
       <div class="notice-label">📢 Domain Update</div>
       <p class="notice-text">
-        <span>Avishkar Digital Studio</span> has updated its domain to <span>Avishkar Studio</span><br/>
-        and is now going live on its official website.
+        <span class="highlight-old">Avishkar Digital Studio</span> has rebranded to
+        <span class="highlight-new">Avishkar Studio</span> and is now live on its
+        own official domain —
+        <span class="highlight-domain">avishkarstudio.com</span>
       </p>
     </div>
 
+    <!-- Message -->
     <p class="message">
-      This GitHub Pages link is no longer active.<br/>
-      You're being redirected to the new<br/>
+      The page you're looking for doesn't exist here.<br/>
+      You're being redirected to the<br/>
       <span>official Avishkar Studio website</span> automatically.
     </p>
 
+    <!-- Countdown -->
     <div class="redirect-box">
-      <p class="redirect-text">Redirecting in</p>
+      <p class="redirect-text">Redirecting to avishkarstudio.com in</p>
       <div class="countdown" id="countdown">5</div>
       <p class="redirect-text">seconds...</p>
     </div>
 
-    <a class="btn" href="https://davishkar.github.io/AvishkarStudio/">
-      <span>Go Now &rarr;</span>
+    <!-- CTA -->
+    <a class="btn" href="https://avishkarstudio.com/">
+      <span>Go to avishkarstudio.com &rarr;</span>
     </a>
 
-    <p class="footer-note">TARGET &mdash; davishkar.github.io/AvishkarStudio</p>
+    <div class="divider"></div>
+
+    <!-- Privacy Policy Disclaimer -->
+    <div class="privacy-box">
+      <div class="privacy-label">🔒 Privacy Policy &amp; Disclaimer</div>
+
+      <div class="privacy-section">
+        <div class="privacy-section-title">Redirect Disclaimer</div>
+        <div class="privacy-section-body">
+          This page will automatically redirect you to
+          <a href="https://avishkarstudio.com/">avishkarstudio.com</a> — the official website of
+          <strong>Avishkar Studio</strong>. By proceeding, you agree to visit the official domain
+          which is governed by its own Terms of Service and Privacy Policy.
+        </div>
+      </div>
+
+      <div class="privacy-section">
+        <div class="privacy-section-title">No Data Collection</div>
+        <div class="privacy-section-body">
+          This redirect page does <strong>not</strong> collect, store, or process any personal
+          information, cookies, or tracking data. No analytics or third-party scripts are executed
+          here. Your visit to this page is entirely anonymous.
+        </div>
+      </div>
+
+      <div class="privacy-section">
+        <div class="privacy-section-title">Official Website</div>
+        <div class="privacy-section-body">
+          <strong>Avishkar Studio</strong> is now exclusively accessible at
+          <a href="https://avishkarstudio.com/">avishkarstudio.com</a>. The official site may
+          collect data in accordance with its own Privacy Policy. We encourage you to review
+          their privacy terms upon arrival at the official website.
+        </div>
+      </div>
+
+      <div class="privacy-section">
+        <div class="privacy-section-title">Liability</div>
+        <div class="privacy-section-body">
+          <strong>Avishkar Studio</strong> is not responsible for any outdated links, third-party
+          references, or broken URLs pointing to this page. All content, services, and assets
+          have been fully migrated to <a href="https://avishkarstudio.com/">avishkarstudio.com</a>.
+          This page exists solely to redirect visitors to the correct destination.
+        </div>
+      </div>
+
+      <div class="privacy-section">
+        <div class="privacy-section-title">Copyright</div>
+        <div class="privacy-section-body">
+          &copy; <span id="year"></span> <strong>Avishkar Studio</strong> — <a href="https://avishkarstudio.com/">avishkarstudio.com</a>.
+          All rights reserved. Formerly known as <em>Avishkar Digital Studio</em>.
+          Unauthorised reproduction or distribution of any content is strictly prohibited.
+        </div>
+      </div>
+
+    </div>
+
+    <p class="footer-note">
+      Official website &mdash; <a href="https://avishkarstudio.com/">avishkarstudio.com</a>
+    </p>
+
   </div>
 
   <script>
@@ -295,9 +434,11 @@
       el.textContent = count;
       if (count <= 0) {
         clearInterval(timer);
-        window.location.href = 'https://davishkar.github.io/AvishkarStudio/';
+        window.location.href = 'https://avishkarstudio.com/';
       }
     }, 1000);
+
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
 </body>
